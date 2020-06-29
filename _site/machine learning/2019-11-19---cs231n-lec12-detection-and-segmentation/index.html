@@ -1,0 +1,2100 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[cs231n-lec12] Detection and Segmentation - Cheong’s log</title>
+<meta name="description" content="스탠포드 cs231n lec-12 강의를 보고 정리한 포스트 입니다. detection 과 segmentation 에 대해 설명합니다. 2019년 강의노트를 기반으로 작성되었습니다.">
+
+
+  <meta name="author" content="Younghk">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Cheong's log">
+<meta property="og:title" content="[cs231n-lec12] Detection and Segmentation">
+<meta property="og:url" content="http://localhost:4000/machine%20learning/2019-11-19---cs231n-lec12-detection-and-segmentation/">
+
+
+  <meta property="og:description" content="스탠포드 cs231n lec-12 강의를 보고 정리한 포스트 입니다. detection 과 segmentation 에 대해 설명합니다. 2019년 강의노트를 기반으로 작성되었습니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-11-19T17:05:52+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/machine%20learning/2019-11-19---cs231n-lec12-detection-and-segmentation/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Cheong",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Cheong's log Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--post">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/profile.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Cheong's log
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Younghk</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>오직 부끄러워야 할 것은 열심히 살지 않은 어제의 나이다.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, KR</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://younghk.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/younghk/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/younghoon-kim-03a667191/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">[cs231n-lec12] Detection and Segmentation</h1>
+    
+    <p><small>최종 수정일 : 2019-11-22</small></p>
+
+<blockquote>
+  <p>이 포스트는 스탠포드의 <a href="http://cs231n.stanford.edu">cs231n</a> 12강 강의를 보고 공부 및 정리한 포스트입니다.<br />
+잘못된 것이 있을 수 있습니다.<br />
+댓글로 알려주시면 감사합니다!</p>
+</blockquote>
+
+<h2 id="computer-vision-tasks">Computer Vision Tasks</h2>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image1.png" alt="computer vision tasks" /></p>
+
+<p>지금까지 Neural Network 를 이용해 이미지 속에 있는 물체가 무엇인지 판별하는 것을 학습했다.</p>
+
+<p>컴퓨터 비전에 있어서 이는 단순한 작업이고, 해야할 것들이 더 남아있는데 위의 예시들이 바로 그것을 짧게 요약한 것이다.</p>
+
+<p>물체를 분류하는 classification.<br />
+각 부분이 무엇을 의미하는지 구별하는 semantic segmentation.<br />
+이미지 속에 있는 물체를 구별하고 위치까지 표현하는 object detection.<br />
+pixel 단위로 object detection 을 수행하는 instance segmentation.</p>
+
+<p>그 중 object detection 과 instance segmentation 은 여러 물체에 대해서 작동해야하는 것을 볼 수 있다.</p>
+
+<p>하나씩 살펴보자.</p>
+
+<h2 id="semantic-segmentation">Semantic Segmentation</h2>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image2.png" alt="semantic segmentation" /></p>
+
+<p><em>semantic segmentation</em> 에서는 각 pixel 에 대해 category 를 나누게 된다.<br />
+즉, 물체(object)와는 상관이 없이 pixel 단위로 segmentation 이 이뤄진다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image3.png" alt="semantic segmentation idea sliding window" /></p>
+
+<p>segmentation 을 하는 방법에 sliding window 기법이 있는데, 일정한 크기의 patch 를 원본 이미지와 쭉 비교해보면서 해당 부분의 pixel 이 어떤 category 값을 가지는지 확인한다. 즉 매 번 <em>CNN</em> 을 통과시키게 된다.</p>
+
+<p>이는 매우 비효율(computational cost 가 큼)적인 방법인데, 중복되는 patch 들 간의 공유된 feature 를 재사용하지 않는다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image4.png" alt="semantic segmentation idea fully convolutional" /></p>
+
+<p>위에 나타난 sliding windows 기법의 단점을 극복하기 위해 전체 이미지를 convolution 하는 방법을 고안하게 되었다. 3x3 filter 를 이용해 이미지 크기를 유지하면서 convolution 을 수행하여 한 번에 이미지 전체를 <em>CNN</em> 에 넣을 수 있고 이를 이용해 pixel 을 한 번에 전부 예측할 수 있다.</p>
+
+<p>그러나 전체 이미지를 <em>CNN</em> 에 통과시키는 것은 여전히 비효율적인 방법이다.<small>입력 이미지의 spatial size 를 계속 유지해야하기 때문</small></p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image5.png" alt="semantic segmentation idea fully convolutional with downsampling and upsampling" /></p>
+
+<p>그래서 maxpooling 또는 strided convolution 을 통한 downsampling 을 진행해서 크기를 줄인 후, unpooling 을 통해 upsampling 을 하면서 연산을 효율적이게 만들어 보게 되었다.</p>
+
+<p>이렇게 하는 이유는 줄어든 spatial resolution 을 원본 크기로 맞추기 위함이다. 이 과정이 바로 upsampling 이다.</p>
+
+<h3 id="unpooling">Unpooling</h3>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image6.png" alt="in network upsampling unpooling" /></p>
+
+<p>말 그대로 pooling 을 undo 하는 것이다.<br />
+unpooling 지역의 receptive field 값을 복사해서 채워넣게 된다.</p>
+
+<p>그러나 오른쪽의 경우와 같이 나머지 값이 0일 경우 매우 좋지 못한 결과(bed of nails)를 얻게 될 것이다.</p>
+
+<h3 id="max-unpooling">Max Unpooling</h3>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image7.png" alt="in network upsampling max unpooling" /></p>
+
+<p><em>Max Pooling</em> 이 어땠는지 생각해보며 <em>Max Unpooling</em> 에 대해 알아보자.<br />
+이는 max 값과 위치(공간 정보)를 기억해 둔 뒤 나중에 upsampling 할 때 해당 값만 복구 시킨 후 나머지는 0의 값을 채워 넣는 것이다.</p>
+
+<p>이 때 fixed function 을 사용하게 된다.</p>
+
+<h3 id="learnable-unpooling--transpose-convolution">Learnable Unpooling : Transpose Convolution</h3>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image8.png" alt="learnable unpooling transpose convolution" /></p>
+
+<p><em>Transpose Convolution</em> 은 학습이 가능한 방법이다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image9.png" alt="learnable unpooling transpose convolution" /></p>
+
+<p>위의 방법이 일반적인 convolution 의 연산이다.<br />
+여기서 strided convolution 은 2칸(stride = 2)씩 움직인다. 출력이 한 픽셀 움직일 때 입력은 두 픽셀이 움직이게되는 것이다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image10.png" alt="learnable unpooling transpose convolution" /></p>
+
+<p><em>Transpose Convolution</em> 은 위에서 진행된 과정의 반대이다. 입력과 출력의 크기가 반대가 된 것을 확인하자.</p>
+
+<p>위에서는 내적(dot product)을 수행하였지만 여기서는 feature map 에서 값을 선택하고 선택한 scalar 값과 필터(3x3)를 곱해준다. 그리고 출력의 3x3 공간에 넣게된다.<br />
+filter 의 크기와 stride 의 크기에 의해 overlap 되는 부분이 생기게 되는데, 이 부분에 대해서는 summation 을 진행한다.</p>
+
+<p><em>Transpose Convolution</em> 을 어떤 논문들에서는 Deconvolution 이라고도 칭하는데, 이는 잘못된 것이다.<br />
+<small>이 부분에 대해서는 나중에 다시 정리하자!</small></p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image11.png" alt="learnable unpooling 1d example" /></p>
+
+<p>이것은 1차원에서 learnable upsampling 의 예제를 보여주는 것이다.</p>
+
+<p>겹치는 부분인 az 와 bx 를 더해준다. az + bx</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image12.png" alt="convolution as matrix multiplication 1d example" /></p>
+
+<p>조금 더 자세한 예제를 살펴보자. 왜 이름에 convolution 이 붙는가?</p>
+
+<p>convolution 연산은 행렬 곱 연산으로 나타날 수 있는데 위와 같이 계산이 될 수 있다.<br />
+<small>위 슬라이드에서 x,y,x 가 아니라 x,y,z 가 맞다.</small></p>
+
+<p>오른쪽은 왼쪽의 transpose conv 이다. 같은 행렬을 사용해서 행렬곱 연산을 수행했지만 transpose 를 취한 형태이다.</p>
+
+<p>이렇게 되면 왼쪽은 stride 1 convolution 이고 오른쪽은 stride 1 transpose convolution 이 된다.</p>
+
+<p>a vector($\vec{a}$)를 보면 4 개의 값으로 이루어져있는 것을 볼 수 있는데 이는 transpose 로 인한 것이다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image13.png" alt="convolution as matrix multiplication 1d example" /></p>
+
+<p>stride 1 transpose convolution 의 모양을 보면 일반적인 convolution 과 비슷하다.<br />
+padding 을 고려하게 된다면 달라질 수 있긴 한데, stride 2 일 경우는 어떨까?</p>
+
+<p>왼쪽이 바로 stride 2 convolution 의 행렬곱 연산이다.<small>stride 2 를 알 수 있는 이유는 x,y,z의 움직임이 한 칸이 아닌 두 칸인 것을 보면 알 수 있다.</small><br />
+만약 stride 가 1 보다 커지게 될 경우 transpose convolution 은 convolution 이 아니게 된다. 그 표현이 어떻게 되는지 생각해보면 알 수 있다.<br />
+따라서, stride 2 가 되었을 경우 normal convolution 과는 다른 연산이 되게 되었다. 그래서 이름을 transpose convolution 이라 칭하게 되었다.<br />
+<small>여기서 a vector($\vec{a}$) 를 볼 때 transpose 만큼 값이 2개 뿐이다. 이것 때문인듯 싶다.</small></p>
+
+<p><small>이에 대한 보충자료는 <a href="https://medium.com/activating-robotic-minds/up-sampling-with-transposed-convolution-9ae4f2df52d0">여기</a>에서 더 확인할 수 있다.</small></p>
+
+<h2 id="object-detection">Object Detection</h2>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image14.png" alt="object detection impact of deep learning" /></p>
+
+<p><em>Object Detection</em> 은 <em>Classification + Localization</em> 이라고 볼 수 있다.<br />
+이미지 안에 있는 객체를 분류하고 그 위치까지 판별해야하는 문제이고 그 위치를 범위로써 나타내야한다.</p>
+
+<p>이 때, localization 은 이미지 안에 물체가 하나만 있는 경우를 상정한다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image15.png" alt="object detection single object" /></p>
+
+<p><em>FC layer</em> 가 하나 더 있는 것을 볼 수 있는데 이는 x, y, w, h 로 <em>bounding box</em> 의 위치를 의미한다.<br />
+이로써 두 개의 값을 출력하게 되는데 하나는 class score 가 되고 나머지는 위의 bounding box 의 정보가 된다.</p>
+
+<p>학습을 진행할 때는 두 loss 를 학습하게 되고 이것이 <em>Multitask Loss</em> 가 된다.</p>
+
+<p>이 때 <em>CNN</em> 구조를 통과시키게 되는데 처음부터 학습하는 것은 쉽지 않고 효율적이지도 않으므로 보통 <em>ImageNet</em> 의 pre-trained 모델을 사용한다.<small>앞서 배웠던 <em>transfer learning</em> 을 상기하고 가자.</small></p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image16.png" alt="obejct detection multiple objects" /></p>
+
+<p><em>Object Detection</em> 은 Computer Vision 에서 핵심적인 task 이다.<br />
+특히 우리는 이미지에 하나의 물체만 담지는 않으므로 보통의 이미지에는 다양한 물체들이 있을 수 있다.</p>
+
+<p>앞서 보았던 <em>Localization</em> 과의 차이점은 <em>Object Detection</em> 에서는 Multiple Object 에 대해 작업을 수행한다는 것이다.</p>
+
+<p>첫 이미지에서 보듯 고양이가 한 마리만 있는 이미지라면 bounding box 는 4개의 숫자로 이루어진 하나만 나오면 되겠지만,<br />
+두 번째 이미지에서 보듯 두 마리의 강아지와 한 마리의 고양이가 있다면 이는 세 배가 되게 될테고,<br />
+마지막 오리 사진을 본다면 정말 많이 필요하게 될 것이다.</p>
+
+<p><img src="./gif1.gif" alt="object detection multiple objects with sliding windows" /></p>
+
+<p>다른 모양의 crop 을 이용해 object 인지 background 인지 sliding window 기법을 통해 훑어서 판별을 해 볼 수 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image21.png" alt="obejct detection multiple objects" /></p>
+
+<p>그러나 앞에서 본 애니메이션의 경우는 아주 최적화된 순서라고 볼 수 있는데 실제 이미지에는 어느 위치에 어느 정도의 크기로 물체가 존재하게 될지 모르고, 이는 아주 많은 경우의 수를 시도해보아야 원하는 물체의 위치를 판별할 수 있게 되는 것이다.</p>
+
+<p>마치 위의 파란색 영역 같이 생각해 볼 수 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image22.png" alt="region proposals selective search" /></p>
+
+<p>이를 해결하기 위해 deep learning 이전에서 사용했던 방법 중 하나인 <em>Selective Search</em> 라는 기법이 있다.<br />
+물체가 있을 만한 ‘후보 영역’을 ~2000개 가량 생성해서 해당 위치만 물체인지 아닌지 판별하는 방식이다.</p>
+
+<p>위의 아주 많은 경우의 수에 비해 연산량을 많이 줄이긴 했으나 여전히 2000개도 많은 영역이긴 하다.</p>
+
+<h2 id="r-cnn">R-CNN</h2>
+
+<p>고전적인 방법으로 <em>Object Detection</em> 을 수행했을 때 성능은 그리 좋지 않았다. 그러다가 <em>CNN</em> 기법을 이용한 <em>Object Detection</em> 이 등장하게 되었는데, 차례로 살펴보자.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image23.png" alt="rcnn" /></p>
+
+<p><em>R-CNN</em> 은 <em>CNN</em> 기법을 <em>Object Detection</em> 에 최초로 접목시킨 모델이다.<br />
+Selective Search 를 이용해 ~2k 개의 region proposal(bouding box) 을 생성한다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image24.png" alt="rcnn" /></p>
+
+<p>이 영역들의 크기는 각기 다르므로 모두 동일한 size 를 갖게 crop &amp; warp 를 진행한다.</p>
+
+<p>$224 \times 224$ 의 크기로 만들게 된다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image25.png" alt="rcnn" /></p>
+
+<p>이제 이 이미지들을 ConvNet 에 통과시키게 된다.</p>
+
+<p>그 후 나온 결과를 SVM 을 통해 분류하게 된다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image26.png" alt="rcnn" /></p>
+
+<p>이렇게 나온 결과는 bounding box 가 정확하지 않기 때문에 regression 을 통해 조정을 하여 정확한 영역을 계산하도록 한다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image27.png" alt="rcnn" /></p>
+
+<p>이는 굉장히 느린데(K40 으로 training 에 84시간) 이는 각각의 이미지가 ConvNet 을 통과하는데 엄청난 연산이 필요하기 때문이다.</p>
+
+<p>다행히 이 느린 <em>R-CNN</em> 의 문제를 해결하기 위한 방법이 있다.<br />
+각각의 이미지를 ConvNet 에 넣는 것 말고 convolution 과 $224 \times 224$ 의 이미지를 얻는 순서를 바꾸는 것이다.</p>
+
+<h2 id="fast-r-cnn">Fast R-CNN</h2>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image28.png" alt="fast rcnn" /></p>
+
+<p><em>Fast R-CNN</em> 에서는 backbone network 로 AlexNet, VGG, ResNet 등을 사용하였으며 input image 를 한번에 ConvNet 에 넣게 된다. 이를 통해 feature map 을 먼저 얻을 수 있고 여기서 region proposal 을 진행하게 되는데, <em>Fast R-CNN</em> 에서는 <a href="#roi-pool"><strong>RoI Pool</strong></a> 이라는 개념을 도입했다.</p>
+
+<p><small>필기가 되어있네..?</small></p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image29.png" alt="fast rcnn" /></p>
+
+<p>이렇게 얻은 후보 영역들에 대해 crop + resize 를 진행하게 되고,</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image30.png" alt="fast rcnn" /></p>
+
+<p><em>CNN</em> 구조에 후보 영역들을 통과시켜서 물체의 분류는 linear + softmax 로, box offset 은 linear 로 처리하여 계산한다.</p>
+
+<p><a name="roi-pool"></a></p>
+
+<h3 id="roi-pool">RoI Pool</h3>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image31.png" alt="cropping features roi pool" /></p>
+
+<p><em>Fast R-CNN</em> 에서 region proposal 을 수행하기 위해 도입한 <em>RoI Pool</em> 에 대해서 알아보자.</p>
+
+<p>먼저 이미지를 <em>CNN</em> 에 통과시켜 격자화된 feature map 을 얻는다.</p>
+
+<p>그리고 여기서 해당 물체가 있는 박스를 grid 상에 위치시킨다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image32.png" alt="cropping features roi pool" /></p>
+
+<p>grid 는 현재 격자화된 상태이기 때문에 박스를 snap 하여 grid 의 격자에 맞춰 위치시킨다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image33.png" alt="cropping features roi pool" /></p>
+
+<p>이를 적당히 4등분(roughly equal subregion)하여 max-pool 을 진행하면 2 by 2 region 이 새롭게 나오게 된다.</p>
+
+<p>여기서는 예시를 2 by 2 로 했으나 실제 논문에서는 7 by 7 을 하였다.</p>
+
+<h3 id="roi-align">RoI Align</h3>
+
+<p><em>RoI Align</em> 에 대해서도 알아보자.<br />
+<em>RoI Pool</em> 에서는 격자화된 grid 에 이미지 박스를 맞추느라 약간의 오차가 생긴다는 것을 눈치챌 수 있다.<br />
+이러한 오차를 줄이기 위해 고안한 방법이 바로 <em>RoI Align</em> 이다.<br />
+이는 <em>RoI Pool</em> 처럼 이미지 박스를 맞추는 과정 없이 해당 위치 그대로 사용하게 된다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image34.png" alt="cropping features roi align" /></p>
+
+<p>우선 이미지를 <em>CNN</em> 에 통과시켜 feature map 을 얻는다.<br />
+이번에는 snapping 과정을 거치지 않고 그대로 둔 상태에서 subregion 을 나눈다.</p>
+
+<p>이 때, 각 subregion 에 대해 다시 subregion 을 나누게 되는데 위의 이미지에서 보다시피 각 subregion 에 4개의 점이 있는 것을 볼 수 있다.<br />
+이 점이 나타내는 값을 구하게 될 것인데, 이를 구하는 방법으로 <em>bilinear interpolation(쌍선형보간)</em> 을 사용한다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image35.png" alt="cropping features roi align" /></p>
+
+<p>하나의 초록색 점은 다음과 같이 <em>bilinear interpolation</em> 으로 계산된다.<br />
+해당 점의 인접한 네 개의 grid cell 의 점수로부터 결과값이 나타나게 되는데,</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image36.png" alt="cropping features roi align" /></p>
+
+\[f_{xy} = \sum_{i,j=1}^2f_{i,j}\max(0,1-|x-x_i|)\max(0,1-|y-y_j|)\]
+
+<p>위와 같은 수식을 이용해 계산할 수 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image37.png" alt="cropping features roi align" /></p>
+
+<p>이렇게 각 값을 계산한 후 max-pool 을 통해 값을 추출한다.<br />
+마찬가지로 예시에서는 2 by 2 로 나왔지만 실제로는 7 by 7 로 진행되었다.</p>
+
+<p>조금 더 정리한 것은 <a href="./roi-pool-roi-align.pdf">여기</a>에서 확인할 수 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image38.png" alt="rcnn vs fast rcnn" /></p>
+
+<p><em>RoI Pool</em> 을 이용한 <em>Fast R-CNN</em> 은 다음과 같이 20배 가량의 성능 향상을 이루어냈지만 region proposal 을 포함했을 경우가 포함하지 않았을 때보다 확실하게 느리다는 것을 확인할 수가 있다.</p>
+
+<p>이 문제를 해결하기 위한 방법 역시 존재하는데, <strong>Region Proposal Network(RPN)</strong> 을 사용한 <em>Faster R-CNN</em> 이 바로 그 모델이다.</p>
+
+<h2 id="faster-r-cnn">Faster R-CNN</h2>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image39.png" alt="fatser rcnn" /></p>
+
+<p><em>Faster R-CNN</em> 에서는 region proposal 을 위해 <em>RPN</em> 을 사용하는데 이는 feature 들로부터 proposal 을 예측하는 네트워크 이다.</p>
+
+<p>그 외 나머지 구성은 <em>Fast R-CNN</em> 과 동일하다.</p>
+
+<h3 id="region-proposal-network">Region Proposal Network</h3>
+
+<p><em>Region Proposal Network</em> 에서는 <strong>anchor box</strong> 라는 개념을 사용한다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image40.png" alt="region proposal network" /></p>
+
+<p>이 <em>anchor box</em> 는 sliding window 의 각 위치에서 bounding box 의 후보로 사용되는 크기가 미리 정의된 상자이다.</p>
+
+<p>그림에서 보다시피 3 by 3 anchor 를 사용할 수 있는데, 좀 더 자세히 언급하자면 3개의 종횡비과 3개의 크기를 가지는 anchor 를 사용했고 이는 총 9개의 anchor box 임을 알 수 있다.<br />
+이들 anchor box 는 같은 중심을 같는 것을 알고 넘어가자.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image41.png" alt="region proposal network" /></p>
+
+<p>이러한 anchor 박스를 이용해 물체인지 아닌지는</p>
+
+<ol>
+  <li>가장 높은 IoU(Intersection over Unit)를 가지는 anchor</li>
+  <li>IoU &gt; 0.7 을 만족하는 anchor</li>
+</ol>
+
+<p>로 positive labeling 처리를 해줄 수 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image42.png" alt="region proposal network" /></p>
+
+<p>positive box 에 대해서는 regression 을 통해 좀 더 정확한 위치를 찾을 수 있도록 해준다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image43.png" alt="region proposal network" /></p>
+
+<p>실제로 논문에서는 $k$ 개의 anchor box 를 이용해 물체/배경을 판단하는 $2k$ 개의 classification 출력과 $4k$ 개의 박스의 위치를 조정하는 regression 출력을 얻게 된다.<br />
+이 때 $k=9$ 이다.<small>위에서 언급한 3개의 종횡비(2:1, 1:1, 1:2), 3개의 크기(128, 256, 512)</small></p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image44.png" alt="fatser rcnn test time speed" /></p>
+
+<p>이렇게 만든 <em>Faster R-CNN</em> 은 <em>Fast R-CNN</em> 의 문제점인 region proposal 에서 효율적인 모습을 보이며 위와 같은 성능의 향상을 가지고 오게 되었다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image45.png" alt="fatser rcnn" /></p>
+
+<p><em>Faster R-CNN</em> 의 구조를 다시 한 번 봐보자.<br />
+이는 <strong>Two-stage object detector</strong> 인데,</p>
+
+<ul>
+  <li>first stage : 이미지당 한 번 작동</li>
+  <li>second stage : 영역(region)당 한 번 작동</li>
+</ul>
+
+<p>하게 된다.</p>
+
+<p>여기서 우리가 정말 second stage 가 필요한 것일까?</p>
+
+<h2 id="single-stage-object-detectors">Single-Stage Object Detectors</h2>
+
+<p>한 번에 <em>Object Detection</em> 을 수행하게 하면 어떨까?</p>
+
+<p>그런 관점에서 문제를 푸는 것이 바로 <em>Single-Stage Object Detection</em> 이다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image46.png" alt="single stage object detectors" /></p>
+
+<p>대표적으로 <em>YOLO</em> 와 <em>SSD</em> 가 있는데, 이들은 input image 한 번에 탐색하여 결과값을 출력하게 된다.<br />
+그림에서 보듯 7 by 7 grid 로 만든 후 base box 를 이용해 결과를 낸다.</p>
+
+<p>이 때 <em>R-CNN</em> 계열과는 다르게 5개의 출력값이 나오는데, x, y, w, h 에 confidence 값이 추가되었기 때문이다.</p>
+
+<p>도식이 <em>RPN</em> 과 비슷하게 나타났지만 single-stage 기법은 category-specific 하게 처리하는 것이 차이가 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image47.png" alt="object detection" /></p>
+
+<p>Object Detection 은 다양하게 변화가 가능한데 구조에 있어서 각기 변경할 부분들이 많이 있기 때문이다.</p>
+
+<p>일반적으로 bigger/deeper backbone network 를 활용할 경우 성능이 좋게 나타난다.</p>
+
+<p>그러나 항상 speed / accuracy 간의 trade-off 는 존재한다.</p>
+
+<h2 id="instance-segmentation-mask-r-cnn">Instance Segmentation: Mask R-CNN</h2>
+
+<p>이제 <em>Instance Segmentation</em> 에 대해서 알아보자.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image48.png" alt="mask rcnn" /></p>
+
+<p>여기서 사용한 모델은 <em>Mask R-CNN</em> 인데 mask network 를 각 RoI 에 추가해서 $28 \times 28$ 의 크기를 갖는 binary mask 를 생성하게 된다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image49.png" alt="mask rcnn" /></p>
+
+<p>그 구조는 다음과 같다.</p>
+
+<p>이미지를 <em>CNN + RPN</em> 에 통과시켜 region proposed 된 feature map 을 얻는다. 그 후 roi align 을 통해 $256 \times 14 \times 14$ 의 feature map 으로 만든 후 각각의 Class C 에 대한 mask 를 얻는다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image50.png" alt="mask rcnn" /></p>
+
+<p>예시를 보자.<br />
+각 물체에 대한 마스크는 다음과 같이 의자, 사람, 침대 등으로 나타날 수 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image51.png" alt="mask rcnn" /></p>
+
+<p>이렇게 구현된 <em>Mask R-CNN</em> 의 성능은 상당히 놀라운데, 위의 결과를 보면 다양한 물체들에 대해 아주 잘 segmentation 한 것을 볼 수 있으며, 첫 번째 사진에서 멀리 뒤에 서있는 많은 사람들에 대해서도 segmentation 을 해낸 것을 볼 수 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image52.png" alt="mask rcnn" /></p>
+
+<p>또한 포즈에 대해서도 제대로 동작하는 것을 볼 수 있다.</p>
+
+<h2 id="aside">Aside</h2>
+
+<p>그 외에도 다양하게 발전해나가고 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image53.png" alt="dense captioning" /></p>
+
+<p>object detection 과 captioning 을 결합해 dense captioning 이라고 하는 여러 물체에 대한 caption 을 나타낼 수도 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image54.png" alt="dense captioning" /></p>
+
+<p>이는 dense captioning 의 동작 과정이다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image55.png" alt="scene graphs" /></p>
+
+<p>장면에 대한 graph 연결을 실시하여 mapping 을 하는 노력도 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image56.png" alt="3d object detection" /></p>
+
+<p>이렇게 mapping 된 정보를 활용해 여러 caption 을 동시에 진행할 수도 있다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image57.png" alt="3d object detection" /></p>
+
+<p>3차원 물체에 대한 탐지도 가능한데, 2차원 물체에 대해서는 (x,y,w,h) 의 정보를 이용했다면, 3차원에 대해서는 (x,y,z,w,h,l,r,p,y) 로 더 많은 정보를 사용해 bounding box 를 구성하게 된다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image58.png" alt="3d object detection" /></p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image59.png" alt="3d object prediction" /></p>
+
+<p><em>Faster R-CNN</em> 과 같은 원리지만 3차원 공간에서 proposal 을 진행하게 된다.</p>
+
+<p><img src="/assets/images/2019-11-19---cs231n-lec12-detection-and-segmentation/image60.png" alt="3d shape prediction" /></p>
+
+<blockquote>
+  <p>참고 : https://blog.lunit.io/2017/06/01/r-cnns-tutorial/</p>
+</blockquote>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2020">
+        <strong>2020</strong> <span class="taxonomy__count">11</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">33</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2020" class="taxonomy__section">
+    <h2 class="archive__subtitle">2020</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2020-04-01---postgresql-tips/" rel="permalink">PostgreSQL 간단 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">PostgreSQL 이란
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docker/2020-03-27---docker-overview/" rel="permalink">Docker Overview
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Docker 란
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docker/2020-03-27---docker-compose-overview/" rel="permalink">Docker Compose Overview
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Docker Compose
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2020-01-15---anaconda-tips/" rel="permalink">Anaconda Tips
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Anaconda 관련해서 자주 사용하고 필요한 것들을 정리해보자.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2020-01-13---pose-estimation-terms/" rel="permalink">Pose Estimation 관련 용어 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Pose Estimation 관련하여 자주 나오는 용어들에 대해 간략히 정리하고 틈틈히 상기할 수 있도록 해보자.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/boj/2020-01-13---boj-5373/" rel="permalink">[BOJ 5373] 큐빙
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">풀이
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/boj/2020-01-13---boj-17142/" rel="permalink">[BOJ 17142] 연구소3
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">문제 출처 : https://www.acmicpc.net/problem/17142
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2020-01-10---rmpe-retional-multi-person-pose-estimation/" rel="permalink">RMPE: Regional Multi-person Pose Estimation
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">RMPE: Regional Multi-person Pose Estimation 라는 논문에 대해 간략히 학습하였고 이를 바탕으로 내용을 정리해보도록 하자.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2020-01-10---linux-command-line/" rel="permalink">Linux Command Line 명령어 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">자주 쓰는 command 정리
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2020-01-09---vi-vim-command-line/" rel="permalink">VI VIM Command Line 명령어 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">저장 및 종료
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/" rel="permalink">Cascade Feature Aggregation for Human Pose Estimation
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Cascade Feature Aggregation for Human Pose Estimation
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-12-14---graph-neural-networks-2/" rel="permalink">Graph Neural Networks 2
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Graph Pooling
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/computer%20network/2019-12-11---computer-network-overview-part-2/" rel="permalink">Computer Network Overview Part 2
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  24 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">지난 포스트에 이어서 컴퓨터 네트워크와 관련해 개략적으로 알아보자.
+이번 포스트에서 다룰 것들은 다음과 같다.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-12-11---graph-neural-networks-1/" rel="permalink">Graph Neural Networks 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-12-14
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-12-09---digital-signature/" rel="permalink">Digital Signature
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">정보보호에서 Digital Signature 란 무엇인지 간략히 학습해보자.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-12-03---message-authentication-code/" rel="permalink">Message Authentication Code
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  11 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Message Authentication
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-12-02---cs231n-lec13-visualizing-and-understanding/" rel="permalink">[cs231n-lec13] Visualizing and Understanding
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  14 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+  이 포스트는 스탠포드의 cs231n 13강 강의를 보고 공부 및 정리한 포스트입니다.
+잘못된 것이 있을 수 있습니다.
+댓글로 알려주시면 감사합니다!
+
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-12-02---cryptographic-hash-functions/" rel="permalink">Cryptographic Hash Functions
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Hash Functions
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-12-02---other-public-key-cryptosystems/" rel="permalink">Other Public-Key Cryptosystems
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일: 2019-12-02
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-12-01---public-key-cryptography-and-rsa/" rel="permalink">Public-Key Cryptography and RSA
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  8 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일: 2019-12-01
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-11-25---introduction-to-number-theory-for-information-security-2/" rel="permalink">Introduction to Number Theory for Information Security 2
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">지난 포스트 에 이어 암호학에 있어서 어떤 수학적인 내용들이 사용되는지 살펴보자.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-11-22---cs231n-lec11-generative-models/" rel="permalink">[cs231n-lec11] Generative Models
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  18 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-11-29
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-11-19---cs231n-lec12-detection-and-segmentation/" rel="permalink">[cs231n-lec12] Detection and Segmentation
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-11-22
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-11-01---introduction-to-number-theory-for-information-security-1/" rel="permalink">Introduction to Number Theory for Information Security 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  8 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">정보보호와 암호학에 대해 공부를 하다보면 마주하게 되는 수학이 있다.
+여기서 정수론(Number Theory)에 대해 간략하게 맛보고 가보자.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-11-01---cs231n-lec10-recurrent-neural-networks/" rel="permalink">[cs231n-lec10] Recurrent Neural Networks
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  13 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-11-19
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2019-10-30---netlify-migration/" rel="permalink">Netlify 로 github 블로그 이전하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Netlify
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/boj/2019-10-18---boj-12886/" rel="permalink">[BOJ 12886] 돌 그룹
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">문제 출처 : https://www.acmicpc.net/problem/12886
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/computer%20network/2019-10-16---computer-network-overview/" rel="permalink">Computer Network Overview Part 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  29 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-22
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-10-15---block-cipher-operation/" rel="permalink">Block Cipher Operation
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">이전 포스트 에서 DES 에서 더 보안성이 강화된 AES 까지 알아보았다.
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-10-14---cs231n-cnn-architectures/" rel="permalink">[cs231n-lec9] CNN Architectures
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  15 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-15
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-10-13---cs231n-traning-neural-networks-part-2/" rel="permalink">[cs231n-lec8] Training Neural Networks, Part 2
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  17 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-14
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-10-13---cs231n-training-neural-networks-part-1/" rel="permalink">[cs231n-lec7] Training Neural Networks, Part 1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-13
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-10-12---cs231n-convolutional-neural-networks/" rel="permalink">[cs231n-lec5] Convolutional Neural Networks
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  9 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-12
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-10-12---advanced-encryption-standard/" rel="permalink">Advanced Encryption Standard
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">AES
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-10-11---cs231n-neural-networks-and-backpropagation/" rel="permalink">[cs231n-lec4] Neural Networks and Backpropagation
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-11
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-10-11---block-ciphers-and-the-data-encryption-standard/" rel="permalink">Block Ciphers and the Data Encryption Standard
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Block Ciphers
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-10-11---cs231n-loss-functions-and-optimization/" rel="permalink">[cs231n-lec3] Loss Functions and Optimization
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  9 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-17
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/machine%20learning/2019-10-10---cs231n-image-classification-pipeline/" rel="permalink">[cs231n-lec2] Image Classification Pipeline
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">최종 수정일 : 2019-10-16
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-10-10---classical-encryption-techniques/" rel="permalink">Classical Encryption Techniques
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">고전적인 암호화 기법
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/information%20security/2019-10-09---information-security-overview/" rel="permalink">정보보호(Information Security) 공부를 시작하며
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">정보보호란?
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/boj/2019-10-09---boj-2125/" rel="permalink">[BOJ 2125] Mothy
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">[BOJ 2125] Mothy
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2019-10-04---markdown-usage/" rel="permalink">Markdown을 써보자
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Markdown 이란
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/boj/2019-10-02---boj-17503/" rel="permalink">[BOJ 17503] 맥주 축제
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">[BOJ 17503] 맥주 축제
+</p>
+  </article>
+</div>
+
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2019-10-01---vs-code-c++-configuration-for-mac/" rel="permalink">맥에서 VS Code C++ 빌드 설정하기
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">맥에서 VS Code로 C++ 빌드를 해보자
+</p>
+  </article>
+</div>
+
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Cheong. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/machine%20learning/2019-11-19---cs231n-lec12-detection-and-segmentation/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/machine%20learning/--cs231n-lec12-detection-and-segmentation"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://younghk-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

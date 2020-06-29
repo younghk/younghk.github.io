@@ -1,0 +1,324 @@
+I"�?<h2 id="aes">AES</h2>
+
+<p>이 전 <a href="../Block-Ciphers-and-the-Data-Encryption-Standard/">포스트</a>에서 <em>DES</em> 에 대해 알아보았다.</p>
+
+<p>이는 아주 잘 고안된 암호화 알고리즘이고 굉장히 많이 쓰인 암호화 알고리즘이었으나 키 사이즈의 한계로 더 이상은 쓰지 않는 기법이 되었다.<br />
+그래서 이를 보완하기 위해서 <em>Triple-DES</em> 등으로 활용해보기도 하였으나 S/W 수준에서 느리다는 단점이 있었다.<br />
+결국 새로운 암호화 알고리즘에 대한 필요성이 대두되었고, <em>Rijndael</em> 이 결국 <em>AES</em> 로 채택되었다.</p>
+
+<p>새로운 표준이 된 <em>Rijndael</em> 은 Rijmen-Daemen 에 의해 고안되었으며 128/192/256 bit 의 키를 가지며 128-bit data 를 한 블록으로 사용한다.</p>
+
+<p>이는 <em>Feistel cipher</em> 를 사용하지 않고 <strong><em>iterative</em></strong> 방식을 이용하는데 속도가 굉장히 빠르며 간결하게 설계된 특징이 있다.</p>
+
+<h2 id="finite-field-arithmetic">Finite Field Arithmetic</h2>
+
+<p><em>AES</em> 는 finite field <em>GF($2^8$)</em> 의 $m(x) = x^8 + x^4 + x^3 + x + 1$ 의 다항식을 사용하는데, finite field arithmetic 은 나중에 정리해 보도록 하겠다.</p>
+
+<h2 id="aes-structure">AES Structure</h2>
+
+<p><em>AES</em> 는 바이트 단위의 4*4 정사각 행렬을 데이터 블록으로 이용한다.<br />
+<strong><em>iterative</em></strong> (반복)이기에 라운드가 존재하며,<br />
+키는 word 배열에 의해 확장되며 9/11/13 라운드를 수행하게 되는데 각각,</p>
+
+<ol>
+  <li>Byte substitution (각 바이트마다 하나의 S-Box 가 사용)</li>
+  <li>Shift rows (그룹별/열별 permutation)</li>
+  <li>Mix columns (matrix multiply)</li>
+  <li>Add round key (키에 대해 XOR 연산 적용)</li>
+</ol>
+
+<p>이러한 과정을 거치게 된다.</p>
+
+<p>세부적으로 살펴보았을 때 XOR 과 table lookup 만 사용해서 이를 구현할 수 있는데, 이는 매우 빠른 속도로 동작할 수 있음을 의미한다.</p>
+
+<p>위의 과정을 도식화 하면 다음과 같다.</p>
+
+<p><img src="/assets/images/2019-10-12---advanced-encryption-standard/image1.png" alt="aes structure" /></p>
+
+<p>키 확장은 44개의 32-bit word 로 이루어진 배열에 의해 이루어지게 된다.</p>
+
+<p>이러한 <em>AES</em> 는 다음과 같은 특징을 가진다.</p>
+
+<ul>
+  <li>보다시피 복잡하지 않고 단순한 구조를 가지고 있으며, Add round key 에서만 키를 사용한다.</li>
+  <li>이 Add round key 는 Vernam cipher 의 형식을 가진다.</li>
+  <li>매 단계는 쉽게 역수행이 가능하다(easily reversible)</li>
+  <li>복호화는 키를 반대 순서로 사용하면 된다</li>
+  <li>마지막 단계는 3개의 stage만을 가진다(mix column stage 가 없음)</li>
+</ul>
+
+<h3 id="1-substitute-bytes">1. Substitute Bytes</h3>
+
+<p>첫 단계인 Substitute Bytes 는 table lookup(<em>S-Box</em>) 을 통해 진행된다.<br />
+16 by 16 matrix 를 이용하며 총 256 개의 8-bit 정보를 갖고 있는 이 테이블은 input에 대해 각 바이트가 갖고 있는 정보에 해당하는 행/열에 적힌 값으로 대체시켜버린다.<br />
+왼쪽 4-bit 는 행(row)을 나타내고 오른쪽 4-bit 는 열(col)을 나타내게 된다.</p>
+
+<p>e.g. 95 라는 바이트는 <em>S-Box</em> 의 9행 5열에 적힌 2A 로 변환된다.</p>
+
+<p><img src="/assets/images/2019-10-12---advanced-encryption-standard/image2.png" alt="substitue byte" /></p>
+
+<p>위의 그림은 $S_{1,1}$ 의 정보가 <em>S-Box</em> 에 대응되어 변환되는 것을 도식화한 그림이다.</p>
+
+<p><em>S-Box</em> 는 다음과 같이 정의되어 있다.</p>
+
+<p><img src="/assets/images/2019-10-12---advanced-encryption-standard/image3.png" alt="aes s box" /></p>
+
+<blockquote>
+  <p>위의 테이블에서 앞의 예제 $95 \to 2A$ 를 확인해보자.</p>
+</blockquote>
+
+<p>이러한 <em>S-Box</em> 는 단순하게 아무 값이나 만들어진 것이 아닌 GF($2^8$)를 이용해 만들어진 테이블이다.<small>여기서는 <em>Inverse of GF($2^8$)</em></small></p>
+
+<h3 id="2-shift-rows">2. Shift Rows</h3>
+
+<p>두 번째 단계인 shift 는 매우 단순하다.<br />
+shift는 행단위로 이루어지며 각 행의 shift 연산은 다음과 같다.</p>
+
+<ol>
+  <li>첫 번째 행은 변하지 않는다.</li>
+  <li>두 번째 행은 왼쪽으로 1 byte shift 된다.</li>
+  <li>세 번째 행은 왼쪽으로 2 bytes shift 된다.</li>
+  <li>네 번째 행은 왼쪽으로 3 bytes shift 된다.</li>
+</ol>
+
+<p>모든 shift 연산은 circular shift 로써, 왼쪽 끝에서 shift 하게 되면 오른쪽 끝으로 가게 된다.</p>
+
+<p>위에서 보면 알겠지만 이는 암호화(encryption) 시 shift 를 서술한 것이다.<br />
+복호화(decryption) 시에는 오른쪽으로 shift 하면 된다.</p>
+
+<h3 id="3-mix-columns">3. Mix Columns</h3>
+
+<p>세 번째 단계는 각 열에 대해 개별적으로 진행된다.<br />
+4 by 4 matrix 를 이용하는데 이 때 사용되는 matrix 는 아래와 같다.</p>
+
+<p>$\left( \begin{matrix} 2&amp;3&amp;1&amp;1 \ 1&amp;2&amp;3&amp;1 \ 1&amp;1&amp;2&amp;3 \ 3&amp;1&amp;1&amp;2 \end{matrix} \right)$</p>
+
+<p>이 2, 3, 1, 1 이라는 숫자는 의도적으로 사용되는 숫자들이다.</p>
+
+<blockquote>
+  <p>bit 단위에서<br />
+$\times 1$ 은 아무런 변화가 없다.<br />
+$\times 2$ 는 왼쪽으로 1-bit shift
+$\times 3$ 은 왼쪽으로 1-bit shift 및 XOR</p>
+</blockquote>
+
+<p>이 때 8-bit인 바이트에 대해서 addition 과 multiplication 이 진행되면 8-bit 를 넘어가게 되는 경우에 대해 의문점이 생길 수 있다.</p>
+
+<p>여기에서 우리는 GF($2^8$) 의 필드 안에서 이루어지는 arithmetic operation 이라는 사실을 꼭 생각하고 넘어가야 한다.<small>prime polynomial $m(x)=x^8+x^4+x^3+x+1$</small></p>
+
+<p><img src="/assets/images/2019-10-12---advanced-encryption-standard/image4.png" alt="aes mix column ex" /></p>
+
+<p>위의 예제에서 1행 1열에 대한 계산 과정을 풀어보면 다음과 같다.</p>
+
+<p>$\begin{aligned} {02} \times {87} &amp;= (0000 1110) \text{ XOR } (0001 1011) \ &amp;= (0001 0101) \ {03} \times {6E} &amp;= {6E} \text{ XOR } ({02} \times {63}) \ &amp;= (0110 1110) \text{ XOR } (1101 1100) \ &amp;= (1011 0010) \ {46} &amp;= (0100 0110) \ {A6} &amp;= (1010 0110) \ \end{aligned}$</p>
+
+<p>${02} \times {87} \text{ XOR } {03} \times {6E} \text{ XOR } {46} \text{ XOR } {A6} \mod{m(x)} = 0100 0111 = {47}$</p>
+
+<p>이런 식으로 <em>mix columns</em> 를 진행할 수 있다.</p>
+
+<p>복호화 과정에서는 inverse matrix 가 필요하다.</p>
+
+<h3 id="4-add-round-key">4. Add Round Key</h3>
+
+<p>유일하게 <em>key</em> 를 이용하는 단계이고, 열에 대해 키를 이용한 연산을 수행하게 된다.</p>
+
+<p>128-bit 키에 대해서 44/52/60 개의 32-bit words 를 가진 배열을 이용해 확장(expand)을 시킨다.<br />
+우선 첫 네 개의 word를 복사한다.<br />
+그리고 반복적으로 이전의 word에 의존하여 word를 만들어낸다.</p>
+
+<p>도식화하여 보면 다음과 같다.</p>
+
+<p><img src="/assets/images/2019-10-12---advanced-encryption-standard/image5.png" alt="aes add round key overall" /></p>
+
+<p>위의 그림에서 <em>g</em> 함수 안에 이용되는 $RC_j$ 는 <em>Round Constant</em> 로 <em>RC[1]=1</em> 을 시작으로 매 라운드마다 2배씩 커진다.</p>
+
+<p>$RC[1]=1, RC[j]=2\times RC[j-1]$</p>
+
+<p>이에 따른 <em>RC table</em> 은 아래와 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>j</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RC[j]</td>
+      <td>01</td>
+      <td>02</td>
+      <td>04</td>
+      <td>08</td>
+      <td>10</td>
+      <td>20</td>
+      <td>40</td>
+      <td>80</td>
+      <td>1B</td>
+      <td>36</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>즉, AES 에서 <em>key</em> 는 다음과 같이 진행된다.</p>
+
+<ol>
+  <li>왼쪽으로 circular shift 1</li>
+  <li>S-Box 에 적힌 값으로 각각 변경(여기서 S-Box 는 위에 나온 것과 동일)</li>
+  <li>첫 바이트는 RC[j] 와 XOR</li>
+  <li>이렇게 나온 값이 다음 key 가 되는 네 개의 words</li>
+</ol>
+
+<p>다음의 간단한 예시를 보고 넘어가겠다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input key   = all zero(=0)
+first key   : 0   0   0   0
+---
+(for one word)
+shift       : 0   0   0   0
+S-Box       : 63  63  63  63
+RC          : 62  63  63  63
+second key  : 62  63  63  63
+---
+all the same w4=w5=w6=w7
+</code></pre></div></div>
+
+<p>이렇게 AES 의 한 라운드에 대한 모든 stage 를 살펴보았다.</p>
+
+<p>이를 정리하면 다음과 같은 도식으로 표현할 수 있다.</p>
+
+<p><img src="/assets/images/2019-10-12---advanced-encryption-standard/image6.png" alt="aes encryption one round" /></p>
+
+<h3 id="5-aes-exmaple">5. AES Exmaple</h3>
+
+<p>간단하게 <em>AES</em> 를 적용시킨 것을 보자.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plaintext   : 0123456789abcdeffedcba9876543210
+key         : 0f1571c947d9e8590cb7add6af7f6788
+ciphertext  : ff0b844a0853bf7c6934ab4364148fb9
+</code></pre></div></div>
+
+<p>과정에 대한 각 단계의 내용들을 표에 정리하면 다음과 같다.</p>
+
+<p><img src="/assets/images/2019-10-12---advanced-encryption-standard/image7.png" alt="aes encryption example" /></p>
+
+<p>시작 단계에서 plaintext의 배치가 열 단위로 이루어짐을 주목하자.</p>
+
+<p>AES 는 기본적으로 word 단위의 연산을 주로 행하므로 위와 같이 시작해야한다.</p>
+
+<h2 id="aes-avalnche-effect">AES Avalnche Effect</h2>
+
+<p><em>AES</em> 는 쇄도 효과(눈사태 효과, Avalanche Effect)가 일어날까?</p>
+
+<p><em>DES</em> 에서도 확인해보았듯이 <em>AES</em> 에서도 확인해보자.</p>
+
+<p>위의 예시에서 사용했던 plaintext 에서 두 번째 비트를 1 에서 0으로 바꾸고 암호화를 진행하면 다음과 같은 암호문을 얻는다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plaintext   : 0023456789abcdeffedcba9876543210
+key         : 0f1571c947d9e8590cb7add6af7f6788
+ciphertext  : 612b89398d0600cde116227ce72433f0
+</code></pre></div></div>
+
+<p>이는 bit 단위로 보았을 때 58-bit 의 차이가 나타났음을 확인할 수 있다.</p>
+
+<p>마찬가지로 키에 대해서도 비트를 하나 바꿔봤을 때 쇄도효과를 확인해 볼 수 있다.</p>
+
+<h2 id="aes-decryption">AES Decryption</h2>
+
+<p>지금까지 <em>AES</em> 의 암호화 과정을 살펴보았다.</p>
+
+<p>그렇다면 복호화 과정은 어떨까?</p>
+
+<p><em>DES</em> 처럼 같은 알고리즘을 이용해 복호화 할 것일까?</p>
+
+<p>결론적으로는 <strong><em>동일하지 않다.</em></strong></p>
+
+<p>그러나 우리는 <strong>equivalent inverse cipher</strong> 를 생각할 수 있다.</p>
+
+<p>이는 <em>AES</em> 는 matrix 기반 연산이 있다는 점, 복호화는 암호화를 역으로 수행하는 과정이라는 점을 생각하면 inverse of matrix, 즉, 역행렬을 이용해서 <em>equivalent inverse cipher</em> 를 생각해 낼 수 있는 것이다.</p>
+
+<p>여기서 <em>byte substitution</em> 과 <em>shift row</em> 를 <em>swap</em> 해주고,<br />
+<em>mix columns</em> 과 <em>add round key</em> 를 <em>swap</em> 해서 구체적으로 진행할 수 있다.</p>
+
+<p>이는 조금 복잡한 것이지만 이렇게 하면 같은 H/W 와 S/W 에서 동작시킬 수 있게 된다.</p>
+
+<h2 id="implementaion-aspects">Implementaion Aspects</h2>
+
+<p>이러한 <em>AES</em> 의 구조는 8-bit CPU 에서 효율적으로 구현이 가능한데,</p>
+
+<p><em>Byte Substitution</em> 에서 256개의 entry(16 by 16 matrix)를 가진 테이블을 이용할 수 있고,<br />
+<em>Shift Row</em> 역시 비트 연산이며,<br />
+<em>Add Round Key</em> 역시 비트 연산(XOR) 이기 때문이다.</p>
+
+<p>그러나 <em>Mix Column</em> 은 matrix multiplication 이기에 위의 세 단계와 비교했을 때 overhead 가 있을 수 밖에 없다.</p>
+
+<p>이는 table lookup 과 byte XOR 를 적절하게 사용하면 완화되는 이슈인데, 여기서 <em>mix column</em> 의 구조적 중요성이 나타난다.</p>
+
+<p>X2 라는 256-byte 저장공간에 다음과 같은 정보가 있다고 하면,</p>
+
+<p>$X2[i] = {02} \times i$</p>
+
+<p>다음과 같은 식을 만들 수 있다.</p>
+
+<p>$Tmp = s_{0,j} \oplus s_{1,j} \oplus s_{2,j} \oplus s_{3,j}$<br />
+$s’<em>{0,j} = s</em>{0,j} \oplus Tmp \oplus \left[ 2 \cdot \left(s_{0,j} \oplus s_{1,j} \right) \right]$<br />
+$s’<em>{1,j} = s</em>{1,j} \oplus Tmp \oplus \left[ 2 \cdot \left(s_{1,j} \oplus s_{2,j} \right) \right]$<br />
+$s’<em>{2,j} = s</em>{2,j} \oplus Tmp \oplus \left[ 2 \cdot \left(s_{2,j} \oplus s_{3,j} \right) \right]$<br />
+$s’<em>{3,j} = s</em>{3,j} \oplus Tmp \oplus \left[ 2 \cdot \left(s_{3,j} \oplus s_{0,j} \right) \right]$</p>
+
+<p>$s’<em>{0,j} = s</em>{0,j} \oplus Tmp \oplus X2 \left[ s_{0,j} \oplus s_{1,j} \right]$<br />
+$s’<em>{1,j} = s</em>{1,j} \oplus Tmp \oplus X2 \left[ s_{1,j} \oplus s_{2,j} \right]$<br />
+$s’<em>{2,j} = s</em>{2,j} \oplus Tmp \oplus X2 \left[ s_{2,j} \oplus s_{3,j} \right]$<br />
+$s’<em>{3,j} = s</em>{3,j} \oplus Tmp \oplus X2 \left[ s_{3,j} \oplus s_{0,j} \right]$</p>
+
+<p>비슷하게 32-bit CPU 에서도 효율적으로 구현이 가능한데,</p>
+
+<p><strong>4 table lookup + 4 XOR</strong> 을 이용할 경우 4KB 의 저장공간으로 그 효율이 굉장히 높다.<br />
+이 4개의 테이블은 256-word 로 구성되며, 각 스텝들은 32-bit word 를 사용하도록 재정의된다.</p>
+
+<p>각 state 를 우선 정리하면 다음과 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">SubBytes</th>
+      <th style="text-align: center">$b_{i,j} = S\left[a_{i,j}\right]$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ShiftRows</td>
+      <td style="text-align: center">$\left[ \begin{matrix} c_{0,j} \ c_{1,j} \ c_{2,j} \ c_{3,j} \end{matrix} \right] = \left[ \begin{matrix}  b_{0,j} \ b_{1,j-1} \ b_{2,j-2} \ b_{3,j-3} \end{matrix} \right]$</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MixColumns</td>
+      <td style="text-align: center">$\left[ \begin{matrix} d_{0,j} \ d_{1,j} \ d_{2,j} \ d_{3,j} \end{matrix} \right] = \left[ \begin{matrix} 02 &amp; 03 &amp; 01 &amp; 01 \ 01 &amp; 02 &amp; 03 &amp; 01 \ 01 &amp; 01 &amp; 02 &amp; 03 \ 03 &amp; 01 &amp; 01 &amp; 02 \end{matrix} \right] \left[ \begin{matrix}  c_{0,j} \ c_{1,j} \ c_{2,j} \ c_{3,j} \end{matrix} \right]$</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AddRoundKey</td>
+      <td style="text-align: center">$\left[ \begin{matrix} e_{0,j} \ e_{1,j} \ e_{2,j} \ e_{3,j} \end{matrix} \right] = \left[ \begin{matrix} d_{0,j} \ d_{1,j} \ d_{2,j} \ d_{3,j} \end{matrix} \right] \oplus \left[ \begin{matrix} k_{0,j} \ k_{1,j} \ k_{2,j} \ k_{3,j} \end{matrix} \right]$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>이를 한 번에 정리하면 다음과 같다.</p>
+
+\[\left[ \begin{matrix} e_{0,j} \\ e_{1,j} \\ e_{2,j} \\ e_{3,j} \end{matrix} \right] = \left[ \begin{matrix} 02 &amp; 03 &amp; 01 &amp; 01 \\ 01 &amp; 02 &amp; 03 &amp; 01 \\ 01 &amp; 01 &amp; 02 &amp; 03 \\ 03 &amp; 01 &amp; 01 &amp; 02 \end{matrix} \right] \left[ \begin{matrix} S\left[ a_{0,j} \right] \\ S\left[ a_{1,j-1} \right] \\ S\left[ a_{2,j-2} \right] \\ S\left[ a_{3,j-3} \right] \end{matrix} \right] \oplus \left[ \begin{matrix} k_{0,j} \\ k_{1,j} \\ k_{2,j} \\ k_{3,j} \end{matrix} \right]\]
+
+<p>이러한 효율적인 구현 가능성이 <em>AES</em> 에서의 중요한 요소로 생각되었다.</p>
+
+<blockquote>
+  <p>본 포스트는 <em>정보보호</em> 를 공부하며 정리한 글 입니다.<br />
+잘못된 내용이 있다면 알려주세요!<br />
+감사합니다 :)</p>
+</blockquote>
+:ET

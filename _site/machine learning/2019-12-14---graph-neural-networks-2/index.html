@@ -1,0 +1,641 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Graph Neural Networks 2 - Cheong’s log</title>
+<meta name="description" content="Graph Pooling">
+
+
+  <meta name="author" content="Younghk">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Cheong's log">
+<meta property="og:title" content="Graph Neural Networks 2">
+<meta property="og:url" content="http://localhost:4000/machine%20learning/2019-12-14---graph-neural-networks-2/">
+
+
+  <meta property="og:description" content="Graph Pooling">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-12-14T21:53:57+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/machine%20learning/2019-12-14---graph-neural-networks-2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Cheong",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Cheong's log Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/profile.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Cheong's log
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Younghk</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>오직 부끄러워야 할 것은 열심히 살지 않은 어제의 나이다.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, KR</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+            <li><a href="https://younghk.github.io" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/younghk/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/younghoon-kim-03a667191/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Graph Neural Networks 2">
+    <meta itemprop="description" content="Graph Pooling">
+    <meta itemprop="datePublished" content="2019-12-14T21:53:57+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Graph Neural Networks 2
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <aside class="sidebar__right sticky">
+          <!-- <aside class="sidebar__right "></aside> -->
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#graph-pooling">Graph Pooling</a>
+    <ul>
+      <li><a href="#global-pooling">Global Pooling</a></li>
+      <li><a href="#hierarchical-pooling">Hierarchical Pooling</a></li>
+    </ul>
+  </li>
+  <li><a href="#scene-graph-learning">Scene graph learning</a></li>
+  <li><a href="#graph-transformer-networksgtn">Graph Transformer Networks(GTN)</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="graph-pooling">Graph Pooling</h2>
+
+<ul>
+  <li>Global Pooling : summarize graph into fixed-size representation<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image1.png" alt="global pooling" /></li>
+  <li>Hierarchical Pooling : Learn hierarchical representation<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image2.png" alt="hierarchical pooling" /></li>
+</ul>
+
+<h3 id="global-pooling">Global Pooling</h3>
+
+<ul>
+  <li>Simple Readout : Average / Max / Min / …<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image3.png" alt="simple readout" /></li>
+  <li>Neural Networks for Readout : GG-NN / Set2Set / SortPool<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image4.png" alt="nn for readout" /><br />
+SortPool 은 각 node 에 대해 feature 별로 sorting 한 후 몇 개의 node 만 선택하는 방법</li>
+</ul>
+
+<h3 id="hierarchical-pooling">Hierarchical Pooling</h3>
+
+<ul>
+  <li>DiffPool(Differentiable Pooling) : softly assign node from bottom to higher<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image5.png" alt="diffpool" /></li>
+  <li>gPool(Graph Pooling)<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image6.png" alt="gpool" /></li>
+  <li>SAGPool(Self-Attention Graph Pooling)<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image7.png" alt="sagpool" />
+    <ul>
+      <li>여기서 $\tilde{A} \in \mathbb{R}^{N\times N}$ 는 Adjacency matrix</li>
+      <li>$\tilde{D} \in \mathbb{R}^{N\times N}$ 는 degree matrix of $\tilde{A}$</li>
+      <li>$X \in \mathbb{R}^{N\times F}$ 는 N 개의 node 의 F dimensional feature 를 가진 input graph feature</li>
+      <li>SAGPool 에서 parameter 는 $\Theta_{att} \in \mathbb{R}^{F \times 1}$ 뿐이다.</li>
+      <li>pooling 결과는 graph feature 와 topology 에 기반하며, graph convolution 을 이용해 self-attention score 를 얻는다.</li>
+      <li>node selection method 은 다양한 크기와 구조의 입력에 대해서도 입력 그래프의 노드 일부를 유지할 수 있도록 함.</li>
+      <li></li>
+    </ul>
+  </li>
+  <li>EdgePool<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image8.png" alt="edgepool" /></li>
+</ul>
+
+<h2 id="scene-graph-learning">Scene graph learning</h2>
+
+<p><img src="/assets/images/2019-12-14---graph-neural-networks-2/image9.png" alt="scene graph learning pipeline" /></p>
+
+<p>Visual relationships of an image as a graph :<br />
+Predicate detection &lt;=&gt; Object detection</p>
+
+<p>Multi-relational tensor 를 사용함.<br />
+[[Object, Predicate, Object ]] 로 쌍을 만들어 냄</p>
+
+<p>Ground Truth 를 어떻게 해야하는지에 대한 고민이 많이 필요하다.<br />
+(이렇게 저렇게 여러가지 방향으로 해석이 가능하므로)</p>
+
+<h2 id="graph-transformer-networksgtn">Graph Transformer Networks(GTN)</h2>
+
+<ul>
+  <li>
+    <p>Spatial Transformer Networks<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image10.png" alt="spatial transformer network" /></p>
+  </li>
+  <li>
+    <p>meta-path : multi-hop 관계를 새로운 path 로 보고 새롭게 네트워크를 구성할 수 있게 함.<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image11.png" alt="meta path" /></p>
+  </li>
+  <li>
+    <p>graph transformer layer : learn a soft selection of edge types and composite relations for generating useful multi-hop connections(meta-paths)<br />
+<img src="/assets/images/2019-12-14---graph-neural-networks-2/image12.png" alt="graph transformer layer" />
+위의 예제는 2-hop relationship 을 보고 있는 것이다. 마지막에는 meta-path 만 나타난다.</p>
+  </li>
+</ul>
+
+<p>이 때, meta-path 의 길이가 늘어날 수록(hop 이 많아질 수록) 문제점이 발생할 수 있다.</p>
+
+<blockquote>
+  <p>경로가 중복이 되는 문제일까?</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-14T21:53:57+09:00">December 14, 2019</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/computer%20network/2019-12-11---computer-network-overview-part-2/" class="pagination--pager" title="Computer Network Overview Part 2
+">Previous</a>
+    
+    
+      <a href="/machine%20learning/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/" class="pagination--pager" title="Cascade Feature Aggregation for Human Pose Estimation
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2020-04-01---postgresql-tips/" rel="permalink">PostgreSQL 간단 정리
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">PostgreSQL 이란
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docker/2020-03-27---docker-overview/" rel="permalink">Docker Overview
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Docker 란
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docker/2020-03-27---docker-compose-overview/" rel="permalink">Docker Compose Overview
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Docker Compose
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/etc/2020-01-15---anaconda-tips/" rel="permalink">Anaconda Tips
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Anaconda 관련해서 자주 사용하고 필요한 것들을 정리해보자.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Cheong. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/machine%20learning/2019-12-14---graph-neural-networks-2/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/machine%20learning/--graph-neural-networks-2"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://younghk-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

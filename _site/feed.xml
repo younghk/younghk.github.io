@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-29T16:19:00+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Cheong’s log</title><subtitle>오직 부끄러워야 할 것은 열심히 살지 않은 어제의 나이다.</subtitle><author><name>Younghk</name></author><entry><title type="html">PostgreSQL 간단 정리</title><link href="http://localhost:4000/etc/2020-04-01---postgresql-tips/" rel="alternate" type="text/html" title="PostgreSQL 간단 정리" /><published>2020-04-01T00:00:00+09:00</published><updated>2020-04-01T00:00:00+09:00</updated><id>http://localhost:4000/etc/--postgresql-tips</id><content type="html" xml:base="http://localhost:4000/etc/2020-04-01---postgresql-tips/">&lt;h2 id=&quot;postgresql-이란&quot;&gt;PostgreSQL 이란&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-29T17:45:34+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Cheong’s log</title><subtitle>오직 부끄러워야 할 것은 열심히 살지 않은 어제의 나이다.</subtitle><author><name>Younghk</name></author><entry><title type="html">PostgreSQL 간단 정리</title><link href="http://localhost:4000/etc/2020-04-01---postgresql-tips/" rel="alternate" type="text/html" title="PostgreSQL 간단 정리" /><published>2020-04-01T00:00:00+09:00</published><updated>2020-04-01T00:00:00+09:00</updated><id>http://localhost:4000/etc/--postgresql-tips</id><content type="html" xml:base="http://localhost:4000/etc/2020-04-01---postgresql-tips/">&lt;h2 id=&quot;postgresql-이란&quot;&gt;PostgreSQL 이란&lt;/h2&gt;
 
 &lt;p&gt;PostgreSQL 은 객체관계형 데이터베이스로, 오픈소스로 개발되고 있다.&lt;br /&gt;
 기능적으로 오픈소스임에도 불구하고 뛰어나서 많은 인기를 끌고 있다.(Oracle, MS SQ, MySQL 다음 급)&lt;/p&gt;
@@ -56,7 +56,57 @@ You must specify the &lt;span class=&quot;nt&quot;&gt;--config-file&lt;/span&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯ brew postgresql-upgrade-database
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Homebrew 로 database 를 버전 업 시켜주면 해결이 된다.&lt;/p&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="DB" /><category term="PostgreSQL" /><summary type="html">PostgreSQL 이란</summary></entry><entry><title type="html">Anaconda Tips</title><link href="http://localhost:4000/etc/2020-01-15---anaconda-tips/" rel="alternate" type="text/html" title="Anaconda Tips" /><published>2020-01-15T09:13:42+09:00</published><updated>2020-01-15T09:13:42+09:00</updated><id>http://localhost:4000/etc/--anaconda-tips</id><content type="html" xml:base="http://localhost:4000/etc/2020-01-15---anaconda-tips/">&lt;p&gt;Anaconda 관련해서 자주 사용하고 필요한 것들을 정리해보자.&lt;/p&gt;
+&lt;p&gt;Homebrew 로 database 를 버전 업 시켜주면 해결이 된다.&lt;/p&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="DB" /><category term="PostgreSQL" /><summary type="html">PostgreSQL 이란</summary></entry><entry><title type="html">Docker Overview</title><link href="http://localhost:4000/docker/2020-03-27---docker-overview/" rel="alternate" type="text/html" title="Docker Overview" /><published>2020-03-27T00:00:00+09:00</published><updated>2020-03-27T00:00:00+09:00</updated><id>http://localhost:4000/docker/--docker-overview</id><content type="html" xml:base="http://localhost:4000/docker/2020-03-27---docker-overview/">&lt;h2 id=&quot;docker-란&quot;&gt;Docker 란&lt;/h2&gt;
+
+&lt;p&gt;도커(Docker)는 컨테이너(container)를 이용해 가상화를 하는 것이다.&lt;br /&gt;
+OS 가상화는 많이 들어보았을 텐데, 이와 차이를 보이는 점은 바로 소프트웨어적으로 가상화를 진행한다는 것이다.&lt;/p&gt;
+
+&lt;p&gt;Docker의 특징으로는 완벽하게 세팅된 환경을 이미지화할 수 있고, 이 이미지는 속도도 빠를 뿐 아니라 Docker 위에서 완벽하게 돌아가는 것을 보장한다.&lt;/p&gt;
+
+&lt;p&gt;Docker 에 대한 자세한 설명은 따로 추후에 정리해보자!&lt;/p&gt;
+
+&lt;h2 id=&quot;명령어&quot;&gt;명령어&lt;/h2&gt;
+
+&lt;p&gt;Docker image 빌드하기&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-bah&quot;&gt;docker build --tag [태그 이름] [Dockerfile 위치]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;생성된 Docker image 를 확인&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker images
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;생성된 이미지로 컨테이너 만들기&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker crwate &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;컨테이너 이름] &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;외부 포트:컨테이너 내부포트] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;이미지명:버전태그]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;생성된 컨테이너(container) 확인하기&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker ps &lt;span class=&quot;c&quot;&gt;# 현재 실행 중(STATUS:Up)인 컨테이너의 목록을 보여준다.&lt;/span&gt;
+docker ps &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 실행하지 않는 모든 컨테이너를 보여준다.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;컨테이너 실행하기&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker start &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;컨테이너 이름]
+
+docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# Background 로 실행&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;외부 포트:컨테이너 내부포트] &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# port 설정&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;컨테이너 이름] &lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#컨테이너 이름 설정&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;이미지명:버전태그] &lt;span class=&quot;c&quot;&gt;# 해당 컨테이너를 구성할 이미지&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;컨테이너 삭제&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;컨테이너 이름] &lt;span class=&quot;c&quot;&gt;# -f 옵션은 실행 중인 컨테이너도 강제로 삭제한다.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;컨테이너에 직접 명령(접근)&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;컨테이너 이름] /bin/bash &lt;span class=&quot;c&quot;&gt;# 실행 중인 컨테이너의 shell 에 접근&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Younghk</name></author><category term="Docker" /><category term="Docker" /><category term="Container" /><summary type="html">Docker 란</summary></entry><entry><title type="html">Anaconda Tips</title><link href="http://localhost:4000/etc/2020-01-15---anaconda-tips/" rel="alternate" type="text/html" title="Anaconda Tips" /><published>2020-01-15T09:13:42+09:00</published><updated>2020-01-15T09:13:42+09:00</updated><id>http://localhost:4000/etc/--anaconda-tips</id><content type="html" xml:base="http://localhost:4000/etc/2020-01-15---anaconda-tips/">&lt;p&gt;Anaconda 관련해서 자주 사용하고 필요한 것들을 정리해보자.&lt;/p&gt;
 
 &lt;h2 id=&quot;create-virtual-environment&quot;&gt;Create Virtual Environment&lt;/h2&gt;
 
@@ -83,7 +133,86 @@ You must specify the &lt;span class=&quot;nt&quot;&gt;--config-file&lt;/span&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda activate venv_name &lt;span class=&quot;c&quot;&gt;# 실행&lt;/span&gt;
 conda deactivate &lt;span class=&quot;c&quot;&gt;# 종료, 가상환경이 실행되고 있을 때만&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="Anaconda" /><category term="Python" /><summary type="html">Anaconda 관련해서 자주 사용하고 필요한 것들을 정리해보자.</summary></entry><entry><title type="html">[BOJ 5373] 큐빙</title><link href="http://localhost:4000/boj/2020-01-13---boj-5373/" rel="alternate" type="text/html" title="[BOJ 5373] 큐빙" /><published>2020-01-13T17:36:03+09:00</published><updated>2020-01-13T17:36:03+09:00</updated><id>http://localhost:4000/boj/--boj-5373</id><content type="html" xml:base="http://localhost:4000/boj/2020-01-13---boj-5373/">&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="Anaconda" /><category term="Python" /><summary type="html">Anaconda 관련해서 자주 사용하고 필요한 것들을 정리해보자.</summary></entry><entry><title type="html">Pose Estimation 관련 용어 정리</title><link href="http://localhost:4000/machine%20learning/2020-01-13---pose-estimation-terms/" rel="alternate" type="text/html" title="Pose Estimation 관련 용어 정리" /><published>2020-01-13T20:00:03+09:00</published><updated>2020-01-13T20:00:03+09:00</updated><id>http://localhost:4000/machine%20learning/--pose-estimation-terms</id><content type="html" xml:base="http://localhost:4000/machine%20learning/2020-01-13---pose-estimation-terms/">&lt;p&gt;Pose Estimation 관련하여 자주 나오는 용어들에 대해 간략히 정리하고 틈틈히 상기할 수 있도록 해보자.&lt;/p&gt;
+
+&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Hourglass Network&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;모래시계 모양을 가진 구조의 network&lt;/li&gt;
+  &lt;li&gt;pose estimation 에 있어서 backbone network 중 하나를 이룬다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Bottom-up approach&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;= Part-based approach&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Top-down approach&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;= Two-step approach&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;MOTA&lt;/strong&gt; : Multi-Object Tracking Accuracy&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;mAP&lt;/strong&gt; : mean Average Precision&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Precision&lt;/strong&gt; : 분류기의 성능평가지표로 사용하는 정밀도를 의미한다.&lt;br /&gt;
+수식으로는 다음과 같다.&lt;/p&gt;
+
+\[precision = {TP \over TP + FP}\]
+
+&lt;p&gt;즉, 참이라고 분류한 것 중 실제 참의 비율이다.&lt;br /&gt;
+= How many selected item’s are relevant&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Recall&lt;/strong&gt; : 마찬가지로 분류기의 성능평가지표에서 재현율을 의미한다.&lt;br /&gt;
+수식으로는 다음과 같다.&lt;/p&gt;
+
+\[recall = {TP \over TP + FN}\]
+
+&lt;p&gt;즉, 실제 참인 것들 중 참이라고 분류한 것의 비율이다.&lt;br /&gt;
+= How many relevant item’s are selected.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;F1 Score&lt;/strong&gt; : F1 Score 는 위의 precision 과 recall 의 조화평균으로써, 데이터 label 이 불균형 구조일 때, 모델의 성능을 정확하게 평가할 수 있다고 한다.&lt;br /&gt;
+수식으로는 다음과 같다.&lt;/p&gt;
+
+\[F1\ score = 2 \times { Precision \times Recall \over Precision + Recall}\]
+
+&lt;p&gt;즉, 단순 조화평균임을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FLOPS&lt;/strong&gt; : FLoating point Operations Per Second&lt;br /&gt;
+    초당 부동소수점 연산이라는 의미로 1초동안 수행할 수 있는 부동소수점 연산의 횟수를 기준으로 한다.&lt;br /&gt;
+    이는 컴퓨터 하드웨어 관점에서의 Computing power 를 나타내는데 주로 쓰이게 되는데, machine learning 에서 하드웨어의 효율을 계산하기 위에서 종종 사용된다.&lt;br /&gt;
+    이 때, GFLOPS(Giga) = BFLOPS(Billions) 를 많이 쓴다.&lt;/p&gt;
+
+&lt;h2 id=&quot;metric&quot;&gt;Metric&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;PCK&lt;/strong&gt; : Detected-joint is considered correct if the distance between the predicted and the true joint is within a certain threshold.&lt;br /&gt;
+즉, 특정 threshold 보다 detected-true 간의 차이가 작다면 correct 로 간주하는 평가 지표이다.&lt;br /&gt;
+기본적으로 PCK @ 0.2 는 threshold 가 0.2 * torso diameter 로써, 여기서 torso 는 사람의 몸통(팔다리를 제외한 몸 부분)이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PCKh @ 0.5&lt;/strong&gt; : threshold = 50% of the head segment length(head bone link)&lt;br /&gt;
+threshold 로써 몸통이 아닌 머리 부분의 길이를 사용한 변형 평가 지표이다.&lt;br /&gt;
+보통 PCKh @ 0.5 를 많이 사용하는 추세로 보인다.&lt;/p&gt;
+
+&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;COCO&lt;/strong&gt; : Common Object in COntext 로 일상생활에서 보여지는 물체들을 데이터셋으로 구성해놓은 것이다.&lt;br /&gt;
+[http://cocodataset.org/#home] 에서 자세한 것을 확인할 수 있으며, &lt;em&gt;Pose Estimation&lt;/em&gt; 에서는 keypoints dataset 을 이용한다.&lt;br /&gt;
+&lt;em&gt;COCO dataset&lt;/em&gt; 의 평가지표는 &lt;em&gt;AP&lt;/em&gt; 를 사용하는데, 여기서 그냥 &lt;em&gt;mAP&lt;/em&gt; 를 사용하는 것이 아닌 다음과 같은 지표를 사용한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AP@[.5:.95] : IoU 의 threshold 를 0.5 부터 0.95 까지 0.05 의 간격으로 달리 줬을 때의 AP 들의 평균을 의미한다.&lt;/li&gt;
+  &lt;li&gt;AP@0.5 : IoU 의 threshold 가 0.5 일 때 이다.&lt;/li&gt;
+  &lt;li&gt;AP small, medium, large : object 의 area 크기에 따른 평가 방법이다. 각각 $area \lt 32^2$, $32^2 \lt area \lt 96^2$, $area &amp;gt; 96^2$ 를 의미한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;etc&quot;&gt;ETC&lt;/h2&gt;</content><author><name>Younghk</name></author><category term="Machine Learning" /><category term="Machine Learning" /><category term="Pose Estimation" /><category term="Terms" /><summary type="html">Pose Estimation 관련하여 자주 나오는 용어들에 대해 간략히 정리하고 틈틈히 상기할 수 있도록 해보자.</summary></entry><entry><title type="html">[BOJ 5373] 큐빙</title><link href="http://localhost:4000/boj/2020-01-13---boj-5373/" rel="alternate" type="text/html" title="[BOJ 5373] 큐빙" /><published>2020-01-13T17:36:03+09:00</published><updated>2020-01-13T17:36:03+09:00</updated><id>http://localhost:4000/boj/--boj-5373</id><content type="html" xml:base="http://localhost:4000/boj/2020-01-13---boj-5373/">&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
 
 &lt;p&gt;단순한 구현 문제이나 생각이 꼬이지 않으면서 구현을 잘 해주어야하는 문제이다.&lt;/p&gt;
 
@@ -330,7 +459,291 @@ conda deactivate &lt;span class=&quot;c&quot;&gt;# 종료, 가상환경이 실�
 &lt;h2 id=&quot;개선할-점&quot;&gt;개선할 점&lt;/h2&gt;
 
 &lt;p&gt;python 으로 짜니까 좀 느리다.&lt;br /&gt;
-그치만 익숙해질 겸 열심히 짜보자.&lt;/p&gt;</content><author><name>Younghk</name></author><category term="BOJ" /><category term="PS" /><category term="Algorithm" /><category term="Python" /><category term="BOJ" /><summary type="html">문제 출처 : https://www.acmicpc.net/problem/17142</summary></entry><entry><title type="html">Linux Command Line 명령어 정리</title><link href="http://localhost:4000/etc/2020-01-10---linux-command-line/" rel="alternate" type="text/html" title="Linux Command Line 명령어 정리" /><published>2020-01-10T06:45:24+09:00</published><updated>2020-01-10T06:45:24+09:00</updated><id>http://localhost:4000/etc/--linux-command-line</id><content type="html" xml:base="http://localhost:4000/etc/2020-01-10---linux-command-line/">&lt;p&gt;자주 쓰는 command 정리&lt;/p&gt;
+그치만 익숙해질 겸 열심히 짜보자.&lt;/p&gt;</content><author><name>Younghk</name></author><category term="BOJ" /><category term="PS" /><category term="Algorithm" /><category term="Python" /><category term="BOJ" /><summary type="html">문제 출처 : https://www.acmicpc.net/problem/17142</summary></entry><entry><title type="html">RMPE: Regional Multi-person Pose Estimation</title><link href="http://localhost:4000/machine%20learning/2020-01-10---rmpe-retional-multi-person-pose-estimation/" rel="alternate" type="text/html" title="RMPE: Regional Multi-person Pose Estimation" /><published>2020-01-10T21:53:57+09:00</published><updated>2020-01-10T21:53:57+09:00</updated><id>http://localhost:4000/machine%20learning/--rmpe-retional-multi-person-pose-estimation</id><content type="html" xml:base="http://localhost:4000/machine%20learning/2020-01-10---rmpe-retional-multi-person-pose-estimation/">&lt;p&gt;RMPE: Regional Multi-person Pose Estimation 라는 논문에 대해 간략히 학습하였고 이를 바탕으로 내용을 정리해보도록 하자.&lt;/p&gt;
+
+&lt;p&gt;해당 &lt;a href=&quot;https://arxiv.org/abs/1612.00137&quot;&gt;논문&lt;/a&gt;은 AlphaPose 라고 github 에도 &lt;a href=&quot;https://github.com/MVIG-SJTU/AlphaPose&quot;&gt;공개&lt;/a&gt;되어 있는 open source framework 에 대한 설명이다.&lt;/p&gt;
+
+&lt;p&gt;여러 명의 사람(Multi-person)에 대해 자세 추정을 하는 데 있어서 높은 성능을 보여준다.&lt;/p&gt;
+
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image1.png&quot; alt=&quot;abstract&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;해당 논문에서는 &lt;em&gt;Regional Multi-person Pose Estimation(RMPE)&lt;/em&gt; 라는 새로운 model 에 대해 제시한다.&lt;/p&gt;
+
+&lt;p&gt;이 RMPE 는 다음의 세 가지로 구성이 된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Symmetric Spatial Transformer Network(SSTN)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Parallel Pose Non-Maximum-Suppression(NMS)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Pose-Guided Proposals Generator(PGPG)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이러한 새로운 모델을 통해 76.7mAP 라는 성능을 MPII(multi-person) dataset 에서 달성할 수 있었다.&lt;br /&gt;
+또한 public 으로 공개되어있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image2.png&quot; alt=&quot;introduction&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 논문에서 제시하는 RMPE 모델을 비롯해 모든 Top-down(이 논문에서는 two-step) 방식의 multi-person pose estimator 에게는 human detector 로부터 발생할 수 밖에 없는 에러가 존재한다.&lt;/p&gt;
+
+&lt;p&gt;state-of-the-art 의 human detector 들조차 localization 과 recognition 분야에서 small error 가 발생하고 있는데(100%의 성능을 가진 detector 는 아직 없음) 이러한 small error 는 &lt;em&gt;Single-Person Pose Estimator(SPPE)&lt;/em&gt; 에게는 많은 영향을 주기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;이는 보통 bounding box 가 완전히 정확하지 않은 것에서부터 오게 된다.&lt;br /&gt;
+따라서 이 논문에서는 이러한 inaccurate bounding box 에서도 제대로 pose 를 추정할 수 있도록 하는 것에 중점을 두었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image3.png&quot; alt=&quot;introduction&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;RMPE&lt;/em&gt; 는 앞서 언급했듯이 &lt;em&gt;SSTN&lt;/em&gt;, &lt;em&gt;Parametric Pose NMS&lt;/em&gt;, &lt;em&gt;PGPG&lt;/em&gt; 로 구성이 된다.&lt;br /&gt;
+뒤에서 자세히 살펴볼테지만 간략하게 훑고 넘어가면 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Symmetric Spatial Transformer Network(SSTN)&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;SPPE 의 양쪽에 붙어서 inaccurate bounding box 에서도 high-quality information 을 추출할 수 있게 한다.&lt;/li&gt;
+      &lt;li&gt;Parallel SPPE 를 branch 로 하나 더 가지고 있는데 이는 training 시 network 를 좀 더 optimal 하게 도와주는 부분이다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Parametric Pose NMS&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;NMS 의 속성을 이용해 redundant pose 를 제거한다.&lt;/li&gt;
+      &lt;li&gt;이 때 새로운 metric 인 pose similarity 를 사용하고, 이는 pose distance 를 기반으로 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Pose-Guided human Proposal Generator(PGPG)&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;해당 모듈은 training sample 을 augment 하고자 제시되었다.&lt;/li&gt;
+      &lt;li&gt;output 의 distribution 을 학습해 dataset 의 분포를 유지하며 적절한 training data 를 만들어내게 된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image4.png&quot; alt=&quot;related work&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이와 관련하여 기존의 연구들은 크게 두 가지 부류로 나뉜다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Single Person Pose Estimation&lt;br /&gt;
+  한 명에 대해 pose 를 추정하는 방식이다.
+    &lt;ol&gt;
+      &lt;li&gt;전통적인 방법으로 pictorial structure, graph based 등이 있다.&lt;/li&gt;
+      &lt;li&gt;최신의 기법인 deep learning 을 이용하는 방법들도 있는데, DeepPose, DNN based, CNN based 등의 여러 모델들이 있다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Multi Person Pose Estiamtion
+ 여러 명의 사람의 자세를 동시에 추정하는 방법이다.
+    &lt;ol&gt;
+      &lt;li&gt;Part based framework 로 keypoint 들을 바로 찾아내는 방법이 있다.&lt;/li&gt;
+      &lt;li&gt;two-step framework 는 먼저 사람의 bounding box 를 찾고 거기서 keypoint 를 찾아내는 방식이다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;regional-multi-person-pose-estimation&quot;&gt;Regional Multi-person Pose Estimation&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image5.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;RMPE&lt;/em&gt; 의 구조는 대략적으로 위와 같다.&lt;/p&gt;
+
+&lt;p&gt;여기서 이들이 제시하는 &lt;em&gt;Symmetric STN&lt;/em&gt; 이 왜 symmetric 인지 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;SPPE&lt;/em&gt; 를 통과시키기 전에 &lt;em&gt;STN&lt;/em&gt; 을 붙여놓았고, 통과시킨 후 &lt;em&gt;STN&lt;/em&gt; 과 비슷한 &lt;strong&gt;SDTN(Spatial De-Transformer Network)&lt;/strong&gt; 을 붙여 놓았다.&lt;/p&gt;
+
+&lt;p&gt;또한 training phase 에서 &lt;em&gt;Parallel SPPE&lt;/em&gt; 가 network 가 더 좋아질 수 있도록 도움을 주는 구조 역시 볼 수 있으며, &lt;em&gt;PGPG&lt;/em&gt; 가 pose 를 generation 하여 보강된 data 로 더 학습을 하는 것도 표현되어 있다.&lt;/p&gt;
+
+&lt;p&gt;뒷부분에는 &lt;em&gt;Parametric Pose NMS&lt;/em&gt; 가 중복되는 부분을 제거하여 최종적인 output 이 나타나는 것을 확인하고 넘어가자.&lt;/p&gt;
+
+&lt;h3 id=&quot;symmetric-stn-and-parallel-sppe&quot;&gt;Symmetric STN and Parallel SPPE&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image6.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Spatial Transformer Network&lt;/em&gt; 는 2D affine transformation 을 통해 high-quality dominant human proposal 을 추출하게 된다.&lt;/p&gt;
+
+&lt;p&gt;그리고 그 역과정은 &lt;em&gt;Spatial De-Transformer Network(SDTN)&lt;/em&gt; 은 &lt;em&gt;STN&lt;/em&gt; 을 통과한 결과값의 keypoint 들을 원래 image 에 대응되도록 remapping 해주는 과정을 나타낸다.&lt;/p&gt;
+
+&lt;p&gt;수식은 위의 슬라이드에서 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image7.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;SDTN&lt;/em&gt; 은 &lt;em&gt;STN&lt;/em&gt; 의 역과정으로 볼 수 있고 위와 같이 $\gamma$ 를 $\theta$ 로부터 계산해 낼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이러한 방식에서의 이점은 위와 같이 back propagation 단계에서 gradient 값을 계산하기에도 쉽다.&lt;/p&gt;
+
+&lt;p&gt;$\theta_3$ 에 대한 gradient 는 다음과 같이 계산할 수 있다.&lt;/p&gt;
+
+\[{\partial J(W,b) \over \partial\theta_3} = {\partial J(W,b) \over \partial\gamma_3} \times {\partial\gamma_3 \over \partial\theta_3}\]
+
+&lt;p&gt;${\partial \left[ \gamma_1\ \gamma_2\right] \over \partial \left[ \theta_1\ \theta_2\right]}$ 와 ${\partial \gamma_3 \over \partial\theta_3}$ 는 위에 제시된 식에서 쉽게 구할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image8.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Parallel SPPE&lt;/em&gt; 는 bad result(local minimum) 를 피하기 위해 존재한다.&lt;br /&gt;
+이 &lt;em&gt;Parallel SPPE&lt;/em&gt; 는 원래의 &lt;em&gt;SPPE&lt;/em&gt; 와 &lt;em&gt;STN&lt;/em&gt; 을 공유하나 &lt;em&gt;SDTN&lt;/em&gt; 은 존재하지 않는다.&lt;br /&gt;
+여기서 나오는 output 은 center-located ground truth pose 와 직접적으로(directly) 비교된다.&lt;/p&gt;
+
+&lt;p&gt;이 branch 의 weights 는 고정되는데, 이렇게 고정을 시키고 &lt;em&gt;STN&lt;/em&gt; module 에 center-located pose error 를 back propagation 하게 된다.&lt;br /&gt;
+이 때, 현재 추정된 pose 가 중앙에서 멀다면 large error 가 전파되고, 이는 &lt;em&gt;STN&lt;/em&gt; 이 학습을 잘하도록 하여 high-quality human dominant region 을 얻게 한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;sstn-structure-overview&quot;&gt;SSTN structure overview&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image9.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위에서 설명한 &lt;em&gt;SSTN&lt;/em&gt; 의 구조는 위의 도식에서 확인할 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;parametric-pose-nms&quot;&gt;Parametric Pose NMS&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image10.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이들이 제시하는 두 번째 module 인 &lt;em&gt;Parametric Pose NMS&lt;/em&gt; 는 기존의 pose NMS 를 개선시킨 것이라고 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;NMS 의 scheme 을 이용해 redundant 를 줄이는 것을 목표로 하는데, 이 때 여기서 이 논문에서 제시하는 metric 은 pose similarity 라고 한다.&lt;/p&gt;
+
+&lt;p&gt;이 pose similarity 는 pose distance 와 spatial distance metric 을 같이 사용한다.&lt;/p&gt;
+
+\[f(P_i, P_j|\Lambda,\eta) = \mathbb{1}[d(P_i, P_j|\Lambda, \lambda) \leq \eta]\]
+
+&lt;p&gt;위의 수식을 해석하면 다음과 같다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;pose similarity $d$ 가 threshold $\eta$ 보다 작은 경우 redundant 이므로 NMS 로 삭제한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;여기서 pose similarity $d$ 를 계산할 때 두 가지 metric 이 이용된다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;pose distance&lt;br /&gt;
+ 이는 pose 가 얼마나 다른지를 계산하는 수식이다. 가까울 수록 1의 값을 반환하며 멀 수록 그 값은 작아진다.&lt;br /&gt;
+ 이 때, $\mathcal{B}$는 box center 를 나타내며 dimension 은 original box 의 1/10 이다.&lt;/li&gt;
+  &lt;li&gt;spatial distance&lt;br /&gt;
+이는 part 간의 거리에 대한 수식이다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;위의 두 metric 을 이용해 pose similarity 를 정의하게 되었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image11.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 때, $f$ 는 4 개의 parameter 를 가지고 이를 exhaustive search 로 구하는 것은 overhead 가 큰 작업이다.&lt;br /&gt;
+이 논문에서는 2 개의 parameter 를 먼저 구하고 그 다음 2 개의 paramter 를 계산하는 방식으로 효율적이게 구할 수 있었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;pose-guided-proposals-generator&quot;&gt;Pose-Guided Proposals Generator&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image12.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;PGPG&lt;/em&gt; 를 생각해내게 된 배경은 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;학습을 시키는데에는 데이터가 많으면 좋다. 그런데 아무 데이터를 학습시킬 수는 없고 학습 시킬 수 있는 데이터가 필요한데, 원본 dataset 의 distribution 을 해치지 않으면서도 model 이 더 robust 하게 학습할 수 있는 방법이 없을까 해서 고안하게 되었다.&lt;br /&gt;
+뿐만 아니라, human detector 가 bounding-box 를 친다고 했을 때 완벽하지 않은(imperfect) human proposal 이 만들어질 수도 있다. 이러한 것은 testing 때 모듈이 제대로 동작하지 않을 수도 있다.(앞서 이야기 한 것처럼)&lt;/p&gt;
+
+&lt;p&gt;주요한 insight 는 detected b-box 와 ground truth b-box 사이의 distribution 을 모델링 할 수 있게 하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image13.png&quot; alt=&quot;rmpe&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;따라서 그 분포인 $P(\delta B&lt;/td&gt;
+      &lt;td&gt;P)$ 를 학습하면 좋으나 이를 직접적으로 학습하기에는 어렵다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;그래서 이들은 $atom(P)$ 라는 atomic pose 를 학습하도록 설계했다.&lt;br /&gt;
+이 atomic pose 는 pose 들의 사전(dictionary)이라고 볼 수 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;모든 pose 에 대해 torso(몸통) size 가 같도록 align 한다.&lt;/li&gt;
+  &lt;li&gt;이를 k-means 를 통해 clustering 을 진행해주도록 한다.&lt;/li&gt;
+  &lt;li&gt;atomic pose 들에 대해 cluster center 를 계산한다.&lt;/li&gt;
+  &lt;li&gt;ground truth b-box 와 detected b-box 의 차이를 계산해준다. 이 때 각 person instance 들은 같은 atomic pose 를 공유한다.(같은 atomic pose 군이다)&lt;/li&gt;
+  &lt;li&gt;offset 이 frequency distribution 을 형성하게 된다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;이제 atomic pose $a$ 에 해당하는지 보고, $P(\delta B&lt;/td&gt;
+      &lt;td&gt;a)$ 를 따르는 dense sampling 으로부터 추가적인 offset 을 생성해주게 된다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;experiments&quot;&gt;Experiments&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image14.png&quot; alt=&quot;experiments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 논문에서는 MPII dataset 과 MSCOCO 2016 keypoints Challenge dataset 을 사용하였다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image15.png&quot; alt=&quot;experiments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;first step 에서 사용할 human detector 로는 VGG-based SSD-512 를 선택하였다.&lt;br /&gt;
+SPPE(Single-Person Pose Estimator) 는 stacket-Hourglass 를 이용하였으며 Parallel SPPE 역시 마찬가지이다. 이 때 stack 의 개수는 4이다.&lt;br /&gt;
+STN 의 경우는 ResNet-18 을 사용하게 되었다.&lt;/p&gt;
+
+&lt;p&gt;여러 가지 실험을 통해 비교 우위의 성능을 내는 경우도 확인해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image16.png&quot; alt=&quot;experiments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그 결과 준수하게 성능이 올라가는 것을 MPII dataset 에서 확인할 수 있었다.&lt;br /&gt;
+특히 다른 모델들이 잘 추정하지 못하던 조금 특수한 부위(손목, 팔꿈치, 발목, 무릎 등)에 대한 성능은 평균적으로 72mAP 를 나타냈는데, 이는 다른 state-of-the-art 모델보다 3.3% 높은 수치이다.&lt;/p&gt;
+
+&lt;p&gt;강화된 버전으로는 82.1mAP 까지도 달성하는 것을 확인할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;그리고 MSCOCO dataset 에서도 78.6mAP 를 달성하는 것으로써 state-of-the-art perfomance 를 갱신할 수 있었고, 별 다른 튜닝을 하지 않았음에도 이러한 성능이 나온 것을 미루어보았을 때 더 나아갈 수 있으리라 판단된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image17.png&quot; alt=&quot;experiments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;잘 추정하는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image18.png&quot; alt=&quot;experiments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그러나 위와 같이 제대로 추정하지 못하는 케이스들이 존재했다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;드물게 취해지는 자세(사람 둘이서 시계?를 표현)&lt;/li&gt;
+  &lt;li&gt;오른쪽 두 사람이 너무 많이 겹쳐져있음&lt;/li&gt;
+  &lt;li&gt;중간의 노란 옷을 입은 사람이 human detector 로부터 검출되지 않음&lt;/li&gt;
+  &lt;li&gt;아기들 위의 놀이 기구 같은 것이 사람처럼 생겼다고 판단되어서 추정해버림&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이는 더 발전시켜서 보완해 볼 부분들이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image19.png&quot; alt=&quot;experiments&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 논문에서 제안한 세 가지 module 들이 정말 효용성 있는 것들인지 검증하는 실험도 진행해보았다.&lt;/p&gt;
+
+&lt;p&gt;각각의 module 들을 제거한 상태로 돌려보거나 바꾼 상태로 돌려봤을 때 위와 같은 결과를 얻을 수 있었다.&lt;br /&gt;
+꽤 많이 점수가 내려가는 것을 확인할 수 있고, 따라서 이 논문에서 제시한 세 가지 module 은 효용성이 있다고 판단할 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-10---rmpe-retional-multi-person-pose-estimation/image20.png&quot; alt=&quot;conclusion&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;결론적으로 이 논문에서 제시하는 &lt;em&gt;RMPE&lt;/em&gt; 는 높은 성능을 나타내며 state-of-the-art 를 갱신할 수 있었고, two-step framework 의 잠재적인 성능에 대해서 검증해 볼 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;그리고 여기서 제시된 모델로 인해 &lt;em&gt;SPPE(Single-Person Pose Estimator)&lt;/em&gt; 가 inaccurate bounding box 에서도 잘 검출할 수 있게 되기 시작했다.(localization error 를 극복할 수 있게 됨)&lt;/p&gt;
+
+&lt;p&gt;마지막으로 &lt;em&gt;Parametric Pose NMS&lt;/em&gt; 역시 redundant 를 잘 제거해주는 것을 확인할 수 있었다고 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;demo&quot;&gt;Demo&lt;/h2&gt;
+
+&lt;p&gt;AlphaPose&lt;br /&gt;
+&lt;img src=&quot;./alphapose.gif&quot; alt=&quot;alphapose&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;CrowdPose&lt;br /&gt;
+&lt;img src=&quot;./crowdpose.gif&quot; alt=&quot;crowdpose&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;PoseFlow&lt;br /&gt;
+&lt;img src=&quot;./posetrack.gif&quot; alt=&quot;poseflow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;PoseFlow&lt;br /&gt;
+&lt;img src=&quot;./posetrack2.gif&quot; alt=&quot;poseflow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이는 AlphaPose 의 &lt;a href=&quot;&quot;&gt;github&lt;/a&gt; 에서 가지고 온 demo 영상이다.&lt;br /&gt;
+굉장히 잘 추정하는 것을 확인할 수 있다.&lt;br /&gt;
+밑의 두 가지는 PoseFlow 로 pose tracking 이 가능하게 구현해놓은 것이다.&lt;br /&gt;
+이를 이용하면 post 의 context 를 이용해 순간적으로 가려지는 경우 등에도 대응할 수 있게 되는 것으로 보여진다.&lt;/p&gt;</content><author><name>Younghk</name></author><category term="Machine Learning" /><category term="Machine Learning" /><category term="Pose Estimation" /><summary type="html">RMPE: Regional Multi-person Pose Estimation 라는 논문에 대해 간략히 학습하였고 이를 바탕으로 내용을 정리해보도록 하자.</summary></entry><entry><title type="html">Linux Command Line 명령어 정리</title><link href="http://localhost:4000/etc/2020-01-10---linux-command-line/" rel="alternate" type="text/html" title="Linux Command Line 명령어 정리" /><published>2020-01-10T06:45:24+09:00</published><updated>2020-01-10T06:45:24+09:00</updated><id>http://localhost:4000/etc/--linux-command-line</id><content type="html" xml:base="http://localhost:4000/etc/2020-01-10---linux-command-line/">&lt;p&gt;자주 쓰는 command 정리&lt;/p&gt;
 
 &lt;h2 id=&quot;directory--files&quot;&gt;Directory / Files&lt;/h2&gt;
 
@@ -888,903 +1301,121 @@ mput filename? &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quo
 
 &lt;hr /&gt;
 
-&lt;p&gt;참고 : https://vim.rtorr.com/lang/ko&lt;/p&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="vi" /><category term="vim" /><category term="command line" /><summary type="html">저장 및 종료</summary></entry><entry><title type="html">Netlify 로 github 블로그 이전하기</title><link href="http://localhost:4000/etc/2019-10-30---netlify-migration/" rel="alternate" type="text/html" title="Netlify 로 github 블로그 이전하기" /><published>2019-10-30T00:00:00+09:00</published><updated>2019-10-30T00:00:00+09:00</updated><id>http://localhost:4000/etc/--netlify-migration</id><content type="html" xml:base="http://localhost:4000/etc/2019-10-30---netlify-migration/">&lt;h2 id=&quot;netlify&quot;&gt;Netlify&lt;/h2&gt;
+&lt;p&gt;참고 : https://vim.rtorr.com/lang/ko&lt;/p&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="vi" /><category term="vim" /><category term="command line" /><summary type="html">저장 및 종료</summary></entry><entry><title type="html">Cascade Feature Aggregation for Human Pose Estimation</title><link href="http://localhost:4000/machine%20learning/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/" rel="alternate" type="text/html" title="Cascade Feature Aggregation for Human Pose Estimation" /><published>2020-01-08T21:53:57+09:00</published><updated>2020-01-08T21:53:57+09:00</updated><id>http://localhost:4000/machine%20learning/--cascade-feature-aggregation-for-human-pose-estimation</id><content type="html" xml:base="http://localhost:4000/machine%20learning/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/">&lt;h1 id=&quot;cascade-feature-aggregation-for-human-pose-estimation&quot;&gt;Cascade Feature Aggregation for Human Pose Estimation&lt;/h1&gt;
 
-&lt;p&gt;빌드를 로컬에서 하기에는 리소스에 부담되기도 해서 자동 배포가 되는 Netlify 로 이전하기로 하였다.&lt;/p&gt;
+&lt;p&gt;MPII Human Pose 데이터셋에서 두각을 나타내는 연구 결과인 Cascade Feature Aggregation for Human Pose Estimation 논문을 간략하게 정리해보자.&lt;/p&gt;
 
-&lt;p&gt;이전 주소는 https://younghk.netlify.com 이다.&lt;/p&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 
-&lt;p&gt;매번 로컬에서 빌드하다가 고통받던 나의 컴퓨터,,,&lt;br /&gt;
-이제 비행기 이륙은 그만!!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image1.png&quot; alt=&quot;abstract&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2019-10-30---netlify-migration/image1.png&quot; alt=&quot;build image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;이 논문에서 제안하는 &lt;em&gt;CFA(Cascasde Feature Aggregation)&lt;/em&gt; 을 이용하여 MPII 에서 SOTA 를 갱신할 수 있었다.&lt;/p&gt;
 
-&lt;p&gt;&lt;small&gt;지난 블로그는 https://younghk.github.io 에서 확인할 수 있다.&lt;/small&gt;&lt;/p&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="blog" /><category term="Netlify" /><summary type="html">Netlify</summary></entry><entry><title type="html">[BOJ 12886] 돌 그룹</title><link href="http://localhost:4000/boj/2019-10-18---boj-12886/" rel="alternate" type="text/html" title="[BOJ 12886] 돌 그룹" /><published>2019-10-18T03:08:00+09:00</published><updated>2019-10-18T03:08:00+09:00</updated><id>http://localhost:4000/boj/--boj-12886</id><content type="html" xml:base="http://localhost:4000/boj/2019-10-18---boj-12886/">&lt;p&gt;문제 출처 : https://www.acmicpc.net/problem/12886&lt;/p&gt;
+&lt;p&gt;high-level semantic information 의 이점을 활용하며, 여러 개의 &lt;em&gt;Hourglass network&lt;/em&gt; 를 이용하였고, feature 와 result 를 복합적으로 사용한 것이 핵심이다.&lt;/p&gt;
 
-&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;이 문제를 BFS 를 이용해 완전 탐색의 기법으로 풀어낼 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image2.png&quot; alt=&quot;introduction&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;이 때, $500^3$ 을 배열로 잡을 수가 없어서 헤맬 수 있으나,&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;CFA&lt;/em&gt; 는 여러개의 &lt;em&gt;Hourglass network&lt;/em&gt; 를 가지고 있다.&lt;br /&gt;
+위의 도식에서 볼 수 있듯이 cascade 하게 모델을 구성하였으며, 이러한 방식을 활용해 각기 다른 stage 에서 feature 를 추출하여 가지고 가게 된다.&lt;/p&gt;
 
-\[A+B+C = sum \\
-C = sum-A-B\]
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image3.png&quot; alt=&quot;introduction&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;이라는 간단한 수학을 이용하면 $500^2$ 의 공간을 가지고 탐색을 진행할 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;related-work&quot;&gt;Related Work&lt;/h2&gt;
 
-&lt;p&gt;물론 500 만큼만 잡으면 탐색을 하는데 조금 문제가 있을 수 있는데, 500보다 큰 범위로 배열을 설정해주어야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image4.png&quot; alt=&quot;related work&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;X+X 와 Y-X 로 각각 변화하는 숫자에 있어서 최대 최소는 각각 0~1000 임을 생각할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;따라서 공간 복잡도는 $1000^2$ 이 된다.&lt;/p&gt;
-
-&lt;p&gt;이것을 구현하는 방법은 다양할 수 있는데, 아래는 아주 대충 짠 코드이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;queue&amp;gt;
-#include &amp;lt;algorithm&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pair&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pii&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MAX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1010&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pii&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// A &amp;lt; B &amp;lt; C;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;pii&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;front&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//cout &amp;lt;&amp;lt; A &amp;lt;&amp;lt; &quot; &quot; &amp;lt;&amp;lt; B &amp;lt;&amp;lt; &quot; &quot; &amp;lt;&amp;lt; C &amp;lt;&amp;lt; endl;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pii&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;na&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]){&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;make_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;수학적-접근&quot;&gt;수학적 접근&lt;/h2&gt;
-
-&lt;p&gt;그러나 이 문제는 이러한 완전탐색 기법을 적용하는 문제는 아니다.&lt;/p&gt;
-
-&lt;p&gt;세 가지 수가 모두 같은 수가 되려면 어떤 상태인 것인가?&lt;/p&gt;
-
-&lt;p&gt;바로 &lt;strong&gt;평균&lt;/strong&gt; 이다.&lt;/p&gt;
-
-&lt;p&gt;즉, 세 수의 합이 3의 배수가 아니면 답은 자명하게도 0 이 나와야 한다.&lt;/p&gt;
-
-&lt;p&gt;그렇다면 세 수의 합이 3의 배수이면 답은 1 인가?&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;그렇지는 않다.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;해당 문제를 보면 작은 수 X 는 X+X 가 되어 2X 가 되게 되고, 큰 수 Y 는 Y-X 가 된다.&lt;/p&gt;
-
-&lt;p&gt;여기서 착안해서 다음과 같은 접근을 할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Pose Estimation&lt;/em&gt; 분야는 크게 두 가지 접근법으로 나뉜다.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;입력값의 합은 3의 배수여야한다.&lt;/li&gt;
-  &lt;li&gt;입력값들의 최대공약수로 합을 나눴을 때도 3의 배수여야 한다.(1의 계산은 여기서 합쳐진다.)&lt;/li&gt;
-  &lt;li&gt;2에서 계산된 값은 $2^k \times 3$ 꼴이어야 한다.&lt;/li&gt;
+  &lt;li&gt;Single-Stage Approach
+    &lt;ul&gt;
+      &lt;li&gt;기본 구조를 설계하는데 주로 관심을 많이 가진다.&lt;/li&gt;
+      &lt;li&gt;Hourglass : 다른 scale 에서의 정보에 대해 어떻게 처리할지에 대한 고찰이 있다.&lt;/li&gt;
+      &lt;li&gt;CPN(Cascaded Pyramid Network) : Hourglass 와 FPN(Parallel Feature Pyramid Network)의 이점을 모두 지닌다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mutli-Stage Approach
+    &lt;ul&gt;
+      &lt;li&gt;다중 구조를 설계하는데 관심을 가진다.&lt;/li&gt;
+      &lt;li&gt;기본 구조(e.g., Hourglass, ResNet, …)를 이용해 다양한 모델이 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;어떻게 이런 접근 방법이 나왔을까?&lt;/p&gt;
-
-&lt;p&gt;핵심은 X+X=2X, Y-X 가 되면서 다음으로 진행된다는 것이다.&lt;/p&gt;
-
-&lt;p&gt;즉, 한 step 마다 수식(또는 인수라고도 생각할 수 있다)에 소인수 2가 추가되는 것이고, 결국 최종적으로 세 수가 같아지는 평균 M에는 몇 개의 소인수 2가 있을 것이다. 즉 $2^k$ 형태가 되게 된다.&lt;br /&gt;
-조금 엄밀하게 말하자면, $M = 2^k * G$ 의 꼴이 될 것인데, 여기서의 $G$ 가 바로 최대공약수(gcd) 이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cal_bit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gcd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cal_bit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;개선할-점&quot;&gt;개선할 점&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;naive BFS 코드에서 모듈화하면 코드가 간결해진다. 리팩토링을 해보자.&lt;/li&gt;
-  &lt;li&gt;수학적 접근 방법에서 엄밀한 증명이 필요하다.&lt;/li&gt;
-  &lt;li&gt;gcd 와 cal_bit 를 내장 함수(**gcd, **builtin_popcount)를 사용할 경우 코드가 간결해진다.&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Younghk</name></author><category term="BOJ" /><category term="PS" /><category term="Algorithm" /><category term="C++" /><category term="BOJ" /><summary type="html">문제 출처 : https://www.acmicpc.net/problem/12886</summary></entry><entry><title type="html">[BOJ 2125] Mothy</title><link href="http://localhost:4000/boj/2019-10-09---boj-2125/" rel="alternate" type="text/html" title="[BOJ 2125] Mothy" /><published>2019-10-09T02:11:00+09:00</published><updated>2019-10-09T02:11:00+09:00</updated><id>http://localhost:4000/boj/--boj-2125</id><content type="html" xml:base="http://localhost:4000/boj/2019-10-09---boj-2125/">&lt;h2 id=&quot;boj-2125-mothy&quot;&gt;[BOJ 2125] Mothy&lt;/h2&gt;
-
-&lt;p&gt;문제 출처 : https://www.acmicpc.net/problem/2125&lt;/p&gt;
-
-&lt;h2 id=&quot;풀이&quot;&gt;풀이&lt;/h2&gt;
-
-&lt;p&gt;기하문제이다. 기하문제는 정말이지 즐겁다^^&lt;/p&gt;
-
-&lt;p&gt;기하문제이기 때문에 기본적으로 CCW를 사용하게 되는데, 문제의 조건에 따라&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;볼록다각형의 테두리는 지나갈 수 있음&lt;/li&gt;
-  &lt;li&gt;그러므로 다각형이 맞닿아 있는 곳도 지나갈 수 있음&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;을 생각해서 CCW를 구현해 주어야 한다.&lt;/p&gt;
-
-&lt;p&gt;뿐만 아니라, 소수점까지 계산해야하는 문제이기에, 정수 또는 소수 처리를 잘 해주어야 한다.&lt;/p&gt;
-
-&lt;p&gt;의식의 흐름대로 풀이를 정리하면 아래와 같다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;모든 볼록다각형의 정점(&lt;em&gt;convex&lt;/em&gt;), 시작점과 끝점을 포함한 모든 다각형의 모든 정점(&lt;em&gt;node&lt;/em&gt;)를 기억한다.&lt;/li&gt;
-  &lt;li&gt;각 정점들이 볼록다각형(&lt;em&gt;convex&lt;/em&gt;)안에 존재(&lt;em&gt;isIn&lt;/em&gt;)하는지 미리 판단한다. 볼록다각형에 존재한다면 해당 정점은 향후에 계산해 줄 필요가 없다. 갈 수 없는 정점이므로.&lt;/li&gt;
-  &lt;li&gt;다각형 밖에 있는 정점(&lt;em&gt;out_conv&lt;/em&gt;, &lt;em&gt;i&lt;/em&gt;)인 정점들을 대상으로 다른 다각형 밖에 있는 정점(&lt;em&gt;j&lt;/em&gt;)들로 직선 거리로 갈 수 있는지 계산(&lt;em&gt;isCross&lt;/em&gt;)한다.&lt;/li&gt;
-  &lt;li&gt;이 때, &lt;em&gt;i&lt;/em&gt; 에서 &lt;em&gt;j&lt;/em&gt; 의 중점 역시 다각형 안에 존재하는지 확인(&lt;em&gt;isIn&lt;/em&gt;)한다.&lt;/li&gt;
-  &lt;li&gt;3과 4의 과정을 모두 통과한다면 &lt;em&gt;i&lt;/em&gt; 에서 &lt;em&gt;j&lt;/em&gt; 의 직선 거리를 계산해서 기억한다.&lt;/li&gt;
-  &lt;li&gt;마음에 드는 최단 경로 알고리즘으로 시작점에서 끝점까지의 최단 경로를 계산한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;vector&amp;gt;
-#include &amp;lt;queue&amp;gt;
-#include &amp;lt;cmath&amp;gt;
-#include &amp;lt;cstdlib&amp;gt;
-#include &amp;lt;functional&amp;gt;
-#include &amp;lt;algorithm&amp;gt;
-#define min2(x,y) (x&amp;lt;y?x:y)
-#define max2(x,y) (x&amp;gt;y?x:y)
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pair&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MAXN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;310&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;operator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAXN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAXN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;priority_queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;greater&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out_conv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAXN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MAXN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;outer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CCW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isCross&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;abc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CCW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;abd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CCW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cda&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CCW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CCW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ab&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;abc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cda&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ab&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;square&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ccw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CCW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ccw&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CCW&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;ios&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sync_with_stdio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-	&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;cin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;out_conv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out_conv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;out_conv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-					&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isCross&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-				&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isCross&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-			&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dista&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;square&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dista&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push_back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dista&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1e9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;pq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;pq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;pq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;second&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1e9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;precision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fixed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;조심해야할-부분&quot;&gt;조심해야할 부분&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;정점이 볼록 다각형 내부에 위치하는지 판별을 정확히 해주어야한다.&lt;/li&gt;
-  &lt;li&gt;맞닿은 부분 및 다각형의 모서리 위를 지나갈 수 있기에 CCW를 잘 구현해야한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;개선할-점&quot;&gt;개선할 점&lt;/h2&gt;
-
-&lt;p&gt;잔 실수를 줄여보자.&lt;/p&gt;</content><author><name>Younghk</name></author><category term="BOJ" /><category term="PS" /><category term="Algorithm" /><category term="C++" /><category term="BOJ" /><summary type="html">[BOJ 2125] Mothy</summary></entry><entry><title type="html">Markdown을 써보자</title><link href="http://localhost:4000/etc/2019-10-04---markdown-usage/" rel="alternate" type="text/html" title="Markdown을 써보자" /><published>2019-10-04T17:03:00+09:00</published><updated>2019-10-04T17:03:00+09:00</updated><id>http://localhost:4000/etc/--markdown-usage</id><content type="html" xml:base="http://localhost:4000/etc/2019-10-04---markdown-usage/">&lt;h2 id=&quot;markdown-이란&quot;&gt;Markdown 이란&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.md&lt;/code&gt; 의 확장자를 지닌 파일이 Markdown 문법으로 작성된 파일이다.&lt;br /&gt;
-흔히 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;README.md&lt;/code&gt; 로 개발하면서 많이 볼 수 있는 문서!&lt;br /&gt;
-문법이 간결하고 쉬우면서도 문서를 적당히 꾸밀 수 있다.&lt;br /&gt;
-Markdown은 HTML의 마크업의 일부를 대신한다고 볼 수 있는데, 모든 것을 대신하지는 못하므로 한계가 존재하긴 한다.&lt;br /&gt;
-그러나 지원하는 플랫폼도 많고(&lt;small&gt;파생 문법들이 많으나 기본 문법은 대부분의 플랫폼에서 지원한다고 한다&lt;/small&gt;), 무엇보다 빠르게 배울 수 있으므로 종종 쓰게 될 것 같은 Markdown!
-정리를 해보자.
-메모장에다가 바로 작성할 수도 있지만 에디터가 있으면 조금 더 편리하다.&lt;br /&gt;
-개인적으로는 &lt;a href=&quot;https://code.visualstudio.com&quot;&gt;VS Code&lt;/a&gt;를 사용하고 있는데, 여러 프로그램 깔기가 귀찮아서,,,ㅎㅎ&lt;/p&gt;
-
-&lt;h2 id=&quot;markdown-문법&quot;&gt;Markdown 문법&lt;/h2&gt;
-
-&lt;p&gt;마크다운 문법에 대해 알아보자.&lt;/p&gt;
-
-&lt;h3 id=&quot;제목headings&quot;&gt;제목(Headings)&lt;/h3&gt;
-
-&lt;p&gt;제목은 HTML의 h 태그로 변환된다.&lt;br /&gt;
-h1~h6까지 각각 # 의 개수로 변환이 되는데, 예를 들어 h2 태그처럼 만들고 싶다면 `## 제목` 과 같이 쓰면 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;# 제목1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h1&amp;gt;제목1&amp;lt;/h1&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h1&amp;gt;제목1&amp;lt;/h1&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;## 제목2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h2&amp;gt;제목2&amp;lt;/h2&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h2&amp;gt;제목2&amp;lt;/h2&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;### 제목3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h3&amp;gt;제목3&amp;lt;/h3&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h3&amp;gt;제목3&amp;lt;/h3&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;#### 제목4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h4&amp;gt;제목4&amp;lt;/h4&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h4&amp;gt;제목4&amp;lt;/h4&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;##### 제목5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h5&amp;gt;제목5&amp;lt;/h5&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h5&amp;gt;제목5&amp;lt;/h5&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;###### 제목6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h6&amp;gt;제목6&amp;lt;/h6&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h6&amp;gt;제목6&amp;lt;/h6&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;제목추가&quot;&gt;제목(추가)&lt;/h3&gt;
-
-&lt;p&gt;제목은 ===(level 1)나 —(level 2)를 추가해서도 표현할 수 있다.&lt;br /&gt;
-=나 -의 개수는 상관이 없다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;제목 level 1&lt;br /&gt;======&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h1&amp;gt;제목 level 1&amp;lt;/h1&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h1&amp;gt;제목 level 1&amp;lt;/h1&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;제목 level 2&lt;br /&gt;——&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h2&amp;gt;제목 level 2&amp;lt;/h2&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;h2&amp;gt;제목 level 2&amp;lt;/h2&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;문단paragraphs&quot;&gt;문단(Paragraphs)&lt;/h3&gt;
-
-&lt;p&gt;문단은 빈 줄을 이용해서 표현하면 된다.(?!) 
-문단의 앞에 띄어쓰기나 탭으로 공간을 띄울 수는 없다.(들여쓰기 안됨!)&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;문단1&lt;br /&gt;문단2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;p&amp;gt;문단1&amp;lt;/p&amp;gt;&lt;br /&gt;&amp;lt;p&amp;gt;문단2&amp;lt;/p&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;p&amp;gt;문단1&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;문단2&amp;lt;/p&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;줄-바꿈line-breaks&quot;&gt;줄 바꿈(Line Breaks)&lt;/h3&gt;
-
-&lt;p&gt;줄바꿈은 두 개 이상의 띄어쓰기(공백)를 문장의 끝에 해주면 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;첫 번째 줄&lt;br /&gt;두 번째 줄&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;p&amp;gt;첫 번째 줄&amp;lt;br&amp;gt;두 번째 줄&amp;lt;/p&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;p&amp;gt;첫 번째 줄&lt;br /&gt;두 번째 줄&amp;lt;/p&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;강조emphasis&quot;&gt;강조(Emphasis)&lt;/h3&gt;
-
-&lt;p&gt;글을 쓸 때 굵게 하거나 기울임으로써 강조를 줄 수 있다.&lt;/p&gt;
-
-&lt;h4 id=&quot;굵게bold&quot;&gt;굵게(Bold)&lt;/h4&gt;
-
-&lt;p&gt;굵게 쓰기 위해서는 *나 _를 글 양 옆으로 두 개씩 삽입하면 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 **굵게** 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;strong&amp;gt;굵게&amp;lt;/strong&amp;gt; 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;strong&gt;굵게&lt;/strong&gt; 써보자.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 __굵게__ 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;strong&amp;gt;굵게&amp;lt;/strong&amp;gt; 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;strong&gt;굵게&lt;/strong&gt; 써보자.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;기울임italic&quot;&gt;기울임(Italic)&lt;/h4&gt;
-
-&lt;p&gt;글을 기울이기 위해서는 *나 _를 글 양 옆으로 한 개씩 삽입하면 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 *기울여* 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;em&amp;gt;기울여&amp;lt;/em&amp;gt; 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;em&gt;기울여&lt;/em&gt; 써보자.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 _기울여_ 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;em&amp;gt;기울여&amp;lt;/em&amp;gt; 써보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;em&gt;기울여&lt;/em&gt; 써보자.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;그렇다면 굵게 기울게는 어떻게 할까? 간단하다. *나 _를 글 양 옆으로 세 개씩 삽입하면 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 ***굵고 기울게*** 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;굵고 기울게&amp;lt;strong&amp;gt;&amp;lt;/em&amp;gt; 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&amp;lt;/strong&amp;gt;&lt;/em&gt; 해보자.&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 ___굵고 기울게___ 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;굵고 기울게&amp;lt;strong&amp;gt;&amp;lt;/em&amp;gt; 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&amp;lt;/strong&amp;gt;&lt;/em&gt; 해보자.&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 __*굵고 기울게__* 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;굵고 기울게&amp;lt;strong&amp;gt;&amp;lt;/em&amp;gt; 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&amp;lt;/strong&amp;gt;&lt;/em&gt; 해보자.&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;글을 **_굵고 기울게**_ 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &amp;lt;strong&amp;gt;&amp;lt;em&amp;gt;굵고 기울게&amp;lt;strong&amp;gt;&amp;lt;/em&amp;gt; 해보자.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&amp;lt;/strong&amp;gt;&lt;/em&gt; 해보자.&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;인용blockquotes&quot;&gt;인용(Blockquotes)&lt;/h3&gt;
-
-&lt;p&gt;인용문을 써보고 싶다면, &amp;gt; 를 문단의 앞에 위치시키면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; 마크다운 인용문 넣어보기
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 문장은 아래와 같이 나타난다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;마크다운 인용문 넣어보기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;여러 문장(또는 문단)을 한 번에 인용시킬 수도 있는데, &amp;gt;를 계속 붙여주면 된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; 마크다운 인용문 넣어보기  
-&amp;gt;  
-&amp;gt; 인용문을 계속 넣어보기
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이는 아래와 같이 나타난다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;마크다운 인용문 넣어보기&lt;/p&gt;
-
-  &lt;p&gt;인용문을 계속 넣어보기&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;중첩 인용문(Neste Blockquotes)를 만들수도 있는데, &amp;gt;의 개수를 늘리면 인용문이 중첩된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; 마크다운 인용문 넣어보기  
-&amp;gt;  
-&amp;gt;&amp;gt; 중첩 인용문도 넣어보기  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이는 아래와 같이 나타난다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;마크다운 인용문 넣어보기&lt;/p&gt;
-
-  &lt;blockquote&gt;
-    &lt;p&gt;중첩 인용문도 넣어보기&lt;/p&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;인용문 안에는 다른 마크다운 문법에서 사용되는 것들을 사용할 수 있다.(Lists, Heading, …)&lt;/p&gt;
-
-&lt;h3 id=&quot;목차lists&quot;&gt;목차(Lists)&lt;/h3&gt;
-
-&lt;p&gt;번호나 기호를 이용해서 리스트 형태로 글을 작성할 때 쓸 수 있다. 번호를 넣으면 순서가 있고, 기호를 넣으면 순서 구분이 없다.&lt;/p&gt;
-
-&lt;h4 id=&quot;순서있는-목차ordered-lists&quot;&gt;순서있는 목차(Ordered Lists)&lt;/h4&gt;
-
-&lt;p&gt;번호를 넣어서 리스트를 만들 수 있는데, 번호를 매기는데 숫자의 순서가 중요하지는 않다. 다만 첫 시작이 숫자여야 제대로 작성된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;1. 첫 번째&lt;br /&gt;2. 두 번째&lt;br /&gt;3. 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;1. 첫 번째&lt;br /&gt;1. 두 번째&lt;br /&gt;1. 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;1. 첫 번째&lt;br /&gt;5. 두 번째&lt;br /&gt;3. 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;1. 첫 번째&lt;br /&gt;2. 두 번째&lt;br /&gt;  1. 새끼 번호 1&lt;br /&gt;  2. 새끼 번호 2&lt;br /&gt;3. 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&lt;br /&gt;&amp;lt;ol&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;새끼 번호 1&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;새끼 번호 2&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ol&amp;gt;&lt;br /&gt;&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ol&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;ol&amp;gt;&amp;lt;li&amp;gt;새끼 번호 1&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;새끼 번호 2&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;순서없는-목차unordered-lists&quot;&gt;순서없는 목차(Unordered Lists)&lt;/h4&gt;
-
-&lt;p&gt;순서없이 기호로만 리스트를 만드려면 -, *, +를 사용하면 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Markdown&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;HTML&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;결과&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;- 첫 번째&lt;br /&gt;- 두 번째&lt;br /&gt;- 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;* 첫 번째&lt;br /&gt;* 두 번째&lt;br /&gt;* 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;+ 첫 번째&lt;br /&gt;* 두 번째&lt;br /&gt;- 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;- 첫 번째&lt;br /&gt;- 두 번째&lt;br /&gt;  - 새끼 번호 1&lt;br /&gt;  - 새끼 번호 2&lt;br /&gt;- 세 번째&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;두 번째&lt;br /&gt;&amp;lt;ul&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;새끼 번호 1&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;새끼 번호 2&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ul&amp;gt;&lt;br /&gt;&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&lt;br /&gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;첫 번째&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;두 번째&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;새끼 번호 1&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;새끼 번호 2&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;lt;li&amp;gt;세 번째&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;코드code&quot;&gt;코드(Code)&lt;/h3&gt;
-
-&lt;p&gt;코드 블록은 매 줄마다 네 칸 이상을 띄우거나 탭 하나 이상을 두고 입력하면 된다.&lt;/p&gt;
-
-&lt;p&gt;     &amp;lt;html&amp;gt;&lt;br /&gt;
-  &amp;lt;head&amp;gt;&lt;br /&gt;
-  &amp;lt;/head&amp;gt;&lt;br /&gt;
- &amp;lt;/html&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;이는 아래와 같이 나타난다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-    &amp;lt;/head&amp;gt;
-&amp;lt;html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;또 다른 방법으로는 `(tick)을 세 개 넣는 방법이다.&lt;/p&gt;
-
-&lt;p&gt;```&lt;br /&gt;
-&amp;lt;html&amp;gt;&lt;br /&gt;
- &amp;lt;head&amp;gt;&lt;br /&gt;
- &amp;lt;/head&amp;gt;&lt;br /&gt;
-&amp;lt;html&amp;gt;&lt;br /&gt;
-```&lt;/p&gt;
-
-&lt;p&gt;이렇게 쓰면 아래와 같이 나타난다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;html&amp;gt;
-    &amp;lt;head&amp;gt;
-    &amp;lt;/head&amp;gt;
-&amp;lt;html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;``` &lt;언어 타입=&quot;&quot;&gt;으로 syntax highlight를 줄 수 있다.(플랫폼 별 상이한듯?)&lt;/언어&gt;&lt;/p&gt;
-
-&lt;p&gt;```html&lt;br /&gt;
-&amp;lt;html&amp;gt;&lt;br /&gt;
- &amp;lt;head&amp;gt;&lt;br /&gt;
- &amp;lt;/head&amp;gt;&lt;br /&gt;
-&amp;lt;html&amp;gt;&lt;br /&gt;
-```&lt;/p&gt;
-
-&lt;p&gt;이는 아래처럼 나타난다.&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;와! 더 이쁘다!&lt;/p&gt;
-
-&lt;h3 id=&quot;평행선horizontal-rules&quot;&gt;평행선(Horizontal Rules)&lt;/h3&gt;
-
-&lt;p&gt;평행선은 세 개 이상의 *, -, _ 를 연속으로 붙여쓰면 만들 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;***
-
----
-
-______
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;아래와 같은 줄이 생기는 것을 볼 수 있다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;이미지images&quot;&gt;이미지(Images)&lt;/h3&gt;
-
-&lt;p&gt;이미지는 아래와 같은 형식으로 넣을 수 있다.&lt;br /&gt;
-![alt name](image path)&lt;br /&gt;
-[] 안에는 대체 문구, () 안에는 이미지 파일의 경로를 넣으면 된다.&lt;/p&gt;
-
-&lt;p&gt;![sky](/assets/images/2019-10-04—markdown-usage/image1.jpg)&lt;/p&gt;
-
-&lt;p&gt;아래 처럼 사진이 나타나게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;./image1.jpg&quot; alt=&quot;sky&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;표table&quot;&gt;표(Table)&lt;/h3&gt;
-
-&lt;p&gt;간단하게 표도 작성해 볼 수 있다.
-HTML 에서는 &amp;lt;table&amp;gt; 코드가 되며 header cell 과 body cell 로 나누어서 작성하게된다.&lt;br /&gt;
-헤더 셀에서 : 를 통해 좌/우/가운데 정렬을 지정할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;|이름|종류|요약|
-|:---|:---:|:---:|
-|HTML|웹 언어|웹 페이지를 만드는데 사용|
-|C++|범용 언어|C언어 + 객체지향|
-|Javascript|웹 언어|웹 브라우저에서 사용하는 스크립트 언어|
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;가장 좌우측에 위치한&lt;/td&gt;
-      &lt;td&gt;기호는 생략 가능하다.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;이름|종류|요약
-:---|:---:|:---:
-HTML|웹 언어|웹 페이지를 만드는데 사용
-C++|범용 언어|C언어 + 객체지향
-Javascript|웹 언어|웹 브라우저에서 사용하는 스크립트 언어
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;아래와 같이 표가 만들어지게 된다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;이름&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;종류&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;요약&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;HTML&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;웹 언어&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;웹 페이지를 만드는데 사용&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;C++&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;범용 언어&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;C언어 + 객체지향&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Javascript&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;웹 언어&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;웹 브라우저에서 사용하는 스크립트 언어&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;escaping-characters&quot;&gt;Escaping Characters&lt;/h3&gt;
-
-&lt;p&gt;지금까지 서술했듯이 여러 기호들은 기능을 가지고 있는 경우가 있다. 따라서 충돌이 일어나지 않게 하기 위해서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&lt;/code&gt;&lt;small&gt;(백슬래시)&lt;/small&gt;를 이용해서 안전하게 글을 작성해보자.&lt;/p&gt;
-
-&lt;h3 id=&quot;링크links&quot;&gt;링크(Links)&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;https://younghk.github.io&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이렇게 일반적인 링크를 달 수도 있지만, 글자나 이미지에 링크를 달 수도 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[블로그](https://younghk.github.io/)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;예 : &lt;a href=&quot;https://younghk.github.io/&quot;&gt;블로그&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;공백spaces&quot;&gt;공백(Spaces)&lt;/h3&gt;
-
-&lt;p&gt;마크다운은 기본적으로 공백을 지원하지 않지만, HTML에서는 공백을 표현하기 위한 코드가 있다. 즉, 우회적으로 마크다운에서도 공백을 표현해 볼 수 있다.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;공백 코드&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;내용&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;\ &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;한칸 공백&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;\ &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;두칸 공백&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;\ &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;네칸 공백&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;이 외에도 조금 기능이 더 있는데 추후에 쓸 일이 있거나 하면 추가해봐야겠다. ^_^&lt;/p&gt;
-
-&lt;p&gt;참고 : https://www.markdownguide.org/basic-syntax/&lt;/p&gt;</content><author><name>Younghk</name></author><category term="ETC" /><category term="Markdown" /><summary type="html">Markdown 이란</summary></entry></feed>
+&lt;h2 id=&quot;network-architecture&quot;&gt;Network Architecture&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image5.png&quot; alt=&quot;network architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;CFA&lt;/em&gt; 는 다른 많은 모델들처럼 coarse-to-fine 구조를 지닌다.&lt;br /&gt;
+이 때, 여러 개의 Hourglass network 를 cascade 방식으로 연결시켰으며 이 연결에 있어서 feature 들을 aggregation 시켜 준다.&lt;br /&gt;
+*element-wise sum&lt;/p&gt;
+
+&lt;p&gt;첫 번째 stage 는 keypoint 들의 위치를 대략적으로 추정하게 되고, 그 다음부터 Hourglass network 를 이용해 preview prediction 과 current prediction 을 결합하며 refining 하는 단계를 거친다.&lt;/p&gt;
+
+&lt;p&gt;최종적으로 마지막 몇 개의 stage(논문에서는 2~3개) 에서만 heatmap 을 추출해 최종적인 답을 내게 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image6.png&quot; alt=&quot;network architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;CFA&lt;/em&gt; 는 backbone model 로 kernel size 가 4 인 Hourglass 와 ResNet 을 이용하였다.&lt;br /&gt;
+이 때, ResNet 의 경우 deep 할 수록 성능이 좋아지는 것을 실험적으로 확인할 수 있었는데, performance 와 computational cost 를 고려했을 때 ResNet-101 이 적절해보인다고 생각했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image7.png&quot; alt=&quot;network architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;CFA&lt;/em&gt; 의 구조를 보면, low-level, middle-level, high-level 에서 각각 feature 들이 다음 stage 로 연결되는 구조를 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image8.png&quot; alt=&quot;network architecture&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;마지막 heatmap 을 위한 fusing 과정은 단순히 마지막 몇 개의 stage 들의 heatmap 의 평균이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;experiment&quot;&gt;Experiment&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image9.png&quot; alt=&quot;experiment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위와 같은 환경에서 실험을 진행하였다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image10.png&quot; alt=&quot;experiment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;데이터셋으로는 MPII 와 LIP 를 사용하였고, 평가 지표(evaluation metric) 은 PCKh @ 0.5 이다.&lt;/p&gt;
+
+&lt;p&gt;그리고 성능을 조금 더 높이기 위해 double flipping test method 를 활용했는데, 이는 최종적으로 original image 와 flipped image 의 heatmap 의 평균을 사용하는 방식이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image11.png&quot; alt=&quot;experiment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;MPII 만을 이용했을 때와 MPII + HSSK(Human Skeletal System Keypoint) 를 이용했을 때를 비교해보면, MPII + HSSK 가 훨씬 더 좋은 성능을 내는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;훈련 시, ImageNet 에서 훈련된 모델로 첫 번째 stage 를 초기화하였으며 이후 stage 들은 random 하게 초기화해줬다.&lt;/p&gt;
+
+&lt;p&gt;이 때, 3 stage 보다 많은 stage 를 random 으로 초기화할 경우 수렴하게 만들기가 쉽지 않았다.&lt;br /&gt;
+따라서 3 stage 를 먼저 훈련시킨 후 이를 이용해 그보다 더 많은 stage 를 훈련시키도록 해야한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image12.png&quot; alt=&quot;experiment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일정 stage(논문에서는 3 stage) 이후에는 어느 정도 성능이 수렴하는 것을 확인할 수 있다.&lt;br /&gt;
+그런데 데이터셋을 보강하게 되면 stage 가 많아질 수록 성능이 더 올라가는 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;뿐만 아니라, backbone model 인 ResNet 의 layer 가 깊어질 수록 성능이 더 좋아지는 것도 확인할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;그러나 trade-off 로써 적당한 것(ResNet-101)을 사용하는 것이 더 적절할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image13.png&quot; alt=&quot;experiment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;많은 모델들과 비교 실험을 했을 때 &lt;em&gt;CFA&lt;/em&gt; 를 이용한 모델이 SOTA 의 성능을 내는 것을 확인할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;(좌 - MPII dataset / 우 - LIP dataset))&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image14.png&quot; alt=&quot;experiment&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 이미지들은 stage 가 많아질 수록 결과값이 더 잘 나오는 것을 보여주며, 아래의 이미지들은 해당 모델이 제대로 결과를 내지 못한 것들에 대한 모습이다.&lt;/p&gt;
+
+&lt;p&gt;이는 illumination, occlusion, low resolution 등의 문제점으로 보이는데, 이를 해결하기 위해서는 데이터셋이 이러한 경우에 대해서 보강이 되어야함을 의미한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2020-01-08---cascade-feature-aggregation-for-human-pose-estimation/image15.png&quot; alt=&quot;conclusions&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;즉, 이번에 제시한 &lt;em&gt;CFA&lt;/em&gt; 모델은 SOTA 의 성능을 보여줌을 확인할 수 있었다.&lt;br /&gt;
+&lt;em&gt;Cascaded Hourglass&lt;/em&gt; 와 low-level, middle-level, high-level 의 feature 들은 local detailed information 을 잘 나타내는 것으로 보여지고, global semantic information 역시 잘 작동하는 것으로 여겨진다.&lt;/p&gt;
+
+&lt;p&gt;성능 상의 효율성을 위해 적절히 backbone model 을 조정하는 것이 중요하며, 데이터셋이 더 보강되는 것이 아주 중요해보인다.&lt;/p&gt;</content><author><name>Younghk</name></author><category term="Machine Learning" /><category term="Machine Learning" /><category term="Pose Estimation" /><summary type="html">Cascade Feature Aggregation for Human Pose Estimation</summary></entry></feed>

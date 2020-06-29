@@ -1,0 +1,49 @@
+I"�<p>CrowdPose - Efficient Crowded Scenes Pose Estimation and A New Benchmark 라는 논문에 대해 간략히 학습하였고 이를 바탕으로 내용을 정리해보도록 하자.</p>
+
+<p>해당 <a href="">논문</a>은 AlphaPose 의 후속으로 보인다.<br />
+github 의 [공개]되어 있는 소스에서도 확인할 수 있다.<small>현재는 AlphaPose 에 합쳐져있다고 한다.</small></p>
+
+<h2 id="abstract">Abstract</h2>
+
+<h2 id="introduction">Introduction</h2>
+
+<h2 id="related-work">Related Work</h2>
+
+<h3 id="2d-pose-estimation-dataset">2D Pose Estimation Dataset</h3>
+
+<h3 id="multi-person-pose-estimation">Multi-Person Pose Estimation</h3>
+
+<h2 id="our-method">Our Method</h2>
+
+<h3 id="joint-candidates-sppe">Joint-Candidates SPPE</h3>
+
+<h3 id="person-joint-graph">Person-Joint Graph</h3>
+
+<h3 id="globally-optimizing-association">Globally Optimizing Association</h3>
+
+<h3 id="discussion">Discussion</h3>
+
+<h2 id="crowdpose-dataset">CrowdPose Dataset</h2>
+
+<h3 id="crowding-level-definition">Crowding Level Definition</h3>
+
+<h3 id="data-collection">Data Collection</h3>
+
+<h3 id="image-annotation">Image Annotation</h3>
+
+<h3 id="dataset-statistics">Dataset Statistics</h3>
+
+<h2 id="experiments">Experiments</h2>
+
+<h3 id="datasets">Datasets</h3>
+
+<h3 id="evaluation-metric">Evaluation Metric</h3>
+
+<h3 id="implementation-details">Implementation Details</h3>
+
+<h3 id="results">Results</h3>
+
+<h3 id="ablation-studies">Ablation Studies</h3>
+
+<h2 id="conclusion">Conclusion</h2>
+:ET
