@@ -1,0 +1,178 @@
+I"�s<h2 id="boj-2125-mothy">[BOJ 2125] Mothy</h2>
+
+<p>문제 출처 : https://www.acmicpc.net/problem/2125</p>
+
+<h2 id="풀이">풀이</h2>
+
+<p>기하문제이다. 기하문제는 정말이지 즐겁다^^</p>
+
+<p>기하문제이기 때문에 기본적으로 CCW를 사용하게 되는데, 문제의 조건에 따라</p>
+
+<ol>
+  <li>볼록다각형의 테두리는 지나갈 수 있음</li>
+  <li>그러므로 다각형이 맞닿아 있는 곳도 지나갈 수 있음</li>
+</ol>
+
+<p>을 생각해서 CCW를 구현해 주어야 한다.</p>
+
+<p>뿐만 아니라, 소수점까지 계산해야하는 문제이기에, 정수 또는 소수 처리를 잘 해주어야 한다.</p>
+
+<p>의식의 흐름대로 풀이를 정리하면 아래와 같다.</p>
+
+<ol>
+  <li>모든 볼록다각형의 정점(<em>convex</em>), 시작점과 끝점을 포함한 모든 다각형의 모든 정점(<em>node</em>)를 기억한다.</li>
+  <li>각 정점들이 볼록다각형(<em>convex</em>)안에 존재(<em>isIn</em>)하는지 미리 판단한다. 볼록다각형에 존재한다면 해당 정점은 향후에 계산해 줄 필요가 없다. 갈 수 없는 정점이므로.</li>
+  <li>다각형 밖에 있는 정점(<em>out_conv</em>, <em>i</em>)인 정점들을 대상으로 다른 다각형 밖에 있는 정점(<em>j</em>)들로 직선 거리로 갈 수 있는지 계산(<em>isCross</em>)한다.</li>
+  <li>이 때, <em>i</em> 에서 <em>j</em> 의 중점 역시 다각형 안에 존재하는지 확인(<em>isIn</em>)한다.</li>
+  <li>3과 4의 과정을 모두 통과한다면 <em>i</em> 에서 <em>j</em> 의 직선 거리를 계산해서 기억한다.</li>
+  <li>마음에 드는 최단 경로 알고리즘으로 시작점에서 끝점까지의 최단 경로를 계산한다.</li>
+</ol>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;cmath&gt;
+#include &lt;cstdlib&gt;
+#include &lt;functional&gt;
+#include &lt;algorithm&gt;
+#define min2(x,y) (x&lt;y?x:y)
+#define max2(x,y) (x&gt;y?x:y)
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">pdi</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MAXN</span> <span class="o">=</span> <span class="mi">310</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+	<span class="n">Point</span> <span class="k">operator</span><span class="o">-</span> <span class="p">(</span><span class="k">const</span> <span class="n">Point</span> <span class="n">a</span><span class="p">)</span><span class="k">const</span> <span class="p">{</span>
+		<span class="k">return</span><span class="p">{</span> <span class="n">x</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">};</span>
+	<span class="p">}</span>
+	<span class="n">Point</span> <span class="k">operator</span><span class="o">+</span> <span class="p">(</span><span class="k">const</span> <span class="n">Point</span> <span class="n">a</span><span class="p">)</span><span class="k">const</span> <span class="p">{</span>
+		<span class="k">return</span><span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">y</span> <span class="p">};</span>
+	<span class="p">}</span>
+<span class="p">}</span> <span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">;</span>
+
+<span class="n">Point</span> <span class="k">operator</span><span class="o">*</span> <span class="p">(</span><span class="k">const</span> <span class="n">Point</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">ll</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span><span class="p">{</span> <span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="n">b</span> <span class="p">};</span>
+
+<span class="p">}</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">convex</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">node</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">d</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pdi</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pdi</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="n">pdi</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">pq</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">out_conv</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">pdi</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
+
+<span class="n">ll</span> <span class="nf">outer</span><span class="p">(</span><span class="n">Point</span> <span class="n">A</span><span class="p">,</span> <span class="n">Point</span> <span class="n">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">ll</span> <span class="n">t</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">x</span><span class="o">*</span><span class="n">B</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">A</span><span class="p">.</span><span class="n">y</span><span class="o">*</span><span class="n">B</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">t</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ll</span> <span class="nf">CCW</span><span class="p">(</span><span class="n">Point</span> <span class="n">A</span><span class="p">,</span> <span class="n">Point</span> <span class="n">B</span><span class="p">,</span> <span class="n">Point</span> <span class="n">C</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">outer</span><span class="p">(</span><span class="n">B</span> <span class="o">-</span> <span class="n">A</span><span class="p">,</span> <span class="n">C</span> <span class="o">-</span> <span class="n">A</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">isCross</span><span class="p">(</span><span class="n">Point</span> <span class="n">A</span><span class="p">,</span> <span class="n">Point</span> <span class="n">B</span><span class="p">,</span> <span class="n">Point</span> <span class="n">C</span><span class="p">,</span> <span class="n">Point</span> <span class="n">D</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">ll</span> <span class="n">abc</span> <span class="o">=</span> <span class="n">CCW</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">);</span>
+	<span class="n">ll</span> <span class="n">abd</span> <span class="o">=</span> <span class="n">CCW</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">D</span><span class="p">);</span>
+	<span class="n">ll</span> <span class="n">cda</span> <span class="o">=</span> <span class="n">CCW</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">A</span><span class="p">);</span>
+	<span class="n">ll</span> <span class="n">cdb</span> <span class="o">=</span> <span class="n">CCW</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">B</span><span class="p">);</span>
+	<span class="n">ll</span> <span class="n">ab</span> <span class="o">=</span> <span class="n">abc</span><span class="o">*</span><span class="n">abd</span><span class="p">;</span>
+	<span class="n">ll</span> <span class="n">cd</span> <span class="o">=</span> <span class="n">cda</span><span class="o">*</span><span class="n">cdb</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">ab</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">cd</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">abc</span><span class="o">^</span><span class="n">abd</span><span class="p">))</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ll</span> <span class="nf">square</span><span class="p">(</span><span class="n">ll</span> <span class="n">x</span><span class="p">,</span> <span class="n">ll</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">isIn</span><span class="p">(</span><span class="n">Point</span> <span class="n">M</span><span class="p">,</span> <span class="kt">int</span> <span class="n">idx</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">ll</span> <span class="n">ccw</span> <span class="o">=</span> <span class="n">CCW</span><span class="p">(</span><span class="n">convex</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">back</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">convex</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="p">);</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">convex</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">ccw</span> <span class="o">!=</span> <span class="n">CCW</span><span class="p">(</span><span class="n">convex</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">convex</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+	<span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">e</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+	<span class="n">node</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kt">int</span> <span class="n">M</span><span class="p">;</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">M</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">M</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">Point</span> <span class="n">K</span><span class="p">;</span>
+			<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">K</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">K</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+			<span class="n">convex</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">K</span><span class="p">);</span>
+			<span class="n">node</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">K</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">node</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kt">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">flag</span> <span class="o">&amp;=</span> <span class="o">!</span><span class="n">isIn</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="n">out_conv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">flag</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">out_conv</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">out_conv</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
+			<span class="kt">bool</span> <span class="n">flag</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">convex</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">flag</span><span class="p">;</span> <span class="n">l</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+					<span class="n">flag</span> <span class="o">&amp;=</span> <span class="o">!</span><span class="n">isCross</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">node</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">convex</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">l</span><span class="p">],</span> <span class="n">convex</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+				<span class="p">}</span>
+				<span class="n">flag</span> <span class="o">&amp;=</span> <span class="o">!</span><span class="n">isIn</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">node</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">k</span><span class="p">);</span>
+				<span class="n">flag</span> <span class="o">&amp;=</span> <span class="o">!</span><span class="n">isCross</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">node</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">convex</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">back</span><span class="p">(),</span> <span class="n">convex</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+
+			<span class="kt">double</span> <span class="n">dista</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">x</span> <span class="o">-</span> <span class="n">node</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">x</span><span class="p">,</span> <span class="n">node</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">y</span> <span class="o">-</span> <span class="n">node</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">y</span><span class="p">));</span>
+			<span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">({</span> <span class="n">dista</span><span class="p">,</span><span class="n">j</span> <span class="p">});</span>
+			<span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">push_back</span><span class="p">({</span> <span class="n">dista</span><span class="p">,</span><span class="n">i</span> <span class="p">});</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e9</span><span class="p">;</span>
+	<span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="p">});</span>
+	<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+		<span class="kt">double</span> <span class="n">val</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">first</span><span class="p">;</span>
+		<span class="kt">int</span> <span class="n">here</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+		<span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">here</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="n">pdi</span> <span class="n">k</span> <span class="o">:</span> <span class="n">dist</span><span class="p">[</span><span class="n">here</span><span class="p">])</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">.</span><span class="n">second</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">[</span><span class="n">here</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span><span class="p">.</span><span class="n">first</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">.</span><span class="n">second</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">here</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+				<span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">.</span><span class="n">second</span><span class="p">],</span><span class="n">k</span><span class="p">.</span><span class="n">second</span> <span class="p">});</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">node</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">1e9</span><span class="p">)</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+	<span class="k">else</span> <span class="p">{</span>
+		<span class="n">cout</span><span class="p">.</span><span class="n">precision</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fixed</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">[</span><span class="n">node</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="조심해야할-부분">조심해야할 부분</h2>
+
+<ol>
+  <li>정점이 볼록 다각형 내부에 위치하는지 판별을 정확히 해주어야한다.</li>
+  <li>맞닿은 부분 및 다각형의 모서리 위를 지나갈 수 있기에 CCW를 잘 구현해야한다.</li>
+</ol>
+
+<h2 id="개선할-점">개선할 점</h2>
+
+<p>잔 실수를 줄여보자.</p>
+:ET

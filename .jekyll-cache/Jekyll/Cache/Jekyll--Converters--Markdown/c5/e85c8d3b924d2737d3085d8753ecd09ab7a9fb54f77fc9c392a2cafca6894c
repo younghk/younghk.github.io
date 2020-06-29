@@ -1,0 +1,107 @@
+I"�%<h2 id="맥에서-vs-code로-c-빌드를-해보자">맥에서 VS Code로 C++ 빌드를 해보자</h2>
+
+<p>우선 VS Code 를 열어서 원하는 디렉토리로 이동한다.
+(<code class="language-plaintext highlighter-rouge">Cmd+Shift+E</code> 로 explorer tab 을 열 수 있다.)<br />
+<img src="./image2.png" alt="screenshot" /></p>
+
+<p>VS Code에서 C++을 이용하려면 Microsoft에서 제공하는 C/C++ extension을 설치해야한다.<br />
+<img src="./image3.png" alt="screenshot" /><br />
+설치가 완료되었으면 연습용 cpp 파일을 만들어서 간단하게 코드를 짜보자.</p>
+
+<p>역시 연습용 코드는 국룰인 hello world</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* hello.cpp */</span>
+<span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World!"</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이제 빌드를 해야한다. Run Build Task 를 실행시키기 위해 <code class="language-plaintext highlighter-rouge">Cmd+Shift+B</code> 를 이용한다.<br />
+또는 해당 폴더의 루트 디렉토리에 <strong><code class="language-plaintext highlighter-rouge">.vscode</code></strong> 라는 폴더를 만든 후 tasks.json을 만들어도 된다.</p>
+
+<p><img src="./image4.png" alt="screenshot" /></p>
+
+<p>tasks.json은 이렇게 생겼다.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">/*</span><span class="w"> </span><span class="err">tasks.json</span><span class="w"> </span><span class="err">*/</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="w"> </span><span class="err">https://go.microsoft.com/fwlink/?LinkId=</span><span class="mi">733558</span><span class="w"> 
+    </span><span class="err">//</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">documentation</span><span class="w"> </span><span class="err">about</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">tasks.json</span><span class="w"> </span><span class="err">format</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clang build active file"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin/clang"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"-g"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"${file}"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"-o"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"${fileDirname}/${fileBasenameNoExtension}"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"problemMatcher"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"$gcc"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>여기서 <code class="language-plaintext highlighter-rouge">tasks</code> 부분을 변경하여 원하는대로 명령어를 실행할 수 있다.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build file"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g++"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"-o"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"${fileDirname}/${fileBasenameNoExtension}"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"${file}"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"problemMatcher"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"$gcc"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"run file"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${fileDirname}/${fileBasenameNoExtension}"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"problemMatcher"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>나는 이렇게 세팅해두고 build 와 run 을 한다. 구성을 마치게 된다면 이제 <code class="language-plaintext highlighter-rouge">Cmd+Shift+B</code> 를 통해 task를 실행시킬 수 있다.</p>
+
+<p><img src="./image5.png" alt="screenshot" /></p>
+
+<p>빌드를 하게 되면 g++로 컴파일 결과를 알려주고</p>
+
+<p><img src="./image6.png" alt="screenshot" /></p>
+
+<p>실행을 하게되면 다음과 같이 프로그램이 실행된다.</p>
+
+<p><img src="./image7.png" alt="screenshot" /></p>
+
+<p>설정에 따라 실행파일의 위치나 이름 등을 커스텀할 수 있다.</p>
+:ET

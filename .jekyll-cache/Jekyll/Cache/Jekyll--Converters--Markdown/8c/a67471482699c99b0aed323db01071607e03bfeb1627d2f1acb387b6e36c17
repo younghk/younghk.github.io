@@ -1,0 +1,88 @@
+I"U#<h2 id="boj-17503-맥주-축제">[BOJ 17503] 맥주 축제</h2>
+
+<p>문제 출처 : https://www.acmicpc.net/problem/17503</p>
+
+<h2 id="풀이">풀이</h2>
+
+<p>문제를 보았을 때</p>
+
+<ol>
+  <li>K의 범위가 2^31-1 까지이므로 Parametric Search로 답을 특정하는 방법</li>
+  <li>우선순위 큐를 이용해서(또는 min-heap) 푸는 방법</li>
+</ol>
+
+<p>2번을 생각해내는게 조금 핵심적인 문제라 생각하는데, <strong>N개의 맥주를 무조건 먹어야</strong> 하고, <strong>M보다 같거나 많이 먹어야 하기</strong> 때문에 현재까지 어떤 것을 선택해서 먹고 있는지를 기억해야하기 때문이다.</p>
+
+<p>코드는 다음과 같다.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;algorithm&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mf">2e5</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">Beer</span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Beer</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span><span class="k">const</span><span class="p">{</span>
+        <span class="k">return</span><span class="p">{</span> <span class="n">c</span><span class="o">&lt;</span><span class="n">x</span><span class="p">.</span><span class="n">c</span> <span class="o">||</span> <span class="p">(</span><span class="n">c</span><span class="o">==</span><span class="n">x</span><span class="p">.</span><span class="n">c</span> <span class="o">&amp;&amp;</span> <span class="n">v</span><span class="o">&lt;</span><span class="n">x</span><span class="p">.</span><span class="n">v</span><span class="p">)};</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">pq</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">K</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Beer</span><span class="o">&gt;</span> <span class="n">beer</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">sum</span><span class="p">[</span><span class="n">MAX</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">,};</span>
+
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span> <span class="o">&gt;&gt;</span> <span class="n">M</span> <span class="o">&gt;&gt;</span> <span class="n">K</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">K</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">Beer</span> <span class="n">k</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">.</span><span class="n">v</span> <span class="o">&gt;&gt;</span> <span class="n">k</span><span class="p">.</span><span class="n">c</span><span class="p">;</span>
+        <span class="n">beer</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">sort</span><span class="p">(</span><span class="n">beer</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">beer</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+    <span class="n">sum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">beer</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">v</span><span class="p">;</span>
+    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">beer</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">v</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">ans</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">K</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">beer</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">v</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&gt;=</span><span class="n">N</span><span class="p">){</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+            <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">k</span><span class="o">+</span><span class="n">beer</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">v</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">M</span> <span class="o">&amp;&amp;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+            <span class="n">ans</span><span class="o">=</span><span class="n">beer</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">c</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ans</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="조심해야할-부분">조심해야할 부분</h2>
+
+<ol>
+  <li>우선순위 큐에서 빼고 현재 value를 넣을 때, 현재 value가 큐에서 나온 값보다 작을 경우</li>
+  <li>N개의 맥주를 먹기 전에 M이상의 선호도를 채울 경우</li>
+</ol>
+
+<h2 id="코드-개선점">코드 개선점</h2>
+
+<ol>
+  <li>sum이 배열일 필요는 없다.</li>
+</ol>
+:ET
