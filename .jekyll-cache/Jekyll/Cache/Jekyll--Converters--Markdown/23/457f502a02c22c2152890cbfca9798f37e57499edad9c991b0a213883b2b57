@@ -1,13 +1,0 @@
-I"<ul class="toc__menu">
-  <li><a href="#cascade-feature-aggregation-for-human-pose-estimation">Cascade Feature Aggregation for Human Pose Estimation</a>
-    <ul>
-      <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#related-work">Related Work</a></li>
-      <li><a href="#network-architecture">Network Architecture</a></li>
-      <li><a href="#experiment">Experiment</a></li>
-      <li><a href="#conclusions">Conclusions</a></li>
-    </ul>
-  </li>
-</ul>
-:ET
