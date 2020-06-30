@@ -85,15 +85,15 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : google-gtag # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :
+    tracking_id          : UA-136078306-1
     anonymize_ip         : # true, false (default)
 
 
 # Site Author
 author:
-  name             : "Younghk"
+  name             : "Cheong"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "오직 부끄러워야 할 것은 열심히 살지 않은 어제의 나이다."
   location         : "Seoul, KR"
@@ -195,6 +195,7 @@ kramdown:
   input: GFM
   auto_ids: true
   syntax_highlighter: rouge
+  math_engine: mathjax
   parse_block_html: true
   hard_wrap: false
   auto_ids: true
@@ -251,7 +252,7 @@ whitelist:
 #   path: /categories/
 # tag_archive:
 #   type: liquid
-  # path: /tags/
+#   path: /tags/
 # https://github.com/jekyll/jekyll-archives
 jekyll-archives:
   enabled:
@@ -277,13 +278,14 @@ compress_html:
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: "_posts"
       type: posts
     values:
       layout: single
       author_profile: true
       read_time: true
       comments: true
+      tags: true
       share: false
       related: true
   - scope:
