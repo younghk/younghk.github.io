@@ -1,6 +1,7 @@
 ---
 title: "맥에서 VS Code C++ 빌드 설정하기"
 date: "2019-10-01T23:20:00.1234"
+layout: post
 draft: false
 category: "ETC"
 tags:

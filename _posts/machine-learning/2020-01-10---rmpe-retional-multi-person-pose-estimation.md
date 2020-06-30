@@ -2,6 +2,7 @@
 draft: false
 title: "RMPE: Regional Multi-person Pose Estimation"
 date: 2020-01-10 12:53:57
+layout: post
 path:       "/machine-learning/2020-01-10---rmpe-regional-multi-person-pose-estimation/2020-01-10---rmpe-regional-multi-person-pose-estimation/"
 category: Machine Learning
 tags: 

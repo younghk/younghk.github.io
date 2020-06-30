@@ -3,6 +3,7 @@ draft: false
 title: Docker Overview
 datetime: 2020-03-27 10:21:07
 category: Docker
+layout: post
 description: "Docker 가 무엇인지 간단하게 정리하고, 사용법 위주로 정리"
 tags:
   - Docker

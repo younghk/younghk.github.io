@@ -2,6 +2,7 @@
 draft: false
 title: "Pose Estimation 관련 용어 정리"
 date: 2020-01-13 11:00:03
+layout: post
 path:       "/machine-learning/2020-01-13---pose-estimation-terms/2020-01-13---pose-estimation-terms/"
 category: Machine Learning
 tags: 

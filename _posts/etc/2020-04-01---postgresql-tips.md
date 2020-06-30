@@ -2,6 +2,7 @@
 draft: false
 title: PostgreSQL 간단 정리
 datetime: 2020-04-01 12:53:17
+layout: post
 categories: ETC
 tags: 
     - DB

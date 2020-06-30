@@ -2,6 +2,7 @@
 draft: false
 title: "Netlify 로 github 블로그 이전하기"
 date: "2019-10-30"
+layout: post
 category: "ETC"
 tags:
   - blog

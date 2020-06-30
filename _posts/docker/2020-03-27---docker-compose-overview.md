@@ -2,6 +2,7 @@
 draft: true
 title: Docker Compose Overview
 datetime: 2020-03-27 16:48:51
+layout: post
 category: Docker
 toc: true
 ---
