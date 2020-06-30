@@ -1,0 +1,38 @@
+I"<ul class="toc__menu">
+  <li><a href="#optimization">Optimization</a>
+    <ul>
+      <li><a href="#sgd">SGD</a></li>
+      <li><a href="#momentum">Momentum</a></li>
+      <li><a href="#nesterov-momentum">Nesterov Momentum</a></li>
+      <li><a href="#adagrad">AdaGrad</a></li>
+      <li><a href="#rmsprop">RMSProp</a></li>
+      <li><a href="#adam">Adam</a></li>
+      <li><a href="#learning-rate-decay">Learning Rate Decay</a></li>
+      <li><a href="#first--second-order-optimization">First &amp; Second-Order Optimization</a></li>
+      <li><a href="#ensemble">Ensemble</a></li>
+    </ul>
+  </li>
+  <li><a href="#regularization제약">Regularization(제약)</a>
+    <ul>
+      <li><a href="#dropout">Dropout</a></li>
+      <li><a href="#data-augmentation">Data Augmentation</a></li>
+      <li><a href="#dropconnect">DropConnect</a></li>
+      <li><a href="#fractional-max-pooling">Fractional Max Pooling</a></li>
+      <li><a href="#stochastic-depth">Stochastic Depth</a></li>
+      <li><a href="#cutout">Cutout</a></li>
+      <li><a href="#mixup">Mixup</a></li>
+    </ul>
+  </li>
+  <li><a href="#choosing-hyperparameters">Choosing Hyperparameters</a>
+    <ul>
+      <li><a href="#step-1-initial-loss-확인">Step 1. initial loss 확인</a></li>
+      <li><a href="#step-2-작은-샘플에-대해-overfit">Step 2. 작은 샘플에 대해 overfit</a></li>
+      <li><a href="#step-3-loss-가-작아지도록-하는-learning-rate-찾기">Step 3. loss 가 작아지도록 하는 learning rate 찾기</a></li>
+      <li><a href="#step-4-15-epoch-정도에서-coarse-grid엉성하게-몇-번-해보기">Step 4. 1~5 epoch 정도에서 Coarse grid(엉성하게 몇 번 해보기)</a></li>
+      <li><a href="#step-5-grid-를-다듬고-조금-더-학습시키기시각화">Step 5. grid 를 다듬고 조금 더 학습시키기(시각화)</a></li>
+      <li><a href="#step-6-loss-의-변화를-확인">Step 6. loss 의 변화를 확인</a></li>
+      <li><a href="#step-7-step-5로-돌아가서-반복">Step 7. step 5로 돌아가서 반복</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

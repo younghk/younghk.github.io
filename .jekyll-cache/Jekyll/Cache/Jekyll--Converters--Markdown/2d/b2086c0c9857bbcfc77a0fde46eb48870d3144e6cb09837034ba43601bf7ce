@@ -1,0 +1,29 @@
+I"3<p>Anaconda 관련해서 자주 사용하고 필요한 것들을 정리해보자.</p>
+
+<h2 id="create-virtual-environment">Create Virtual Environment</h2>
+
+<p>특정 파이썬 버전으로 가상 환경을 구축하고 싶을 때</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create <span class="nt">-n</span> venv_name <span class="nv">python</span><span class="o">=</span>x.x anaconda
+</code></pre></div></div>
+
+<h2 id="list-up-virtual-environment">List up virtual environment</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">env </span>list
+</code></pre></div></div>
+
+<h2 id="install-additional-python-packagets-to-a-virtual-environment">Install additional Python packagets to a virtual environment</h2>
+
+<p>특정 가상 환경에 파이썬 패키지를 추가로 설치하고 싶을 때</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">install</span> <span class="nt">-n</span> venv_name package_name
+</code></pre></div></div>
+
+<h2 id="activatedeactivate-a-virtual-environment">Activate/Deactivate a virtual environment</h2>
+
+<p>생성한 가상환경을 실행/종료시키고 싶을 때</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda activate venv_name <span class="c"># 실행</span>
+conda deactivate <span class="c"># 종료, 가상환경이 실행되고 있을 때만</span>
+</code></pre></div></div>
+:ET

@@ -1,0 +1,38 @@
+I"�<ul class="toc__menu">
+  <li><a href="#고전적인-암호화-기법">고전적인 암호화 기법</a></li>
+  <li><a href="#symmetric-cipher-model">Symmetric Cipher Model</a>
+    <ul>
+      <li><a href="#cryptography">Cryptography</a></li>
+      <li><a href="#cryptanalysis">Cryptanalysis</a></li>
+    </ul>
+  </li>
+  <li><a href="#substitution-techniques">Substitution Techniques</a>
+    <ul>
+      <li><a href="#caesar-cipher">Caesar Cipher</a></li>
+      <li><a href="#monoalphabetic-cipher">Monoalphabetic Cipher</a></li>
+      <li><a href="#playfair-cipher">Playfair Cipher</a></li>
+      <li><a href="#hill-cipher">Hill Cipher</a></li>
+      <li><a href="#polyalphabetic-cipher">Polyalphabetic Cipher</a>
+        <ul>
+          <li><a href="#vigenère-cipher">Vigenère Cipher</a></li>
+          <li><a href="#autokey-cipher">Autokey Cipher</a></li>
+        </ul>
+      </li>
+      <li><a href="#vernam-cipher">Vernam Cipher</a>
+        <ul>
+          <li><a href="#one-time-pad">One-Time Pad</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#transposition-techniques">Transposition Techniques</a>
+    <ul>
+      <li><a href="#rail-fence-cipher">Rail Fence Cipher</a></li>
+      <li><a href="#row-transposition-cipher">Row Transposition Cipher</a></li>
+      <li><a href="#product-cipher">Product Cipher</a></li>
+      <li><a href="#rotor-machine">Rotor Machine</a></li>
+    </ul>
+  </li>
+  <li><a href="#steganography">Steganography</a></li>
+</ul>
+:ET

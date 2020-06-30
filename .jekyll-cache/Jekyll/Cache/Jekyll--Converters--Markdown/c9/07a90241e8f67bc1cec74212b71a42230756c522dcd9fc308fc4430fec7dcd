@@ -1,0 +1,475 @@
+I"C8<h2 id="저장-및-종료">저장 및 종료</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">:w</td>
+      <td style="text-align: left">저장</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:w filename</td>
+      <td style="text-align: left">filename 로 저장</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:w » filename</td>
+      <td style="text-align: left">filename 뒤에 덧붙여서 저장</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:q</td>
+      <td style="text-align: left">vi 종료</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:q!</td>
+      <td style="text-align: left">vi 강제 종료</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:wq, :x, ZZ</td>
+      <td style="text-align: left">저장 후 종료</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:wq!</td>
+      <td style="text-align: left">강제 저장 후 종료</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:e filename</td>
+      <td style="text-align: left">filename 파일 불러오기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:e</td>
+      <td style="text-align: left">현재 파일 불러오기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:e#</td>
+      <td style="text-align: left">바로 이전에 열었던 파일 불러오기</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="입력모드">입력모드</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">a</td>
+      <td style="text-align: left">커서 위치 다음칸부터 입력</td>
+      <td style="text-align: left">A</td>
+      <td style="text-align: left">커서 행의 맨 마지막부터 입력</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">i</td>
+      <td style="text-align: left">커서의 위치에 입력</td>
+      <td style="text-align: left">I</td>
+      <td style="text-align: left">커서 행의 맨 앞에서부터 입력</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">o</td>
+      <td style="text-align: left">커서의 위치에 입력</td>
+      <td style="text-align: left">O</td>
+      <td style="text-align: left">커서의 이전 행에 입력</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">s</td>
+      <td style="text-align: left">커서 위치의 한 글자를 지우고 입력</td>
+      <td style="text-align: left">cc</td>
+      <td style="text-align: left">커서 위치의 한 행을 지우고 입력</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="이동">이동</h2>
+
+<p><img src="/assets/images/2020-01-09---vi-vim-command-line/image1.png" alt="이동 단축키" /></p>
+
+<h3 id="커서">커서</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">h</td>
+      <td style="text-align: left">왼쪽으로 이동</td>
+      <td style="text-align: left">l</td>
+      <td style="text-align: left">오른쪽으로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">j</td>
+      <td style="text-align: left">아래로 이동</td>
+      <td style="text-align: left">k</td>
+      <td style="text-align: left">위로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">w, W</td>
+      <td style="text-align: left">다음 단어의 첫 글자로 이동</td>
+      <td style="text-align: left">b, B</td>
+      <td style="text-align: left">이전 단어의 첫 글자로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">e, E</td>
+      <td style="text-align: left">단어의 마지막 글자로 이동</td>
+      <td style="text-align: left"><CR></CR></td>
+      <td style="text-align: left">다음행 첫 첫 글자로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">^</td>
+      <td style="text-align: left">행의 첫 글자로 이동</td>
+      <td style="text-align: left">$</td>
+      <td style="text-align: left">행의 마지막 글자로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">+</td>
+      <td style="text-align: left">다음 행의 첫 글자로 이동</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">위 행의 첫 글자로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(</td>
+      <td style="text-align: left">이전 문장의 첫 글자로 이동</td>
+      <td style="text-align: left">)</td>
+      <td style="text-align: left">다음 문장의 첫 글자로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">{</td>
+      <td style="text-align: left">이전 문단으로 이동</td>
+      <td style="text-align: left">}</td>
+      <td style="text-align: left">다음 문단으로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">H</td>
+      <td style="text-align: left">화면 제일 위로 이동</td>
+      <td style="text-align: left">M</td>
+      <td style="text-align: left">화면 중앙으로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">L</td>
+      <td style="text-align: left">화면 제일 아래로 이동</td>
+      <td style="text-align: left">[n]G, :[n]</td>
+      <td style="text-align: left">n 번째 행으로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[n]H</td>
+      <td style="text-align: left">위에서 n행으로 이동</td>
+      <td style="text-align: left">[n]L</td>
+      <td style="text-align: left">아래에서 n행으로 이동</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="행">행</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">z<CR></CR></td>
+      <td style="text-align: left">현재 행을 화면의 제일 위로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">z.</td>
+      <td style="text-align: left">현재 행을 화면의 중앙으로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">z-</td>
+      <td style="text-align: left">현재 행을 화면의 제일 아래로 이동</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="화면">화면</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ctrl+u</td>
+      <td style="text-align: left">반 화면 위로 스크롤</td>
+      <td>ctrl+d</td>
+      <td>반 화면 아래로 스크롤</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ctrl+b</td>
+      <td style="text-align: left">한 화면 위로 스크롤</td>
+      <td>ctrl+f</td>
+      <td>한 화면 아래 스크롤</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gg 또는 1G</td>
+      <td style="text-align: left">맨 처음으로 이동</td>
+      <td>G</td>
+      <td>맨 마지막 행으로 이동</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="삭제">삭제</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">x, dl</td>
+      <td style="text-align: left">커서 위치의 글자 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">X, dh</td>
+      <td style="text-align: left">커서 바로 앞의 글자 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dw</td>
+      <td style="text-align: left">현재 위치부터 스페이스 까지 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">diw</td>
+      <td style="text-align: left">현재 위치에 있는 단어 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dd</td>
+      <td style="text-align: left">커서가 있는 행을 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[n]dd</td>
+      <td style="text-align: left">현재 커서부터 아래 n번째 줄까지 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dj</td>
+      <td style="text-align: left">현재 커서와 아래 줄 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[n]dj</td>
+      <td style="text-align: left">현재 커서부터 아래 n+1번째 줄까지 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dk</td>
+      <td style="text-align: left">현재 커서와 윗 줄 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[n]dk</td>
+      <td style="text-align: left">현재 커서에서부터 위로 n+1번째 줄까지 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">D, d$</td>
+      <td style="text-align: left">현재 커서가 있는 위치부터 행 끝까지 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">d0, d^</td>
+      <td style="text-align: left">현재 커서가 있는 위치부터 행 시작 까지 삭제</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J</td>
+      <td style="text-align: left">커서에서부터 다음 단어의 공백 모두 삭제</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="복사--붙여넣기">복사 &amp; 붙여넣기</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">yy, Y</td>
+      <td style="text-align: left">커서가 있는 한 행 복사</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">p</td>
+      <td style="text-align: left">현재 커서에 붙여 넣기, 행 복사 일 경우 아래 줄에 붙여넣음.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">P</td>
+      <td style="text-align: left">현재 커서위치의 앞행에 붙여 넣기, 행 복사일 경우에는 윗 줄에 붙여 넣음</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[n]yy, [n]Y</td>
+      <td style="text-align: left">커서가 위치한 이후로 n행 복사</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">[n]p</td>
+      <td style="text-align: left">n번 만큼 붙여넣기 반복</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="문자열-찾기">문자열 찾기</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">/name</td>
+      <td style="text-align: left">name 문자열 찾기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">n</td>
+      <td style="text-align: left">다음 name으로 이동</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">N</td>
+      <td style="text-align: left">n과 같으며 역방향으로 이동</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="블록-지정">블록 지정</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">v</td>
+      <td style="text-align: left">블록 지정</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">V</td>
+      <td style="text-align: left">줄단위 블록 지정</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ctrl+v(윈도우에서는 ctrl+q)</td>
+      <td style="text-align: left">비쥬얼 블록 지정</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="블록-지정-중-명령">블록 지정 중 명령</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">y</td>
+      <td style="text-align: left">블록 복사 하기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">r</td>
+      <td style="text-align: left">치환</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">d</td>
+      <td style="text-align: left">지정 블록 지우기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">U</td>
+      <td style="text-align: left">대문자로 바꾸기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">u</td>
+      <td style="text-align: left">소문자로 바꾸기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">~</td>
+      <td style="text-align: left">대소문자 전환</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">J</td>
+      <td style="text-align: left">행 합침</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:</td>
+      <td style="text-align: left">선택 영역에 대하여 ex명령</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&lt;</td>
+      <td style="text-align: left">행 앞에 탭 제거</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&gt;</td>
+      <td style="text-align: left">행 앞에 탭 삽입</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="문자열-탐색-및-치환">문자열 탐색 및 치환</h2>
+
+<h2 id="정규-표현식">정규 표현식</h2>
+
+<h2 id="확장-정규-표현-문자열">확장 정규 표현 문자열</h2>
+
+<h2 id="기타">기타</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">명령어</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">:set nu</td>
+      <td style="text-align: left">에디터 숫자 표시</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">:set nonu</td>
+      <td style="text-align: left">에디터 숫자 표시 끄기</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.</td>
+      <td style="text-align: left">바로 전 실행 명령어 재실행</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ctrl+i</td>
+      <td style="text-align: left">불필요한 화면 정리 후 다시 표시</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>참고 : https://vim.rtorr.com/lang/ko</p>
+:ET
