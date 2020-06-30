@@ -1,0 +1,25 @@
+I"T<ul class="toc__menu">
+  <li><a href="#hash-functions">Hash Functions</a>
+    <ul>
+      <li><a href="#hash-functions--message-authentication">Hash Functions &amp; Message Authentication</a></li>
+      <li><a href="#hash-functions--digital-signature">Hash Functions &amp; Digital Signature</a></li>
+      <li><a href="#hash-functions--other-uses">Hash Functions &amp; Other Uses</a></li>
+    </ul>
+  </li>
+  <li><a href="#two-simple-insecure-hash-functions">Two Simple Insecure Hash Functions</a></li>
+  <li><a href="#hash-function-requirements">Hash Function Requirements</a></li>
+  <li><a href="#attacks-on-hash-functions">Attacks on Hash Functions</a>
+    <ul>
+      <li><a href="#birthday-paradox">Birthday Paradox</a></li>
+    </ul>
+  </li>
+  <li><a href="#hash-function-cryptanalysis">Hash Function Cryptanalysis</a></li>
+  <li><a href="#secure-hash-algorithmsha">Secure Hash Algorithm(SHA)</a>
+    <ul>
+      <li><a href="#sha-512">SHA-512</a></li>
+      <li><a href="#sha-3">SHA-3</a></li>
+    </ul>
+  </li>
+  <li><a href="#hash-collision-attacks-in-tls">Hash Collision Attacks in TLS</a></li>
+</ul>
+:ET
