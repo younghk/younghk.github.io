@@ -82,7 +82,7 @@ Symmetric Cipher Model 의 과정은 다음과 같다.
 
 | Type              | Known to Cryptanalyst                                                                                                                                                                            |
 | :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ciphertext Only   | <ul><li>암호화 알고리즘</li><li>암호문</li></ul>                                                                                                                                                 |
+| Ciphertext Only   | <ul><li>암호화 알고리즘</li><br><li>암호문</li></ul>                                                                                                                                                 |
 | Known Plaintext   | <ul><li>암호화 알고리즘</li><li>암호문</li><li>평문-암호문 쌍(비밀 키로 만들어짐)</li></ul>                                                                                                      |
 | Chosen Plaintext  | <ul><li>암호화 알고리즘</li><li>암호문</li><li>암호 분석가에 의해 선택 된 plaintext와 이것이 해독된 ciphertext</li></ul>                                                                         |
 | Chosen Ciphertext | <ul><li>암호화 알고리즘</li><li>암호문</li><li>암호 분석가에 의해 선택 된 ciphertext와 이것이 해독된 plaintext</li></ul>                                                                         |

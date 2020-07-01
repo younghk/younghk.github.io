@@ -8,12 +8,12 @@ const inquirer = require('inquirer')
 const log = require('signale')
 const cwd = process.cwd()
 
-const CONTENTS_DIR = '/content/blog'
+const CONTENTS_DIR = '/_drafts'
 const TARGET_DIR = `${cwd}${CONTENTS_DIR}`
 const IGNORE_DIR = 'images'
 const UTF_8 = 'utf8'
-const DATETIME_FORMAT = 'YYYY-MM-DD HH:mm:ss'
-const DATE_FORMAT = 'YYYY-MM-DD'
+const DATETIME_FORMAT = 'yyyy-MM-dd HH:mm:ss'
+const DATE_FORMAT = 'yyyy-MM-dd'
 
 const ignoreFunc = (file, stats) =>
   stats.isDirectory() && path.basename(file) == IGNORE_DIR
@@ -139,9 +139,11 @@ module.exports = (async function () {
   const draft = "true";
   const title = await fetchTitle(category)
   const fileName = `${date}---` + getFileName(title)
+  const layout = "post";
   const tags = ""
   const description = "";
-  const contents = refineContents({ draft, title, datetime, category, tags, description })
+  const toc = "true";
+  const contents = refineContents({ draft, title, datetime, layout, category, tags, description, toc })
   const fileDir = `${destDir}/${fileName}`
   const fileDirExists = await fs.pathExists(fileDir)
 

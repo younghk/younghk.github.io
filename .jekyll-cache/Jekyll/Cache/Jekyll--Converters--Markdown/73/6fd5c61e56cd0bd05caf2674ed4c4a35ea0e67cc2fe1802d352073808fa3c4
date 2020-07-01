@@ -1,4 +1,4 @@
-I"�D<h2 id="고전적인-암호화-기법">고전적인 암호화 기법</h2>
+I"�D<h2 id="고전적인-암호화-기법">고전적인 암호화 기법</h2>
 
 <p>먼저, 기본적인 용어에 대해 정리를 하고 진행해보자.</p>
 
@@ -102,7 +102,7 @@
   <tbody>
     <tr>
       <td style="text-align: left">Ciphertext Only</td>
-      <td style="text-align: left">&lt;ul&gt;&lt;li&gt;암호화 알고리즘&lt;/li&gt;&lt;li&gt;암호문&lt;/li&gt;&lt;/ul&gt;</td>
+      <td style="text-align: left">&lt;ul&gt;&lt;li&gt;암호화 알고리즘&lt;/li&gt;<br />&lt;li&gt;암호문&lt;/li&gt;&lt;/ul&gt;</td>
     </tr>
     <tr>
       <td style="text-align: left">Known Plaintext</td>
