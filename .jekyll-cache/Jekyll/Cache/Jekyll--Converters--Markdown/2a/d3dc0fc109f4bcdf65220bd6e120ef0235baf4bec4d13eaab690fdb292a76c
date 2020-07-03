@@ -1,0 +1,49 @@
+I"ü<ul class="toc__menu">
+  <li><a href="#application-integration">Application Integration</a>
+    <ul>
+      <li><a href="#aws-sqs">AWS SQS</a></li>
+    </ul>
+  </li>
+  <li><a href="#container">Container</a>
+    <ul>
+      <li><a href="#aws-ecs">AWS ECS</a></li>
+      <li><a href="#aws-eks">AWS EKS</a></li>
+      <li><a href="#aws-fargate">AWS Fargate</a></li>
+    </ul>
+  </li>
+  <li><a href="#compute">Compute</a>
+    <ul>
+      <li><a href="#amazon-ec2">Amazon EC2</a></li>
+      <li><a href="#aws-lightsail">AWS LightSail</a></li>
+      <li><a href="#aws-eb">AWS EB</a></li>
+      <li><a href="#aws-lambda">AWS Lambda</a></li>
+    </ul>
+  </li>
+  <li><a href="#database">Database</a>
+    <ul>
+      <li><a href="#amazon-aurora">Amazon Aurora</a></li>
+      <li><a href="#amazon-rds">Amazon RDS</a></li>
+      <li><a href="#amazon-dynamodb">Amazon DynamoDB</a></li>
+      <li><a href="#aws-elasticache">AWS ElastiCache</a></li>
+    </ul>
+  </li>
+  <li><a href="#networking--content-delivering">Networking &amp; Content Delivering</a>
+    <ul>
+      <li><a href="#amazon-vpc">Amazon VPC</a></li>
+      <li><a href="#aws-elb">AWS ELB</a></li>
+      <li><a href="#aws-route-53">AWS Route 53</a></li>
+    </ul>
+  </li>
+  <li><a href="#security-identity-compilance">Security, Identity, Compilance</a>
+    <ul>
+      <li><a href="#aws-iam">AWS IAM</a></li>
+    </ul>
+  </li>
+  <li><a href="#storage">Storage</a>
+    <ul>
+      <li><a href="#aws-s3">AWS S3</a></li>
+      <li><a href="#aws-ebs">AWS EBS</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

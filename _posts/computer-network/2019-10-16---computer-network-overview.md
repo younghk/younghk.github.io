@@ -4,7 +4,7 @@ title: 'Computer Network Overview Part 1'
 date: '2019-10-16T03:07:00.1234'
 layout: post
 #path: "/posts/computer-network-overview-part-1/"
-category: "Computer Network"
+category: Computer-Network
 description: ''
 tags:
   - Computer Network

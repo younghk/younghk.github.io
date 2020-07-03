@@ -1,0 +1,319 @@
+I"UJ<p>지난 <a href="https://younghk.github.io/computer-network/computer-network-overview-part-2/">포스트</a>에 이어서 컴퓨터 네트워크와 관련해 개략적으로 알아보자.<br />
+이번 포스트에서 다룰 것들은 다음과 같다.</p>
+
+<h2 id="ip-routing-protocol">IP Routing Protocol</h2>
+
+<p>routing protocol 은 간단하게 설명하면 network topology information 에 대해 routing table 을 작성하는 것이라고 볼 수 있다.<br />
+이를 통해 나중에 forwarding 될 때 경로로 사용하도록 한다.</p>
+
+<p>핵심적으로는 hop-by-hop routing 이 진행되게 되고, 두 가지 알고리즘에 대해 학습해보자.</p>
+
+<h3 id="distance-vector-algorithm">Distance Vector Algorithm</h3>
+
+<p>거리와 방향을 함께 가지고 있는 방법으로 예를 들면 R3 입장에서 R2-&gt;R1 으로 패킷을 전송하고 싶으면 나를 거칠 때 8만큼의 cost 가 필요하다고 알려주는 방식이다.<br />
+이를 위해 routing table 에는 best distance 와 the route(next hop) 을 기록하고 있게 된다.</p>
+
+<p>간단한 예를 보면 다음과 같다.<br />
+C 에서 각 행을 가는데 각 열을 거쳐서 가는 cost 를 구하면</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image56.png" alt="distance vector algorithm example" /></p>
+
+<p>그런데 여기서 link cost 가 변경될 수도 있다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image57.png" alt="distance vector algorithm link cost change" /></p>
+
+<p>위에서 볼 수 있듯이 지속적으로 table 이 수정되게 되는데, 이는 z-&gt;x 로 가상의 경로(cost=5)가 생긴줄 착각해서 나타나는 현상이다.<br />
+이 현상의 근본적인 원인은 어디를 거쳐서 해당 cost 가 필요한지를 모르기 때문이다.(거리 + 방향만 있을 뿐)</p>
+
+<p>실제 routing table 이 어떤식으로 작성되는지 아래의 예제를 통해 확인해보자.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image58.png" alt="distance vector algorithm example" /></p>
+
+<p>여기서 처음으로 router A 에 대해서는 다음과 같이 진행된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image59.png" alt="distance vector algorithm example" /></p>
+
+<p>처음 router B 에 대해서 다음과 같이 진행된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image60.png" alt="distance vector algorithm example" /></p>
+
+<p>처음 router C 에 대해서 다음과 같이 진행된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image61.png" alt="distance vector algorithm example" /></p>
+
+<p>두 번째로 다시 router A 에 대해서 다음과 같이 추가적으로 진행된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image62.png" alt="distance vector algorithm example" /></p>
+
+<p>쉽게 채워볼 수 있을 것이다.</p>
+
+<h3 id="link-state-algorithm">Link-State Algorithm</h3>
+
+<p><em>Distance Vector Algorithm</em> 은 잠깐 보았던 경로 착각의 문제가 있었다.<br />
+이를 해결할 수 있는 방법인 <em>Link-State Algorithm</em> 에 대해 알아보자.</p>
+
+<p>이는 구조적으로 현재 노드에 대해서 tree 를 구성하게 되며, shortest path algorithm(e.g., Dijkstra’s algorithm) 을 활용하게 된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image63.png" alt="link state algorithm example" /></p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image64.png" alt="link state algorithm example" /></p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image65.png" alt="link state algorithm example" /></p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image66.png" alt="link state algorithm example" /></p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image67.png" alt="link state algorithm example" /></p>
+
+<p>최종적으로 router A 에 대해서 위와 같은 tree 가 만들어지게 된다.</p>
+
+<h2 id="tcp-connection">TCP Connection</h2>
+
+<p>일전에 배웠던 TCP 를 잠깐 복습해보고 가자.<br />
+TCP 는 transparently reliable 한 통신을 할 수 있도록 해주는 protocol 로, packet 손실, 중복, flow / congestion control 등의 이슈를 다른 쪽(application programmer)에서 신경쓰지 않도록 해준다.</p>
+
+<p>통신은 socket 을 통해 이루어지는데, TCP 는 stream socket 을 이용한다.</p>
+
+<p>여기서 Connection 이란 무엇을 의미할까?<br />
+이는 application 의 socket 이 connected 된 상태를 의미하는데, 이것은 socket address 의 쌍(host, peer)으로 정의된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image68.png" alt="what is a connection" /></p>
+
+<p>다시 한 번 상기하자면, 서버에 대한 정보는 well-known 이라 쉽게 알 수 있는 정보이다.</p>
+
+<h3 id="socket">Socket</h3>
+
+<p>통신에 쓰이는 socket 에 대해 간략히 알아보자.<br />
+다음은 socket 과 관련된 함수들이다.</p>
+
+<ul>
+  <li>Create<br />
+소켓의 형식에는 PF-INET(protocol family), AF-INET(address family) 두 가지가 있다. 이는 소켓이 디자인될 때 하나의 protocol 이 아니라 여러 protocol 을 지원할 수 있도록 하려했기 때문이다. 그러나 뭘 써도 상관은 없는 요즘이다.</li>
+  <li>Bind<br />
+서버측에서 port 를 random 하게 생성할텐데 client 가 아는걸로 나의 주소와 port 를 일치시켜줘야 client 입장에서 통신이 가능해진다. 이를 위한 것이 <em>Bind</em> 작업이다.<br />
+Bind 함수를 이용해 특정 IP 와 포트 번호를 연결할 수 있게 된다.<br />
+이 때, 서버에서만 bind function 을 호출하게 되는데, client-server 통신 모델에서 항상 서버 프로그램이 먼저 수행되고 있어야 하고, 서버는 socket 을 호출하여 통신에 사용할 소켓을 하나 만들고 이때 return 된 소켓 번호와 자신의 소켓 주소를 bind 로 연결시키게 된다.<br />
+서버에서 bind 가 필요한 이유는 소켓 번호는 응용 프로그램이 알고 있는 통신 창구 번호이고, 소켓 주소는 네트워크 시스템(TCP/IP)이 알고 있는 주소이므로 이들의 관계를 묶어 두어야 응용 프로세스와 네트워크 시스템 간의 패킷 전달이 가능하기 때문이다.</li>
+  <li>Connect<br />
+이 함수는 client 가 서버에 연결을 요청할 때 사용하는데, 서버측에서는 이 요청을 listen 으로 기다리고 있다.</li>
+  <li>Accept<br />
+서버가 client 의 요청을 수락하게 된다.<br />
+서버는 접속 요청을 허락하고 client 와 통신하기 위해 커널이 자동으로 소켓을 생성하도록 한다.<br />
+이 수락 요청의 과정은 3-way handshake 로 진행된다.</li>
+</ul>
+
+<h3 id="layout-of-tcp-header">Layout of TCP header</h3>
+
+<p>TCP 는 손실 없이 packet 을 받게 되고, 이를 reliable 한 통신이라고 하게 된다.<br />
+이러한 reliable 한 통신을 위해 sequence number 와 acknowledgment number 가 필요하다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image69.png" alt="layout of tcp header" /></p>
+
+<p>TCP Header 는 위와 같이 구성되게 된다.</p>
+
+<ul>
+  <li>
+    <p>Sequence Number</p>
+
+    <p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image70.png" alt="sequence number" /></p>
+
+    <p>통신을 하는데 있어서 sequence number 는 connection 때 미리 만들게 된다. 이 때 보통 추적을 피하기 위해 random 으로 생성하게 되고, 각각의 Initial Sequence Number(ISN) 을 유지하게 된다.</p>
+  </li>
+  <li>
+    <p>Acknowledgement Number</p>
+
+    <p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image71.png" alt="acknowledgement number" /></p>
+
+    <p>ACK 는 receiver 가 어떤 packet 을 받은 다음에 받아야할 packet 을 알리는 것으로, packet 1,2,3,4 를 받았다면 ACK=5 를 sender 에게 보내게 된다.</p>
+  </li>
+  <li>
+    <p>TCP Header Length</p>
+
+    <p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image72.png" alt="tcp header length" /></p>
+
+    <p>TCP header length 는 IP header 에서 처럼 32-bit(4 bytes)로 표현이 되며 최솟값은 5이다. 이 경우에는 어떠한 TCP Option 도 존재하지 않는 경우이다.</p>
+  </li>
+  <li>
+    <p>Control Flags</p>
+    <ul>
+      <li>0 : FIN = Terminate the connection</li>
+      <li>1 : SYN = Synchronize sequence numbers</li>
+      <li>2 : RST = Reset the connection</li>
+      <li>3 : PSH = Push the data</li>
+      <li>4 : ACK = The value in the acknowledgement field is valid</li>
+      <li>5 : URG = The value in the urgent pointer field is valid
+        <ul>
+          <li>이는 남는 위치에 특정한 data 를 넣은 후 tcp 에 알려주는 것이다. 이렇게 되면 원래 data flow 와 다르게 되는데 급한 경우에 사용되는 것이다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-way-handshake">3-Way Handshake</h3>
+
+<p>이제 connection 을 연결하는 3-way handshake 에 대해서 간략하게 살펴보자.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image73.png" alt="3 way handshake" /></p>
+
+<ol>
+  <li>client 는 server 에게 접속 요청 메시지(SYN)를 전송하고 SYN_SENT 상태</li>
+  <li>server 는 SYN 요청을 받고 client 에 요청을 수락(SYN+ACK) 하고 SYN_RECEIVED 상태</li>
+  <li>client 는 server 에게 수락 확인(ACK)을 보내고 server 는 ESTABLISHED 상태</li>
+</ol>
+
+<p>아주 간단하다!</p>
+
+<h3 id="4-way-handshake">4-Way Handshake</h3>
+
+<p>connection 을 해제하는 과정도 살펴보자.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image74.png" alt="4 way handshake" /></p>
+
+<p><small>필기..ㅎㅎ</small></p>
+
+<ol>
+  <li>최초에 client-server 모두 ESTABLISHED 상태</li>
+  <li>client 에서 FIN=1 을 보내고 소켓의 FIN_WAIT_1 상태로 변경</li>
+  <li>server 에서 FIN=1 을 받고 CLOSE_WAIT 상태로 변경, ACK 를 보내고 client 가 이를 수신하면 FIN_WAIT_2 상태로 변경</li>
+  <li>server 에서 연결 종료를 위해 FIN 을 보냄, LASK_ACK 상태로 변경</li>
+  <li>client 에서 FIN 을 받고 TIME_WAIT 상태로 돌입, ACK 를 전송</li>
+  <li>server 에서 마지막 ACK 를 받으면 CLOSED 상태로 연결 종료, 시간이 지나면 client 도 CLOSED 상태로 연결 종료</li>
+</ol>
+
+<h2 id="flow-control">Flow Control</h2>
+
+<p>Flow Control 은 쉽게 말해 router 는 멀쩡한데 end node 에서의 처리가 느려서 송신 속도를 줄이도록 하는 것이다.<br />
+이는 TCP Sliding Window 로 조절되는데, 이 window size 만큼의 패킷을 한 번에 보낼 수 있게 된다. 이 사이즈가 조절되면 한 번에 전송되고 있는 패킷의 양이 바뀌게 되고, 이로 인해 flow control 이 동작하게 된다.</p>
+
+<h3 id="sliding-window">Sliding Window</h3>
+
+<p>이 <em>sliding window</em> 는 sender 와 receiver 두 군데에서 모두 운용된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image75.png" alt="sliding window" /></p>
+
+<p>window size=7 인 상황에서 sender-receiver 가 각 패킷을 전송하면서 일어나는 window 의 변화를 위에서 확인해 볼 수 있다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image76.png" alt="example operation" /></p>
+
+<p>이번에는 실제 패킷을 보면서 확인해보자.</p>
+
+<ul>
+  <li>packet 181 : win=0, 즉 더 보낼 수 없다는 것이다.</li>
+  <li>packet 182 : win=22656 으로 더 보낼 수 있게 되었다는 것이다.</li>
+  <li>packet 183-197 : 더 보낼 수 있는 만큼 packet 을 쪼개서 전송하고 있다.
+    <ul>
+      <li>여기서 총 보내게 된 Bytes 는 20736B 이다. 따라서 남은 window size 는 1920B 이다.
+<img src="/assets/images/2019-12-11---computer-network-overview-part-2/image77.png" alt="example operation" /></li>
+    </ul>
+  </li>
+  <li>packet 198 : 여기서 Ack=4109684389 로 받은 것이 바로 처음 packet 183 을 받았다는 것을 의미하게 된다.(다음을 저부분서부터 원하는 것이니까) 이는 앞서 설명했듯이 client/server seq. no. 이 다르기 때문이다. 또한 win=22272 이므로 4109684389 에서 부터 22272B 만큼 전송을 할 수 있다는 의미다.
+<img src="/assets/images/2019-12-11---computer-network-overview-part-2/image78.png" alt="exmample operation" /></li>
+</ul>
+
+<h3 id="silly-window-syndrome">Silly Window Syndrome</h3>
+
+<p>이러한 sliding window 기법을 이용할 때의 문제점이 무엇이 있을까?</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image79.png" alt="silly window syndrome" /></p>
+
+<p>sender 입장에서 data 를 빠르게 생성할 경우에 위와 같이 하나씩 window 가 이동하는 모습을 볼 수 있게 된다. 즉 작은 packet 이 하나씩 전달되어 sliding window 가 의미가 퇴색되게 되는 경우이다.</p>
+
+<ul>
+  <li>
+    <p>Nagle’s Algorithm<br />
+최대한 한 번에 많은 양을 보내도록 기다렸다가 보내는 방법이다.<br />
+이를 위해 Maximum Segement Size(MSS) 를 이용하고, MSS 보다 window 가 작으면 보내지 않거나, 너무 오래 window 를 기다리고 있으면(timer) 현재 window 크기 만큼 보내는 방법이다.<br />
+timer 는 서버가 보낸 data 가 있으면 언젠가 ACK 가 올 것이라고 가정하고 이를 시발점으로 생각해 시간을 재게 된다.</p>
+
+    <p>이 때, receiver 는 receive window size 가 충분히 크지 않다면 0 을 보내다가 MSS 이상일 경우 제대로된 window size 를 알려주는 방식으로 해 줄 수 있다.</p>
+  </li>
+  <li>
+    <p>Delayed Acknowledgement<br />
+receiver 가 packet 을 받고 나서 ACK 를 보내는데 여러 ACK 를 보내지 않고 효율적으로(적게) 보내는 방법이다. delayed ack 가 만료될 때까지 새로운 패킷을 받지 못하면 ACK 를 보내거나, 만료 전 새로운 packet 이 온다면 ACK 를 보내는 방식이다.<br />
+sender 측에서 Nagle’s algorithm 을 쓰고 있을 경우 오래 기다리게 되는 경우가 생길 수 있다.</p>
+  </li>
+</ul>
+
+<h3 id="retransmissions-in-tcp">Retransmissions in TCP</h3>
+
+<p>ACK 가 timeout 되거나 multiple ACKs(3 ACKs) 를 받게 될 경우 <em>retransmission</em> 이 일어나게 된다. 어딘가에 문제가 생겼다고 생각하기 때문!</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image80.png" alt="receiving duplicate acks" /></p>
+
+<p>위의 도식은 중복된 ACK 를 수신하는 경우이다.<br />
+이처럼 3개의 같은 ACK 를 받게 되면 해당 SeqNo 부터의 패킷을 재전송 하게 된다.<br />
+아마도 손실되거나 유실되었다고 생각을 하게 되기 때문!</p>
+
+<ul>
+  <li>
+    <p>Retransmission Timer :<br />
+적당한 기간의 timer 를 설정해서 ACK 가 안오는 경우에 다시 보내주도록 한다.</p>
+
+    <p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image81.png" alt="rto" />
+round-trip time(RTT)를 이용해 시간을 측정하고 이를 바탕으로 RTO(retransmission timeout) 값을 정한다.</p>
+
+    <p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image82.png" alt="setting the rto value" />
+RTO 를 정하는데 측정되는 RTT 값을 exponential moving average(EMA) 로 구해주게 된다.</p>
+
+    <p>이 때, retransmission 된 패킷의 경우에 RTT 값을 update 하지 않도록 해서 모호함을 제거하는 방식이 Karn’s algorithm 이다.</p>
+  </li>
+</ul>
+
+<h2 id="congestion-control">Congestion Control</h2>
+
+<p>간단하게 <em>Congestion Control</em> 에 대해 설명하면, 네트워크가 너무 혼잡해서 보내는 양을 줄여야할 때 필요한 것이다.<br />
+<small><em>Flow Control</em> 과 주의해서 구분할 수 있도록 하자!</small></p>
+
+<p>여기서는 <em>Congestion Window</em> 가 이용되게 된다.</p>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image83.png" alt="tcp congestion window" /></p>
+
+<p>위와 같이 생각을 할 수 있으며 network 의 상황을 보고 sender 가 알아서 바꾸게 된다.</p>
+
+<h3 id="tcp-aimd--slow-start">TCP AIMD &amp; Slow Start</h3>
+
+<p>congestion window 의 크기는 시간이 지날 수록 증가하게 되는데, drop 이 일어날 경우(timeout or 3 duplicated ACKs) window 의 크기를 반으로 줄이게 된다.</p>
+
+<p>timeout 이 일어날 경우 window 크기를 엄청 줄인다(=1)</p>
+
+<p>TCP Slow Start 는 window size 가 지수적으로 증가하는 것을 의미한다.</p>
+
+<h3 id="tcp-congestion-policy">TCP Congestion Policy</h3>
+
+<p><img src="/assets/images/2019-12-11---computer-network-overview-part-2/image84.png" alt="tcp congestion policy" /></p>
+
+<p>policy 는 4가지가 있다.</p>
+
+<ol>
+  <li>slow start : 최초에 지수적으로 증가</li>
+  <li>congestion avoidance : 천천히 window 가 커짐</li>
+  <li>fast retransmission : 3-ACK 가 발생했을 때 window 사이즈를 반으로 줄이고 재전송하게 되는 것이다.</li>
+  <li>fast recovery : 반으로 깎인 상태에서 다시 linear 하게 증가하는 모습을 의미한다.</li>
+</ol>
+
+<p>위의 푸른색 영역이 slow start, 노란색 영역이 congestion avoidance 가 된다.</p>
+
+<h3 id="tcp-window-control---tahoe--reno">TCP Window Control - Tahoe / Reno</h3>
+
+<p>TCP congestion window 를 control 하는 방식은 여러 개가 있는데 그 중 2개를 살펴보자.</p>
+
+<ul>
+  <li>Tahoe :
+    <ul>
+      <li>initial threshold 크게 잡음</li>
+      <li>timeout 이 발생하면 window 를 아주 작게(=1) 한다.</li>
+      <li>3-ACK 의 경우 fast retransmit 을 실행한다. 이 때 threshold 는 절반으로 줄인다. window 를 아주 작게(=1)로 한 뒤 threshold 까지 slow start 이후 linear 하게 증가 시킨다.
+<img src="/assets/images/2019-12-11---computer-network-overview-part-2/image85.png" alt="tahoe" /></li>
+    </ul>
+  </li>
+  <li>Reno :
+    <ul>
+      <li>3-ACK 가 발생할 경우 fast retransmit 을 실행한다. window 를 반으로만 줄이고 linear 하게 증가</li>
+      <li>timeout 의 경우 window 크기를 아주 작게(=1) 하고 slow start 이후 fast recovery(linear 한 증가) 에 진입한다.
+<img src="/assets/images/2019-12-11---computer-network-overview-part-2/image86.png" alt="reno" /></li>
+    </ul>
+  </li>
+</ul>
+
+<p><small>threshold 가 반으로 되는 기준점은 timeout 또는 3-ACK 가 발생한 시점의 window size 라고 보면 된다.</small></p>
+:ET

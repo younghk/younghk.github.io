@@ -1,0 +1,167 @@
+I"�<h2 id="클라우드-개요">클라우드 개요</h2>
+
+<ol>
+  <li>클라우드
+    <ul>
+      <li>물리적인 서버가 없이도 인터넷에 접속하여 다양한 자원을 사용할 수 있게 하는 컴퓨터 리소스 이용형태를 말함</li>
+    </ul>
+  </li>
+  <li>물리 서버와 클라우드 서버의 특징
+    <ul>
+      <li>소유자와 사용자가 다르다는 것이 가장 큰 특징</li>
+      <li>물리서버의 경우 일반적으로 기업이 서버를 소유하고 있음 (소유자 = 사용자)</li>
+      <li>AWS 같은 경우에는 Amazon 이모든 리소스를 소유하고, 해당 리소스를 서비스로 만든 것. 사용자는 이 리소스만 필요할 때 사용하게 됨</li>
+    </ul>
+  </li>
+  <li>렌탈 서버의 3가지 형태
+    <ul>
+      <li>공용서버 : 1개의 물리서버를 분할한 형태, 다른 사용자의 영향을 받을 수 있음</li>
+      <li>전용서버 : 1개의 물리서버를 점유하는 형태, 다른 사용자의 영향을 받지 않으나 비쌈</li>
+      <li>가상전용서버 : 1대의 물리서버 위에 있는 가상 서버를 점유</li>
+    </ul>
+  </li>
+  <li>렌탈서버와 AWS 의 차이
+    <ul>
+      <li>AWS 는가상전용서버와 비슷한 형태를 갖고 있음.</li>
+      <li>그러나 디스크 동적추가, Instance type change, virtual machine 생성및 백업, 복제 등 다양한 기능을 제공</li>
+    </ul>
+  </li>
+  <li>Public Cloud vs. Private Cloud
+    <ul>
+      <li>누구에게 서비스를 제공하느냐에 대한 차이가 있음</li>
+      <li>public 은 불특정 다수에게 제공하고, private 은 특정 사용자(기업)에게 제공하는 형태</li>
+      <li>이 외에도 public + private 인 hybrid cloud 와특정 업종의 기업들이 함께 운영하는 커뮤니티 클라우드 형태도 있음</li>
+    </ul>
+  </li>
+  <li>AWS 에서 private cloud 의 의미
+    <ul>
+      <li>A. vpc 를 이용하여 논리적으로 분리된 가상의 네트워크 환경을 생성하는 것을 뜻함</li>
+      <li>B. 기존 물리서버(on-premise)와 동일한 네트워크 구성이 가능</li>
+    </ul>
+  </li>
+  <li>reliable network 가 보장되어야 하며, 직접 소유하고 있는 것이 아니기 때문에 작업을 하는데 컨트롤 하기 어려운 부분이 존재할 수 있다.</li>
+  <li>Multi-tenant Technology : 쉽게 생각하면 공유 인프라를 제공할 수 있는 기술.
+    <ul>
+      <li>클라우드에서는 하나의 물리 서버에 여러 개의 가상화된 서버를 여러명의 유저(tenants)에게 제공할 수 있는 기술을 의미.</li>
+    </ul>
+  </li>
+  <li>Snapshot algorithm : 분산환경에서 global state를 알기 위한 방법</li>
+  <li>용어 설명
+    <ul>
+      <li>High Availability : 고가용성 - 시스템을 운영하면서 장애 없이 서비</li>
+      <li>Scalability : Cloud 에서 workload 가 증가할 시 부하를 감당할 수 있는 resource capacity 를 가지고 있는 능력</li>
+      <li>Elasticity : 막대한 양의 resource 용량에 대해서 순간적으로 할당하고 해제하는 능력, 즉 얼마나 빠르고 효과적으로 할당하는지를 의미</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="서비스의-종류">서비스의 종류</h2>
+
+<h3 id="iaas-infrastructure-as-a-service">IaaS (Infrastructure as a Service)</h3>
+
+<p><code class="language-plaintext highlighter-rouge">서비스로써의 인프라</code> 를 의미</p>
+
+<ul>
+  <li>AWS 와 같이 호스트를 할 수 있는 인프라를 제공해주는 것</li>
+  <li>하드웨어를 원격에서 제공해주는 것이라고 볼 수 있음. (Ex. EC2)</li>
+</ul>
+
+<h3 id="paas-platform-as-a-service">PaaS (Platform as a Service)</h3>
+
+<p><code class="language-plaintext highlighter-rouge">서비스로써의 플랫폼</code> 을 의미</p>
+
+<ul>
+  <li>인프라는 구축이 되어 있고 그 곳에 코드등을 빌드해서 바로 배포하고 실행할 수 있는 것</li>
+  <li>OS를 원격에서 제공해주는 것이라고 볼 수 있음 (Ex. 이미 node.js 가 설치되어있는 runtime 환경 제공)</li>
+</ul>
+
+<h3 id="saas-software-as-a-service">SaaS (Software as a Service)</h3>
+
+<p><code class="language-plaintext highlighter-rouge">서비스로써의 소프트웨어</code> 를 의미</p>
+
+<ul>
+  <li>구글독스 같이 바로 접근해서 쓸 수 있는 것.</li>
+</ul>
+
+<h2 id="scaling">Scaling</h2>
+
+<h3 id="horizontal-scaling">Horizontal Scaling</h3>
+
+<ul>
+  <li>Allocating or releasing of IT resources that are of the same type</li>
+  <li>동일한 속성을 할당하거나 줄이는 것. 가상 머신을 한대 -&gt; 두대 -&gt; 세대 늘리는 것이라고 볼 수 있음.</li>
+</ul>
+
+<h3 id="vertical-scaling">Vertical Scaling</h3>
+
+<ul>
+  <li>replacing by another with higher or lower capacity</li>
+  <li>2CPUs -&gt; 4CPUs 처럼 capacity 를 늘리는 것.</li>
+</ul>
+
+<h3 id="horizontal-scaling-vs-vertical-scaling">horizontal scaling vs. vertical scaling</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Horizontal</th>
+      <th style="text-align: center">Vertical</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">less expensive<br />(through commodity hardware components)</td>
+      <td style="text-align: center">more expensive<br />(specialized servers)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">IT resources instantly available</td>
+      <td style="text-align: center">IT resources normally instantly available</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="characteristics-of-cloud">Characteristics of Cloud</h2>
+
+<ul>
+  <li>On-demand Usage</li>
+  <li>Ubiquitous Access : 자유롭게 언제 어디서든 접근</li>
+  <li>Multi-tenancy (and Resource Pooling) : 하나가 여럿에게 제공해줄 수 있다. =&gt; 각자에게 isolation 제공
+    <ul>
+      <li>shared cloud storage device 에서 하나 이상의 cloud service 에게 자원을 할당할 수 있다는 의미</li>
+    </ul>
+  </li>
+  <li>Elasticity</li>
+  <li>Measured Usage</li>
+  <li>Resiliency : the capacity to recover quickly from difficulties; toughness</li>
+</ul>
+
+<h2 id="broadband-networks-and-internet-architecture">Broadband Networks and Internet Architecture</h2>
+
+<ul>
+  <li>application : HTTP, SMTP, FTP</li>
+  <li>transport : TCP, UDP</li>
+  <li>internetworking : IP</li>
+  <li>data link : data link protocol</li>
+  <li>physical : physical protocol</li>
+</ul>
+
+<h2 id="network-bandwidth-and-latency-issues">Network bandwidth and latency issues</h2>
+
+<p>:: traffic 문제로 이슈가 발생할 수 있다.</p>
+
+<h2 id="virtualization-technology">Virtualization Technology</h2>
+
+<p>:: Virtualization is the process of converting a physical IT resource into a virtual IT  resource</p>
+
+<ul>
+  <li>virtual server</li>
+  <li>virtual storage device or virtual disk</li>
+  <li>vlan</li>
+  <li>power - virtual UPSs</li>
+</ul>
+
+<p>roll-back recovery : snapshot 기법을 사용한다.</p>
+
+<p>가상화를 할 경우 여러 layer 를 거치게 되는 경우가 발생 -&gt; performance overhead 발생 가능</p>
+
+:ET

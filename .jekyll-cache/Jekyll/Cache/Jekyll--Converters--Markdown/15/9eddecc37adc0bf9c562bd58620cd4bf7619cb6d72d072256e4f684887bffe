@@ -1,4 +1,4 @@
-I"��<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
+I"��<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
 
 <h2>Pages</h2>
 
@@ -494,6 +494,19 @@
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
   
+    &lt;a href="/page10/" rel="permalink"&gt;&lt;/a&gt;
+  
+&lt;/h2&gt;
+</code></pre></div>    </div>
+
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
+  
     &lt;a href="/assets/css/main.css.map" rel="permalink"&gt;&lt;/a&gt;
   
 &lt;/h2&gt;
@@ -503,6 +516,72 @@
 </div>
 
 <h2>Posts</h2>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
+  
+    &lt;a href="/computer-network/2020-07-03---computer-network-overview-part-3/" rel="permalink"&gt;Computer Network Overview Part 3 &lt;/a&gt;
+  
+&lt;/h2&gt;
+
+  &lt;p class="page__meta"&gt;&lt;i class="far fa-clock" aria-hidden="true"&gt;&lt;/i&gt; 
+</code></pre></div>    </div>
+
+    <p>7 minute read</p>
+
+    <p>&lt;/p&gt;</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p class="archive__item-excerpt" itemprop="description"&gt;지난 포스트에 이어서 컴퓨터 네트워크와 관련해 개략적으로 알아보자. 이번 포스트에서 다룰 것들은 다음과 같다.
+</code></pre></div>    </div>
+    <p>&lt;/p&gt;</p>
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
+  
+    &lt;a href="/cloud/2020-07-03---aws-solutions-list/" rel="permalink"&gt;AWS Solutions List &lt;/a&gt;
+  
+&lt;/h2&gt;
+
+  &lt;p class="page__meta"&gt;&lt;i class="far fa-clock" aria-hidden="true"&gt;&lt;/i&gt; 
+</code></pre></div>    </div>
+
+    <p>5 minute read</p>
+
+    <p>&lt;/p&gt;</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p class="archive__item-excerpt" itemprop="description"&gt;최종 수정일 : 2020-07-03
+</code></pre></div>    </div>
+    <p>&lt;/p&gt;</p>
+  </article>
+</div>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
+  
+    &lt;a href="/cloud/2020-07-01---cloud-overview/" rel="permalink"&gt;Cloud Overview &lt;/a&gt;
+  
+&lt;/h2&gt;
+
+  &lt;p class="page__meta"&gt;&lt;i class="far fa-clock" aria-hidden="true"&gt;&lt;/i&gt; 
+</code></pre></div>    </div>
+
+    <p>2 minute read</p>
+
+    <p>&lt;/p&gt;</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p class="archive__item-excerpt" itemprop="description"&gt;클라우드 개요
+</code></pre></div>    </div>
+    <p>&lt;/p&gt;</p>
+  </article>
+</div>
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
@@ -773,14 +852,14 @@
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
   
-    &lt;a href="/computer%20network/2019-12-11---computer-network-overview-part-2/" rel="permalink"&gt;Computer Network Overview Part 2 &lt;/a&gt;
+    &lt;a href="/computer-network/2019-12-11---computer-network-overview-part-2/" rel="permalink"&gt;Computer Network Overview Part 2 &lt;/a&gt;
   
 &lt;/h2&gt;
 
   &lt;p class="page__meta"&gt;&lt;i class="far fa-clock" aria-hidden="true"&gt;&lt;/i&gt; 
 </code></pre></div>    </div>
 
-    <p>22 minute read</p>
+    <p>14 minute read</p>
 
     <p>&lt;/p&gt;</p>
 
@@ -1104,7 +1183,7 @@
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
   
-    &lt;a href="/computer%20network/2019-10-16---computer-network-overview/" rel="permalink"&gt;Computer Network Overview Part 1 &lt;/a&gt;
+    &lt;a href="/computer-network/2019-10-16---computer-network-overview/" rel="permalink"&gt;Computer Network Overview Part 1 &lt;/a&gt;
   
 &lt;/h2&gt;
 
