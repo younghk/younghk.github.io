@@ -13,7 +13,14 @@ toc: true
 
 ## Docker 란
 
-도커(Docker)는 컨테이너(container)를 이용해 가상화를 하는 것이다.  
+> [What is a Container?](https://www.docker.com/resources/what-container)
+
+![Docker](/assets/images/2020-03-27---docker-overview/image1.png)
+
+{:.image-caption}
+*\<image of docker<small>(from Official Site)</small>\>*
+
+도커(Docker)는 컨테이너(container)를 이용해 가상화를 하는 것이다.(가상화 플랫폼)  
 OS 가상화는 많이 들어보았을 텐데, 이와 차이를 보이는 점은 바로 소프트웨어적으로 가상화를 진행한다는 것이다.  
 
 Docker의 특징으로는 완벽하게 세팅된 환경을 이미지화할 수 있고, 이 이미지는 속도도 빠를 뿐 아니라 Docker 위에서 완벽하게 돌아가는 것을 보장한다.  

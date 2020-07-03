@@ -4,7 +4,7 @@ title: 'Computer Network Overview Part 2'
 date: '2019-12-11 17:41:09'
 layout: post
 #path: '/computer-network/2019-12-11---computer-network-overview-part-2/'
-category: Computer-Network
+category: ComputerNetwork
 tags:
   - Computer Network
   - ARP
@@ -29,6 +29,10 @@ toc-not-sticky: true
 - NAT
 - Mobile IP(v4, v6)
 - IPsec
+- IP Routing Protocol
+- TCP Connection
+- Flow Control
+- Congestion Control
 
 하나씩 가볍게 알아보자.
 

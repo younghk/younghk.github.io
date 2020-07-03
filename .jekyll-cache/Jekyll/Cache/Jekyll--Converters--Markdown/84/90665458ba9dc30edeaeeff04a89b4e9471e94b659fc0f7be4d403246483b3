@@ -1,0 +1,60 @@
+I"�<h2 id="docker-란">Docker 란</h2>
+
+<blockquote>
+  <p><a href="https://www.docker.com/resources/what-container">What is a Container?</a></p>
+</blockquote>
+
+<p><img src="/assets/images/2020-03-27---docker-overview/image1.png" alt="Docker" /></p>
+
+<p class="image-caption"><em>image of docker(from Official Site)</em></p>
+
+<p>도커(Docker)는 컨테이너(container)를 이용해 가상화를 하는 것이다.(가상화 플랫폼)<br />
+OS 가상화는 많이 들어보았을 텐데, 이와 차이를 보이는 점은 바로 소프트웨어적으로 가상화를 진행한다는 것이다.</p>
+
+<p>Docker의 특징으로는 완벽하게 세팅된 환경을 이미지화할 수 있고, 이 이미지는 속도도 빠를 뿐 아니라 Docker 위에서 완벽하게 돌아가는 것을 보장한다.</p>
+
+<p>Docker 에 대한 자세한 설명은 따로 추후에 정리해보자!</p>
+
+<h2 id="명령어">명령어</h2>
+
+<p>Docker image 빌드하기</p>
+
+<pre><code class="language-bah">docker build --tag [태그 이름] [Dockerfile 위치]
+</code></pre>
+
+<p>생성된 Docker image 를 확인</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker images
+</code></pre></div></div>
+
+<p>생성된 이미지로 컨테이너 만들기</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker crwate <span class="nt">--name</span> <span class="o">[</span>컨테이너 이름] <span class="nt">-p</span> <span class="o">[</span>외부 포트:컨테이너 내부포트] <span class="o">[</span>이미지명:버전태그]
+</code></pre></div></div>
+
+<p>생성된 컨테이너(container) 확인하기</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps <span class="c"># 현재 실행 중(STATUS:Up)인 컨테이너의 목록을 보여준다.</span>
+docker ps <span class="nt">-a</span> <span class="c"># 실행하지 않는 모든 컨테이너를 보여준다.</span>
+</code></pre></div></div>
+
+<p>컨테이너 실행하기</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker start <span class="o">[</span>컨테이너 이름]
+
+docker run <span class="nt">-d</span> <span class="se">\ </span><span class="c"># Background 로 실행</span>
+            <span class="nt">-p</span> <span class="o">[</span>외부 포트:컨테이너 내부포트] <span class="se">\ </span><span class="c"># port 설정</span>
+            <span class="nt">--name</span> <span class="o">[</span>컨테이너 이름] <span class="se">\ </span><span class="c">#컨테이너 이름 설정</span>
+            <span class="o">[</span>이미지명:버전태그] <span class="c"># 해당 컨테이너를 구성할 이미지</span>
+</code></pre></div></div>
+
+<p>컨테이너 삭제</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">rm</span> <span class="nt">-f</span> <span class="o">[</span>컨테이너 이름] <span class="c"># -f 옵션은 실행 중인 컨테이너도 강제로 삭제한다.</span>
+</code></pre></div></div>
+
+<p>컨테이너에 직접 명령(접근)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> <span class="o">[</span>컨테이너 이름] /bin/bash <span class="c"># 실행 중인 컨테이너의 shell 에 접근</span>
+</code></pre></div></div>
+:ET
