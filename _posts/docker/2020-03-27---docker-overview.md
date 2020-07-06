@@ -31,7 +31,7 @@ Docker 에 대한 자세한 설명은 따로 추후에 정리해보자!
 
 Docker image 빌드하기  
 
-```bah
+```bash
 docker build --tag [태그 이름] [Dockerfile 위치]
 ```
 
@@ -45,7 +45,7 @@ docker images
 
 
 ```bash
-docker crwate --name [컨테이너 이름] -p [외부 포트:컨테이너 내부포트] [이미지명:버전태그]
+docker create --name [컨테이너 이름] -p [외부 포트:컨테이너 내부포트] [이미지명:버전태그]
 ```
 
 생성된 컨테이너(container) 확인하기
