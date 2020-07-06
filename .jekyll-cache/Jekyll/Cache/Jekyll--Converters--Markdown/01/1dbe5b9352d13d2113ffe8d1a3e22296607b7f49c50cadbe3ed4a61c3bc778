@@ -1,0 +1,21 @@
+I"�<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#prime-numbers">Prime Numbers</a></li>
+  <li class="is-collapsed"><a href="#fermats-theorems">Fermat’s Theorems</a></li>
+  <li class="is-collapsed"><a href="#euler-totient-function">Euler Totient Function</a>
+    <ul>
+      <li class="is-collapsed"><a href="#eulers-theorem">Euler’s Theorem</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#primality-testing">Primality Testing</a></li>
+  <li class="is-collapsed"><a href="#testing-for-primality">Testing for Primality</a>
+    <ul>
+      <li class="is-collapsed"><a href="#two-properties-of-prime-numbers">Two Properties of Prime Numbers</a></li>
+      <li class="is-collapsed"><a href="#miller-rabin-algorithm">Miller-Rabin Algorithm</a></li>
+      <li class="is-collapsed"><a href="#prime-distribution">Prime Distribution</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#the-chinese-remainder-theorem">The Chinese Remainder Theorem</a></li>
+  <li class="is-collapsed"><a href="#primitive-root">Primitive Root</a></li>
+  <li class="is-collapsed"><a href="#discrete-logarithms">Discrete Logarithms</a></li>
+</ul>
+:ET

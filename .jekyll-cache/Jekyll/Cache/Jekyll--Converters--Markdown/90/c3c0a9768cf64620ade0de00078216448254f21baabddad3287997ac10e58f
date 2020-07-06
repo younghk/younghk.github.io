@@ -1,0 +1,25 @@
+I"§<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#transfer-learning">Transfer Learning</a></li>
+  <li class="is-collapsed"><a href="#cnn-architecture">CNN Architecture</a>
+    <ul>
+      <li class="is-collapsed"><a href="#alexnet">AlexNet</a></li>
+      <li class="is-collapsed"><a href="#vgg">VGG</a></li>
+      <li class="is-collapsed"><a href="#googlenet">GoogLeNet</a></li>
+      <li class="is-collapsed"><a href="#resnet">ResNet</a>
+        <ul>
+          <li class="is-collapsed"><a href="#deep-feature-fusion">Deep Feature Fusion</a></li>
+          <li class="is-collapsed"><a href="#senet">SENet</a></li>
+          <li class="is-collapsed"><a href="#network-in-networknin">Network in Network(NiN)</a></li>
+          <li class="is-collapsed"><a href="#identity-mappings-in-deep-residual-networks">Identity Mappings in Deep Residual Networks</a></li>
+          <li class="is-collapsed"><a href="#wide-residual-networks">Wide Residual Networks</a></li>
+          <li class="is-collapsed"><a href="#resnext">ResNeXt</a></li>
+        </ul>
+      </li>
+      <li class="is-collapsed"><a href="#fractalnet">FractalNet</a></li>
+      <li class="is-collapsed"><a href="#densely-connected-convolutional-networks">Densely Connected Convolutional Networks</a></li>
+      <li class="is-collapsed"><a href="#mobilenets">MobileNets</a></li>
+      <li class="is-collapsed"><a href="#meta-learning">Meta-learning</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

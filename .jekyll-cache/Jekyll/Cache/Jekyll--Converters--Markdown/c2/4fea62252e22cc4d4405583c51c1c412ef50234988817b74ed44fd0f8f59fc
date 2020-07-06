@@ -1,0 +1,10 @@
+I"c<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#postgresql-이란">PostgreSQL 이란</a></li>
+  <li class="is-collapsed"><a href="#명령어">명령어</a></li>
+  <li class="is-collapsed"><a href="#오류-모음">오류 모음</a>
+    <ul>
+      <li class="is-collapsed"><a href="#버전-문제">버전 문제</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

@@ -4,7 +4,7 @@ title:     "CrowdPose - Efficient Crowded Scenes Pose Estimation and A New Bench
 date:      "2020-01-28 15:52:45"
 layout:    post
 path:      "/machine-learning/2020-01-28---crowdpose-efficient-crowded-scenes-pose-estimation-and-a-new-benchmark/"
-category:  "Machine Learning"
+category:  "Machine-Learning"
 tags: 
     - Machine Learning
     - Pose Estimation

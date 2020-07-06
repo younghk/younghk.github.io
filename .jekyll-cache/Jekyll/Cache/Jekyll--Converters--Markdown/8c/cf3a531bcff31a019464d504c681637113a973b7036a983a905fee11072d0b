@@ -1,0 +1,49 @@
+I"	<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#application-integration">Application Integration</a>
+    <ul>
+      <li class="is-collapsed"><a href="#aws-sqs">AWS SQS</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#container">Container</a>
+    <ul>
+      <li class="is-collapsed"><a href="#aws-ecs">AWS ECS</a></li>
+      <li class="is-collapsed"><a href="#aws-eks">AWS EKS</a></li>
+      <li class="is-collapsed"><a href="#aws-fargate">AWS Fargate</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#compute">Compute</a>
+    <ul>
+      <li class="is-collapsed"><a href="#amazon-ec2">Amazon EC2</a></li>
+      <li class="is-collapsed"><a href="#aws-lightsail">AWS LightSail</a></li>
+      <li class="is-collapsed"><a href="#aws-eb">AWS EB</a></li>
+      <li class="is-collapsed"><a href="#aws-lambda">AWS Lambda</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#database">Database</a>
+    <ul>
+      <li class="is-collapsed"><a href="#amazon-aurora">Amazon Aurora</a></li>
+      <li class="is-collapsed"><a href="#amazon-rds">Amazon RDS</a></li>
+      <li class="is-collapsed"><a href="#amazon-dynamodb">Amazon DynamoDB</a></li>
+      <li class="is-collapsed"><a href="#aws-elasticache">AWS ElastiCache</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#networking--content-delivering">Networking &amp; Content Delivering</a>
+    <ul>
+      <li class="is-collapsed"><a href="#amazon-vpc">Amazon VPC</a></li>
+      <li class="is-collapsed"><a href="#aws-elb">AWS ELB</a></li>
+      <li class="is-collapsed"><a href="#aws-route-53">AWS Route 53</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#security-identity-compilance">Security, Identity, Compilance</a>
+    <ul>
+      <li class="is-collapsed"><a href="#aws-iam">AWS IAM</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#storage">Storage</a>
+    <ul>
+      <li class="is-collapsed"><a href="#aws-s3">AWS S3</a></li>
+      <li class="is-collapsed"><a href="#aws-ebs">AWS EBS</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

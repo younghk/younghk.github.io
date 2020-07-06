@@ -1,0 +1,9 @@
+I"B<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#neural-networks">Neural Networks</a>
+    <ul>
+      <li class="is-collapsed"><a href="#backpropagation">Backpropagation</a></li>
+      <li class="is-collapsed"><a href="#backpropagation-with-vectors">Backpropagation with Vectors</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

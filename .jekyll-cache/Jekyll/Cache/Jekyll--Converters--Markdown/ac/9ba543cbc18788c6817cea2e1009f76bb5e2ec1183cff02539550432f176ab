@@ -1,0 +1,13 @@
+I"<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#recurrent-neural-networks">Recurrent Neural Networks</a>
+    <ul>
+      <li class="is-collapsed"><a href="#vanilla-recurrent-neural-network">Vanilla Recurrent Neural Network</a></li>
+      <li class="is-collapsed"><a href="#rnn-for-language-model">RNN for Language Model</a></li>
+      <li class="is-collapsed"><a href="#searching-for-interpretable-cells">Searching for interpretable cells</a></li>
+      <li class="is-collapsed"><a href="#image-captioning">Image Captioning</a></li>
+      <li class="is-collapsed"><a href="#image-captioning-with-attention">Image Captioning with Attention</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#lstmlong-short-term-memory">LSTM(Long Short Term Memory)</a></li>
+</ul>
+:ET

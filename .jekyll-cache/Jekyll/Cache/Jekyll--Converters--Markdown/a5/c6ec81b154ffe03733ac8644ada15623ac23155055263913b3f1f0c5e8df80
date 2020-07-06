@@ -1,0 +1,45 @@
+I"J<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#message-authentication">Message Authentication</a>
+    <ul>
+      <li class="is-collapsed"><a href="#symmetric-encryption-for-message-authentication">Symmetric Encryption for Message Authentication</a></li>
+      <li class="is-collapsed"><a href="#public-encryption-for-message-authentication">Public Encryption for Message Authentication</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#message-authentication-code">Message Authentication Code</a>
+    <ul>
+      <li class="is-collapsed"><a href="#mac-properties">MAC Properties</a></li>
+      <li class="is-collapsed"><a href="#requirements-for-macs">Requirements for MACs</a></li>
+      <li class="is-collapsed"><a href="#security-of-macs">Security of MACs</a></li>
+      <li class="is-collapsed"><a href="#mac-based-on-hash-function">MAC Based on Hash Function</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#hmac">HMAC</a>
+    <ul>
+      <li class="is-collapsed"><a href="#hmac-security">HMAC Security</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#mac-based-on-block-ciphers">MAC based on Block Ciphers</a>
+    <ul>
+      <li class="is-collapsed"><a href="#daa">DAA</a></li>
+      <li class="is-collapsed"><a href="#cmac">CMAC</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#authenticated-encryption">Authenticated Encryption</a>
+    <ul>
+      <li class="is-collapsed"><a href="#ccm">CCM</a></li>
+      <li class="is-collapsed"><a href="#gcm">GCM</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#prng-using-hash-functions-and-macs">PRNG Using Hash Functions and MACs</a>
+    <ul>
+      <li class="is-collapsed"><a href="#prng-using-a-hash-function">PRNG using a Hash Function</a></li>
+      <li class="is-collapsed"><a href="#prng-using-a-mac">PRNG using a MAC</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#multi-user-security-of-gcm-in-tls">Multi-user Security of GCM in TLS</a>
+    <ul>
+      <li class="is-collapsed"><a href="#lucky-thirteen-attack">Lucky Thirteen Attack</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

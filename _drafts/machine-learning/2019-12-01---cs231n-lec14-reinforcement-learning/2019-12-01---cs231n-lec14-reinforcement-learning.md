@@ -4,7 +4,7 @@ title: '[cs231n-lec14] Reinforcement Learning'
 date: '2019-12-01 21:25:22'
 layout: post
 #path:      "/posts/cs231n-lec14-reinforcement-learning/"
-category: 'Machine Learning'
+category: 'Machine-Learning'
 tags:
   - cs231n
   - Reinforcement Learning

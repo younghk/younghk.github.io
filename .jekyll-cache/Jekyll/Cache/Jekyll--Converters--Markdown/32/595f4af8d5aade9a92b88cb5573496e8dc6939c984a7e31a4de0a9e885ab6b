@@ -1,0 +1,29 @@
+I"¹<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#machine-learning-tasks-with-graph">Machine Learning Tasks with Graph</a></li>
+  <li class="is-collapsed"><a href="#node-representation-learning">Node Representation Learning</a>
+    <ul>
+      <li class="is-collapsed"><a href="#line-large-scale-information-network-embedding">LINE: Large-scale Information Network Embedding</a>
+        <ul>
+          <li class="is-collapsed"><a href="#summary">Summary</a></li>
+          <li class="is-collapsed"><a href="#first-order-proximity">First-order Proximity</a></li>
+          <li class="is-collapsed"><a href="#second-order-proximity">Second-order Proximity</a></li>
+          <li class="is-collapsed"><a href="#features">Features</a></li>
+        </ul>
+      </li>
+      <li class="is-collapsed"><a href="#deepwalk">DeepWalk</a></li>
+      <li class="is-collapsed"><a href="#node2vec">node2vec</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#graph-neural-networks">Graph Neural Networks</a>
+    <ul>
+      <li class="is-collapsed"><a href="#neighborhood-aggregation">Neighborhood Aggregation</a></li>
+      <li class="is-collapsed"><a href="#training-the-model">Training the Model</a></li>
+      <li class="is-collapsed"><a href="#inductive-learning">Inductive Learning</a></li>
+      <li class="is-collapsed"><a href="#graph-convolutional-networks">Graph Convolutional Networks</a></li>
+      <li class="is-collapsed"><a href="#graphsage">GraphSAGE</a></li>
+      <li class="is-collapsed"><a href="#gated-graph-neural-networks">Gated Graph Neural Networks</a></li>
+      <li class="is-collapsed"><a href="#graph-attention-networksgat">Graph Attention Networks(GAT)</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

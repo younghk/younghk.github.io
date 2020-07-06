@@ -1,0 +1,25 @@
+I"�<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#overview">Overview</a></li>
+  <li class="is-collapsed"><a href="#activation-functions">Activation Functions</a>
+    <ul>
+      <li class="is-collapsed"><a href="#sigmoid">Sigmoid</a></li>
+      <li class="is-collapsed"><a href="#tanhhyperbolic-tangent">tanh(hyperbolic tangent)</a></li>
+      <li class="is-collapsed"><a href="#reluretified-linear-unit">ReLU(Retified Linear Unit)</a></li>
+      <li class="is-collapsed"><a href="#leacky-relu">Leacky ReLU</a></li>
+      <li class="is-collapsed"><a href="#elu">ELU</a></li>
+      <li class="is-collapsed"><a href="#maxout">Maxout</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#data-preprocessing">Data Preprocessing</a></li>
+  <li class="is-collapsed"><a href="#weight-initialization">Weight Initialization</a>
+    <ul>
+      <li class="is-collapsed"><a href="#1-작은-임의의-수로-초기화">1. 작은 임의의 수로 초기화</a></li>
+    </ul>
+  </li>
+  <li class="is-collapsed"><a href="#batch-normalization">Batch Normalization</a></li>
+  <li class="is-collapsed"><a href="#layer-normalization">Layer Normalization</a></li>
+  <li class="is-collapsed"><a href="#instance-normalization">Instance Normalization</a></li>
+  <li class="is-collapsed"><a href="#group-normalization">Group Normalization</a></li>
+  <li class="is-collapsed"><a href="#summary">Summary</a></li>
+</ul>
+:ET

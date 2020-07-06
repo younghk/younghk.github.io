@@ -1,0 +1,22 @@
+I"ó<ul class="toc__menu">
+  <li class="is-collapsed"><a href="#loss-functions-and-optimization">Loss Functions and Optimization</a>
+    <ul>
+      <li class="is-collapsed"><a href="#loss-functions">Loss Functions</a></li>
+      <li class="is-collapsed"><a href="#regularization">Regularization</a></li>
+      <li class="is-collapsed"><a href="#softmax-classifier">Softmax Classifier</a></li>
+      <li class="is-collapsed"><a href="#optimization">Optimization</a>
+        <ul>
+          <li class="is-collapsed"><a href="#gradient-descent">Gradient Descent</a></li>
+        </ul>
+      </li>
+      <li class="is-collapsed"><a href="#image-feature">Image Feature</a>
+        <ul>
+          <li class="is-collapsed"><a href="#color-histogram">color histogram</a></li>
+          <li class="is-collapsed"><a href="#histogram-of-oriented-gradient">histogram of oriented gradient</a></li>
+          <li class="is-collapsed"><a href="#bag-of-words">bag of words</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+:ET
