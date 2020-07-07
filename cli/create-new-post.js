@@ -9,6 +9,7 @@ const log = require('signale')
 const cwd = process.cwd()
 
 const CONTENTS_DIR = '/_drafts'
+const IMAGES_DIR = `${cwd}/assets/images`
 const TARGET_DIR = `${cwd}${CONTENTS_DIR}`
 const IGNORE_DIR = 'images'
 const UTF_8 = 'utf8'
@@ -147,6 +148,12 @@ module.exports = (async function () {
   const fileDir = `${destDir}/${fileName}`
   const fileDirExists = await fs.pathExists(fileDir)
 
+  const imagesDestDir = `${IMAGES_DIR}/${fileName}`
+  const imagesDestDirExists = await fs.pathExists(imagesDestDir)
+
+  if(!imagesDestDirExists) {
+    await fs.ensureDir(imagesDestDir);
+  }
 
   if (!fileDirExists) {
     await fs.ensureDir(fileDir)
@@ -162,4 +169,5 @@ module.exports = (async function () {
     log.success('Success to create new post!')
     log.note(`/${categoryPath}/${fileName}.md\n${contents}`)
   })
+
 })()

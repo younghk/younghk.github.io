@@ -49,7 +49,7 @@ toc: true
 
 #### OCP(Open-Closed Principle, 개방-폐쇄 원칙)
 
-> Software entities ... should be open for extension, but closed for modification.
+> Software entities ... should be open for extension, but closed for modification.  
 > 소프트웨어 개체는 확장에는 열려있고, 변경에는 닫혀 있어야 한다.
 
 시스템을 확장하기 쉬우면서 변경으로 인해 시스템이 영향을 많이 받지 않도록 해야 한다. 이를 위해 시스템을 컴포넌트 단위로 분리하고, 저수준의 변경이 고수준에 영향을 미칠 수 없도록 의존성 계층 구조를 띄도록 해야 한다.
@@ -62,14 +62,14 @@ toc: true
 
 #### ISP(Interface Segregation Principle, 인터페이스 분리 원칙)
 
-> Many client-specific interfaces are better than one general-purpose interface.
+> Many client-specific interfaces are better than one general-purpose interface.  
 > 클라이언트는 자신이 이용하는 메서드에만 의존해야 한다.
 
 클라이언트에서 사용하고 있지 않은 메소드가 변경이 되었을 때 해당 클라이언트에 영향을 주지 않도록 분리된 인터페이스를 사용해야 한다는 의미이다.
 
 #### DIP(Dependency Inversion Principle, 의존 역전 원칙)
 
-> One should depend upon abstractions, \[not\] concretions.
+> One should depend upon abstractions, \[not\] concretions.  
 > 상위 수준의 모듈은 하위 수준의 모듈에 의존하지 않고, 둘 다 추상화에 의존한다.  
 
 구체적인 사항에 의존하지 않고, 추상화에 의존하라는 의미이다.
@@ -86,7 +86,7 @@ _음,,, 잘 와닿지가 않는데,,,?_
 
 ### Creational pattern(생성 패턴)
 
-> Deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
+> Deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.  
 > 인스턴스를 만드는 절차를 추상화하는 패턴
 
 - 객체를 생성/합성하는 방법이나 객체의 표현 방법과 시스템을 분리
@@ -104,14 +104,14 @@ _음,,, 잘 와닿지가 않는데,,,?_
 
 ### Behavioral Pattern(동작 패턴)
 
-> Identify common communication patterns among objects and realize these patterns.
+> Identify common communication patterns among objects and realize these patterns.  
 > 객체들간의 알고리즘이나 책임과 관련한 패턴
 
 - 혼자 수행할 수 없는 작업을 여러 개의 객체로 분배하면서 객체 사이의 결합도를 최소화 하도록 함
 
 ### Concurrency Pattern(동시성 패턴)
 
-> Deal with the multi-threaded programming paradigm.
+> Deal with the multi-threaded programming paradigm.  
 > 멀티쓰레드 프로그래밍의 동시성을 위한 패턴
 
 - 동시 실행의 경우 고려해야할 점들을 생각한 패턴

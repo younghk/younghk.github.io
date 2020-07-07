@@ -1,16 +1,15 @@
 ---
 draft: true
-title: \[Design Pattern\] 생성 패턴 - Creational Patterns
-datetime: 2020-07-06 17:14:20
+title: \[Design Pattern\] 동작 패턴 - Behavioral Patterns
+datetime: 2020-07-06 18:18:53
 layout: post
 category: Software-Engineering
 tags: 
   - Design Pattern
-  - Creational Pattern
+  - Behavioral Patterns
 description: ""
 toc: true
 ---
-
 
 ---
 
