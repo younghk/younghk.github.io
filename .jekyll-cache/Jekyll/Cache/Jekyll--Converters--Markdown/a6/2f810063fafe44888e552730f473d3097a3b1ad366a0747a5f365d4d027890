@@ -1,0 +1,14 @@
+I"�<ul class="toc__menu">
+  <li><a href="#구조-패턴">구조 패턴</a></li>
+  <li><a href="#구조-패턴-유형">구조 패턴 유형</a>
+    <ul>
+      <li><a href="#adapter">Adapter</a></li>
+      <li><a href="#bridge">Bridge</a></li>
+      <li><a href="#composite">Composite</a></li>
+      <li><a href="#decorator">Decorator</a></li>
+      <li><a href="#facade">Facade</a></li>
+      <li><a href="#proxy">Proxy</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

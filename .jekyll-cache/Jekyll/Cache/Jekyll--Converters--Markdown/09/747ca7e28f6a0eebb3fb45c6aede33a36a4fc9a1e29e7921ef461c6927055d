@@ -1,0 +1,31 @@
+I"·<ul class="toc__menu">
+  <li><a href="#ip-routing-protocol">IP Routing Protocol</a>
+    <ul>
+      <li><a href="#distance-vector-algorithm">Distance Vector Algorithm</a></li>
+      <li><a href="#link-state-algorithm">Link-State Algorithm</a></li>
+    </ul>
+  </li>
+  <li><a href="#tcp-connection">TCP Connection</a>
+    <ul>
+      <li><a href="#socket">Socket</a></li>
+      <li><a href="#layout-of-tcp-header">Layout of TCP header</a></li>
+      <li><a href="#3-way-handshake">3-Way Handshake</a></li>
+      <li><a href="#4-way-handshake">4-Way Handshake</a></li>
+    </ul>
+  </li>
+  <li><a href="#flow-control">Flow Control</a>
+    <ul>
+      <li><a href="#sliding-window">Sliding Window</a></li>
+      <li><a href="#silly-window-syndrome">Silly Window Syndrome</a></li>
+      <li><a href="#retransmissions-in-tcp">Retransmissions in TCP</a></li>
+    </ul>
+  </li>
+  <li><a href="#congestion-control">Congestion Control</a>
+    <ul>
+      <li><a href="#tcp-aimd--slow-start">TCP AIMD &amp; Slow Start</a></li>
+      <li><a href="#tcp-congestion-policy">TCP Congestion Policy</a></li>
+      <li><a href="#tcp-window-control---tahoe--reno">TCP Window Control - Tahoe / Reno</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

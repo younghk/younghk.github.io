@@ -1,0 +1,25 @@
+I"4<ul class="toc__menu">
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#activation-functions">Activation Functions</a>
+    <ul>
+      <li><a href="#sigmoid">Sigmoid</a></li>
+      <li><a href="#tanhhyperbolic-tangent">tanh(hyperbolic tangent)</a></li>
+      <li><a href="#reluretified-linear-unit">ReLU(Retified Linear Unit)</a></li>
+      <li><a href="#leacky-relu">Leacky ReLU</a></li>
+      <li><a href="#elu">ELU</a></li>
+      <li><a href="#maxout">Maxout</a></li>
+    </ul>
+  </li>
+  <li><a href="#data-preprocessing">Data Preprocessing</a></li>
+  <li><a href="#weight-initialization">Weight Initialization</a>
+    <ul>
+      <li><a href="#1-작은-임의의-수로-초기화">1. 작은 임의의 수로 초기화</a></li>
+    </ul>
+  </li>
+  <li><a href="#batch-normalization">Batch Normalization</a></li>
+  <li><a href="#layer-normalization">Layer Normalization</a></li>
+  <li><a href="#instance-normalization">Instance Normalization</a></li>
+  <li><a href="#group-normalization">Group Normalization</a></li>
+  <li><a href="#summary">Summary</a></li>
+</ul>
+:ET

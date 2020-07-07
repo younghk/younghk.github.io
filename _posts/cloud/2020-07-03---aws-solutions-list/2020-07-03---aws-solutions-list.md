@@ -8,7 +8,7 @@ tags:
   - AWS
 description: "AWS의 product들에 대해 간략히 정리해보자"
 toc: true
-toc-not-sticky: true
+toc_not_sticky: true
 ---
 
 최종 수정일 : 2020-07-03

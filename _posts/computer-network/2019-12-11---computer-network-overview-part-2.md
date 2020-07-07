@@ -18,7 +18,7 @@ tags:
   - Congestion Control
 description: '컴퓨터 네트워크를 개략적으로 공부하고 정리한 포스트 입니다. ARP, ICMP, NAT, Mobile IPv4, IPv6, IPsec, IP Routing Protocol, TCP Connection, Flow Control, Congestion Control 등을 다룹니다.'
 toc: true
-toc-not-sticky: true
+toc_not_sticky: true
 ---
 
 지난 [포스트](https://younghk.github.io/computer-network/computer-network-overview/)에 이어서 컴퓨터 네트워크와 관련해 개략적으로 알아보자.  

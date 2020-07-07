@@ -1,22 +1,22 @@
 {
-  "name": "minimal-mistakes",
+  "name": "cheong-log",
   "version": "4.19.3",
-  "description": "Minimal Mistakes 2 column Jekyll theme.",
+  "description": "cheong's log",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mmistakes/minimal-mistakes.git"
+    "url": "git://github.com/younghk/younghk.github.io.git"
   },
   "keywords": [
     "jekyll",
     "theme",
     "minimal"
   ],
-  "author": "Michael Rose",
+  "author": "Younghoon Kim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
+    "url": "https://github.com/younghk/younghk-github.io/issues"
   },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
+  "homepage": "https://younghk.github.io/",
   "engines": {
     "node": ">= 0.10.0"
   },

@@ -1,0 +1,46 @@
+I"�<ul class="toc__menu">
+  <li><a href="#우리가-사용하는-컴퓨터의-통신은-어떻게-이루어지는가">우리가 사용하는 컴퓨터의 통신은 어떻게 이루어지는가</a></li>
+  <li><a href="#프로토콜protocol">프로토콜(Protocol)</a></li>
+  <li><a href="#osi-7-layer">OSI 7 Layer</a>
+    <ul>
+      <li><a href="#7-application-layer">7. Application Layer</a></li>
+      <li><a href="#6-presentation-layer">6. Presentation Layer</a></li>
+      <li><a href="#5-session-layer">5. Session Layer</a></li>
+      <li><a href="#4-transport-layer">4. Transport Layer</a></li>
+      <li><a href="#3-network-layer---ip">3. Network Layer - IP</a></li>
+      <li><a href="#2-datalink-layer">2. Datalink Layer</a></li>
+      <li><a href="#1-physical-layer">1. Physical Layer</a></li>
+    </ul>
+  </li>
+  <li><a href="#ipipv4-맛보기">IP(IPv4) 맛보기</a>
+    <ul>
+      <li><a href="#subnet-mask">Subnet Mask</a></li>
+    </ul>
+  </li>
+  <li><a href="#ipv6">IPv6</a>
+    <ul>
+      <li><a href="#anycast">Anycast</a></li>
+      <li><a href="#multicast">Multicast</a></li>
+      <li><a href="#solicited-node-multicast-address">Solicited-Node multicast address</a></li>
+    </ul>
+  </li>
+  <li><a href="#transport-와-datalink">Transport 와 Datalink</a>
+    <ul>
+      <li><a href="#socket">Socket</a></li>
+      <li><a href="#link-layer">Link Layer</a></li>
+    </ul>
+  </li>
+  <li><a href="#dhcp">DHCP</a>
+    <ul>
+      <li><a href="#dhcp-message-format">DHCP message format</a></li>
+    </ul>
+  </li>
+  <li><a href="#dns">DNS</a></li>
+  <li><a href="#ip-좀-더-맛보기">IP 좀 더 맛보기</a>
+    <ul>
+      <li><a href="#fragmentation">Fragmentation</a></li>
+      <li><a href="#routing-and-forwarding">Routing and Forwarding</a></li>
+    </ul>
+  </li>
+</ul>
+:ET

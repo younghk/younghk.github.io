@@ -7,7 +7,7 @@ category: Software-Engineering
 tags: 
   - Design Pattern
   - Creational Pattern
-description: ""
+description: "디자인 패턴 중 생성 패턴의 유형에 대해 간략히 정리합니다."
 toc: true
 ---
 
