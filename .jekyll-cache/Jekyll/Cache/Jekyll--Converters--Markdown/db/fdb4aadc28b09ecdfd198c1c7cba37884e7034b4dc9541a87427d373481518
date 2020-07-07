@@ -1,4 +1,4 @@
-I"I�<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
+I"��<p>A list of all the posts and pages found on the site. For you robots out there is an <a href="/sitemap.xml">XML version</a> available for digesting as well.</p>
 
 <h2>Pages</h2>
 
@@ -516,6 +516,28 @@
 </div>
 
 <h2>Posts</h2>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2 class="archive__item-title" itemprop="headline"&gt;
+  
+    &lt;a href="/software-engineering/2020-07-06---design-pattern-creational-patterns/" rel="permalink"&gt;[Design Pattern] 생성 패턴 - Creational Patterns &lt;/a&gt;
+  
+&lt;/h2&gt;
+
+  &lt;p class="page__meta"&gt;&lt;i class="far fa-clock" aria-hidden="true"&gt;&lt;/i&gt; 
+</code></pre></div>    </div>
+
+    <p>1 minute read</p>
+
+    <p>&lt;/p&gt;</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p class="archive__item-excerpt" itemprop="description"&gt;생성 패턴
+</code></pre></div>    </div>
+    <p>&lt;/p&gt;</p>
+  </article>
+</div>
 
 <div class="list__item">
   <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">

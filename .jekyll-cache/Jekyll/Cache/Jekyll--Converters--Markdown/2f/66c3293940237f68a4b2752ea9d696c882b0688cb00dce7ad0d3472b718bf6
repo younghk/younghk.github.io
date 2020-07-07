@@ -1,4 +1,4 @@
-I"�<h2 id="디자인-패턴이란">디자인 패턴이란</h2>
+I"<h2 id="디자인-패턴이란">디자인 패턴이란</h2>
 
 <p>소프트웨어 공학에서 말하는 디자인 패턴이란 아래와 같다.</p>
 
@@ -44,7 +44,7 @@
 <h4 id="ocpopen-closed-principle-개방-폐쇄-원칙">OCP(Open-Closed Principle, 개방-폐쇄 원칙)</h4>
 
 <blockquote>
-  <p>Software entities … should be open for extension, but closed for modification.
+  <p>Software entities … should be open for extension, but closed for modification.<br />
 소프트웨어 개체는 확장에는 열려있고, 변경에는 닫혀 있어야 한다.</p>
 </blockquote>
 
@@ -61,7 +61,7 @@
 <h4 id="ispinterface-segregation-principle-인터페이스-분리-원칙">ISP(Interface Segregation Principle, 인터페이스 분리 원칙)</h4>
 
 <blockquote>
-  <p>Many client-specific interfaces are better than one general-purpose interface.
+  <p>Many client-specific interfaces are better than one general-purpose interface.<br />
 클라이언트는 자신이 이용하는 메서드에만 의존해야 한다.</p>
 </blockquote>
 
@@ -70,7 +70,7 @@
 <h4 id="dipdependency-inversion-principle-의존-역전-원칙">DIP(Dependency Inversion Principle, 의존 역전 원칙)</h4>
 
 <blockquote>
-  <p>One should depend upon abstractions, [not] concretions.
+  <p>One should depend upon abstractions, [not] concretions.<br />
 상위 수준의 모듈은 하위 수준의 모듈에 의존하지 않고, 둘 다 추상화에 의존한다.</p>
 </blockquote>
 
@@ -89,7 +89,7 @@
 <h3 id="creational-pattern생성-패턴">Creational pattern(생성 패턴)</h3>
 
 <blockquote>
-  <p>Deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
+  <p>Deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.<br />
 인스턴스를 만드는 절차를 추상화하는 패턴</p>
 </blockquote>
 
@@ -123,7 +123,7 @@
 <h3 id="behavioral-pattern동작-패턴">Behavioral Pattern(동작 패턴)</h3>
 
 <blockquote>
-  <p>Identify common communication patterns among objects and realize these patterns.
+  <p>Identify common communication patterns among objects and realize these patterns.<br />
 객체들간의 알고리즘이나 책임과 관련한 패턴</p>
 </blockquote>
 
@@ -134,7 +134,7 @@
 <h3 id="concurrency-pattern동시성-패턴">Concurrency Pattern(동시성 패턴)</h3>
 
 <blockquote>
-  <p>Deal with the multi-threaded programming paradigm.
+  <p>Deal with the multi-threaded programming paradigm.<br />
 멀티쓰레드 프로그래밍의 동시성을 위한 패턴</p>
 </blockquote>
 
