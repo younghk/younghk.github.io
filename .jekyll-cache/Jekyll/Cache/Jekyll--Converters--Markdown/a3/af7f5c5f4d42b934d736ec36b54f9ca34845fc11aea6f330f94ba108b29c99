@@ -1,0 +1,82 @@
+I"�<h2 id="c언어-어렵잖아">C언어 어렵잖아?</h2>
+
+<p>많은 사람들이 C언어(C, C++)가 어렵다고(또는 멍청하다고) 이야기한다.<br />
+이는 C언어를 다루기 위해서는 세세한 부분들을 직접 다 지정해줘야하는 특성 때문인데 이 때문에 고급언어이지만 low level 언어라고 부르기도 한다.</p>
+
+<p>특히 pointer 를 사용해 메모리에 <strong>직접</strong> 접근할 수가 있는데 이는 아주 세세한 설정이 가능하다는 의미이다.<small>SpaceX 의 우주선도 C++로 개발되었다고 한다. 우주의 언어 C++…</small></p>
+
+<p>위와 같은 특성으로 메모리나 성능이 중요한 것들은 C, C++로 개발을 많이 한다.(특히 하드웨어라던가)</p>
+
+<h2 id="그래서-포인터">그래서 포인터?</h2>
+
+<p>포인터는 <code class="language-plaintext highlighter-rouge">다른 변수(variable)의 위치(주소)를 가리키는 변수</code>이다.</p>
+
+<p>포인터를 사용하는 데 있어서 두 가지 연산자(<code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">&amp;</code>)가 사용되는데 각각은 아래와 같다.</p>
+
+<ul>
+  <li>* : 역참조 연산자. 해당 변수의 주소에 저장된 값에 접근할 수 있음</li>
+  <li>&amp; : 주소 연산자. 변수에 할당된 메모리 주소를 확인할 수 있음</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>    <span class="c1">// 1</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*&amp;</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   <span class="c1">// 0x7ffeeea92688</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>포인터 변수의 선언은 일반 변수와 비슷하다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span><span class="o">*</span> <span class="n">ptr</span><span class="p">;</span> <span class="c1">// int형 포인터</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">ptr1</span><span class="p">,</span> <span class="n">ptr2</span><span class="p">;</span> <span class="c1">// int형 포인터, int형 변수</span>
+</code></pre></div></div>
+
+<p>포인터는 메모리 주소만 저장하게 되므로 포인터에 값을 할당할 때 그 값은 주소여야 한다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">;</span> <span class="c1">// value 변수의 주소값으로 ptr 를 초기화</span>
+</code></pre></div></div>
+
+<p>즉, ptr 는 <code class="language-plaintext highlighter-rouge">value 변수를 가리키는 값</code>이라고 볼 수 있다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>    <span class="c1">// 0x7ffee7c1a688</span>
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   <span class="c1">// 0x7ffee7c1a688</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>포인터 변수의 자료형은 가리키는 변수의 자료형과 같아야 한다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="kt">int</span> <span class="n">iValue</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">dValue</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+  
+  <span class="kt">int</span> <span class="o">*</span><span class="n">iPtr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">iValue</span><span class="p">;</span>      <span class="c1">// Ok</span>
+  <span class="kt">double</span> <span class="o">*</span><span class="n">dPtr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">dValue</span><span class="p">;</span>   <span class="c1">// Ok</span>
+
+  <span class="n">iPtr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">dValue</span><span class="p">;</span>           <span class="c1">// error: assigning to 'int *' from incompatible type 'double *'</span>
+  <span class="n">dPtr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">iValue</span><span class="p">;</span>           <span class="c1">// error: assigning to 'double *' from incompatible type 'int *'</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

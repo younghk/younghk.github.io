@@ -92,10 +92,10 @@ h1~h6까지 각각 \# 의 개수로 변환이 되는데, 예를 들어 h2 태그
 
 |Markdown|HTML|결과|
 |:---|:---:|:---:|
-|글을 \*\*\*굵고 기울게\*\*\* 해보자.|글을 \<strong>\<em>굵고 기울게\<strong>\</em> 해보자.|글을 <strong><em>굵고 기울게</strong></em> 해보자.|
-|글을 \_\_\_굵고 기울게\_\_\_ 해보자.|글을 \<strong>\<em>굵고 기울게\<strong>\</em> 해보자.|글을 <strong><em>굵고 기울게</strong></em> 해보자.|
-|글을 \_\_\*굵고 기울게\_\_\* 해보자.|글을 \<strong>\<em>굵고 기울게\<strong>\</em> 해보자.|글을 <strong><em>굵고 기울게</strong></em> 해보자.|
-|글을 \*\*\_굵고 기울게\*\*\_ 해보자.|글을 \<strong>\<em>굵고 기울게\<strong>\</em> 해보자.|글을 <strong><em>굵고 기울게</strong></em> 해보자.|
+|글을 \*\*\*굵고 기울게\*\*\* 해보자.|글을 \<strong>\<em>굵고 기울게\</em>\</strong> 해보자.|글을 <strong><em>굵고 기울게</strong></em> 해보자.|
+|글을 \_\_\_굵고 기울게\_\_\_ 해보자.|글을 \<strong>\<em>굵고 기울게\</em>\</strong> 해보자.|글을 <strong><em>굵고 기울게</em></strong> 해보자.|
+|글을 \_\_\*굵고 기울게\_\_\* 해보자.|글을 \<strong>\<em>굵고 기울게\</em>\</strong> 해보자.|글을 <strong><em>굵고 기울게</em></strong> 해보자.|
+|글을 \*\*\_굵고 기울게\*\*\_ 해보자.|글을 \<strong>\<em>굵고 기울게\</em>\</strong> 해보자.|글을 <strong><em>굵고 기울게</em></strong> 해보자.|
 
 ### 인용(Blockquotes)
 
@@ -179,16 +179,16 @@ h1~h6까지 각각 \# 의 개수로 변환이 되는데, 예를 들어 h2 태그
     <html>
         <head>
         </head>
-    <html>
+    </html>
 
 또 다른 방법으로는 `(tick)을 세 개 넣는 방법이다.
 
-\`\`\`<br>
-\<html><br>
-&emsp;\<head><br>
-&emsp;\</head><br>
-\<html><br>
-\`\`\`
+    ```  
+    <html>  
+        <head>  
+        </head>  
+    </html>  
+    ```
 
 이렇게 쓰면 아래와 같이 나타난다.
 
@@ -196,17 +196,19 @@ h1~h6까지 각각 \# 의 개수로 변환이 되는데, 예를 들어 h2 태그
 <html>
     <head>
     </head>
-<html>
+</html>
 ```
 
-\`\`\` <언어 타입>으로 syntax highlight를 줄 수 있다.(플랫폼 별 상이한듯?)
+{```<언어 타입>}
 
-\`\`\`html<br>
-\<html><br>
-&emsp;\<head><br>
-&emsp;\</head><br>
-\<html><br>
-\`\`\`
+으로 syntax highlight를 줄 수 있다.(플랫폼 별 상이한듯?)
+
+    ```html  
+    <html>  
+        <head>  
+        </head>  
+    </html>  
+    ```
 
 이는 아래처럼 나타난다.
 
@@ -214,11 +216,10 @@ h1~h6까지 각각 \# 의 개수로 변환이 되는데, 예를 들어 h2 태그
 <html>
     <head>
     </head>
-<html>
+</html>
 ```
   
 와! 더 이쁘다!
-
 
 ### 평행선(Horizontal Rules)
 
@@ -247,7 +248,7 @@ ______
 
 아래 처럼 사진이 나타나게 된다.  
 
-![sky](./image1.jpg)
+![sky](/assets/images/2019-10-04---markdown-usage/image1.jpg)
 
   
 
