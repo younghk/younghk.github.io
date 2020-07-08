@@ -3,7 +3,7 @@ draft: false
 title: \[C++\] Pointer Overview
 datetime: 2020-07-08 14:28:45
 layout: post
-category: Programing-Language
+category: Programming-Language
 tags: 
   - C++
   - Pointer
