@@ -1,4 +1,4 @@
-I")V<h2 id="markdown-이란">Markdown 이란</h2>
+I"�V<h2 id="markdown-이란">Markdown 이란</h2>
 
 <p><code class="language-plaintext highlighter-rouge">.md</code> 의 확장자를 지닌 파일이 Markdown 문법으로 작성된 파일이다.<br />
 흔히 <code class="language-plaintext highlighter-rouge">README.md</code> 로 개발하면서 많이 볼 수 있는 문서!<br />
@@ -199,23 +199,23 @@ h1~h6까지 각각 # 의 개수로 변환이 되는데, 예를 들어 h2 태그�
   <tbody>
     <tr>
       <td style="text-align: left">글을 ***굵고 기울게*** 해보자.</td>
-      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;strong&gt;&lt;/em&gt; 해보자.</td>
+      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;/em&gt;&lt;/strong&gt; 해보자.</td>
       <td style="text-align: center">글을 <strong><em>굵고 기울게&lt;/strong&gt;</em> 해보자.</strong></td>
     </tr>
     <tr>
       <td style="text-align: left">글을 ___굵고 기울게___ 해보자.</td>
-      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;strong&gt;&lt;/em&gt; 해보자.</td>
-      <td style="text-align: center">글을 <strong><em>굵고 기울게&lt;/strong&gt;</em> 해보자.</strong></td>
+      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;/em&gt;&lt;/strong&gt; 해보자.</td>
+      <td style="text-align: center">글을 <strong><em>굵고 기울게</em></strong> 해보자.</td>
     </tr>
     <tr>
       <td style="text-align: left">글을 __*굵고 기울게__* 해보자.</td>
-      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;strong&gt;&lt;/em&gt; 해보자.</td>
-      <td style="text-align: center">글을 <strong><em>굵고 기울게&lt;/strong&gt;</em> 해보자.</strong></td>
+      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;/em&gt;&lt;/strong&gt; 해보자.</td>
+      <td style="text-align: center">글을 <strong><em>굵고 기울게</em></strong> 해보자.</td>
     </tr>
     <tr>
       <td style="text-align: left">글을 **_굵고 기울게**_ 해보자.</td>
-      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;strong&gt;&lt;/em&gt; 해보자.</td>
-      <td style="text-align: center">글을 <strong><em>굵고 기울게&lt;/strong&gt;</em> 해보자.</strong></td>
+      <td style="text-align: center">글을 &lt;strong&gt;&lt;em&gt;굵고 기울게&lt;/em&gt;&lt;/strong&gt; 해보자.</td>
+      <td style="text-align: center">글을 <strong><em>굵고 기울게</em></strong> 해보자.</td>
     </tr>
   </tbody>
 </table>
@@ -357,15 +357,17 @@ h1~h6까지 각각 # 의 개수로 변환이 되는데, 예를 들어 h2 태그�
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;html&gt;
     &lt;head&gt;
     &lt;/head&gt;
-&lt;html&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
 <p>또 다른 방법으로는 `(tick)을 세 개 넣는 방법이다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\&lt;html\&gt;  
-&amp;emsp;\&lt;head\&gt;  
-&amp;emsp;\&lt;/head\&gt;  
-\&lt;html\&gt;  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```  
+&lt;html&gt;  
+    &lt;head&gt;  
+    &lt;/head&gt;  
+&lt;/html&gt;  
+```
 </code></pre></div></div>
 
 <p>이렇게 쓰면 아래와 같이 나타난다.</p>
@@ -373,26 +375,28 @@ h1~h6까지 각각 # 의 개수로 변환이 되는데, 예를 들어 h2 태그�
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;html&gt;
     &lt;head&gt;
     &lt;/head&gt;
-&lt;html&gt;
+&lt;/html&gt;
 </code></pre></div></div>
 
-<p>```<언어 타입=""></언어></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```&lt;언어 타입&gt;
+</code></pre></div></div>
 
 <p>으로 syntax highlight를 줄 수 있다.(플랫폼 별 상이한듯?)</p>
 
-<p>```html<br />
-&lt;html&gt;<br />
- &lt;head&gt;<br />
- &lt;/head&gt;<br />
-&lt;html&gt;<br />
-```</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```html  
+&lt;html&gt;  
+    &lt;head&gt;  
+    &lt;/head&gt;  
+&lt;/html&gt;  
+```
+</code></pre></div></div>
 
 <p>이는 아래처럼 나타난다.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;head&gt;</span>
     <span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre></div></div>
 
 <p>와! 더 이쁘다!</p>
