@@ -1,10 +1,10 @@
 ---
 draft: false
-title: 'Computer Network Overview Part 2'
-date: '2019-12-11 17:41:09'
+title: "Computer Network Overview Part 2"
+date: "2019-12-11 17:41:09"
 layout: post
 #path: '/computer-network/2019-12-11---computer-network-overview-part-2/'
-category: ComputerNetwork
+category: Computer-Network
 tags:
   - Computer Network
   - ARP
@@ -16,7 +16,7 @@ tags:
   - TCP Connection
   - Flow Control
   - Congestion Control
-description: '컴퓨터 네트워크를 개략적으로 공부하고 정리한 포스트 입니다. ARP, ICMP, NAT, Mobile IPv4, IPv6, IPsec, IP Routing Protocol, TCP Connection, Flow Control, Congestion Control 등을 다룹니다.'
+description: "컴퓨터 네트워크를 개략적으로 공부하고 정리한 포스트 입니다. ARP, ICMP, NAT, Mobile IPv4, IPv6, IPsec, IP Routing Protocol, TCP Connection, Flow Control, Congestion Control 등을 다룹니다."
 toc: true
 toc_not_sticky: true
 ---

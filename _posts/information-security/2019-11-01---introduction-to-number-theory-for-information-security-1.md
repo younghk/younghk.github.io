@@ -1,14 +1,14 @@
 ---
 draft: false
-title: 'Introduction to Number Theory for Information Security 1'
-date: '2019-11-01 17:31:13'
+title: "Introduction to Number Theory for Information Security 1"
+date: "2019-11-01 17:31:13"
 layout: post
 #path:      "/posts/introduction-to-number-theory-for-information-security-1/"
-category: 'Information Security'
+category: "Information-Security"
 tags:
   - Information Security
   - Number Theory
-description: '기초적인 암호수학에 대해 학습합니다. 소수, 유클리드 알고리즘, 확장 유클리드 알고리즘과 추상대수학의 이론을 활용해 암호 수학의 기초를 알아봅니다.'
+description: "기초적인 암호수학에 대해 학습합니다. 소수, 유클리드 알고리즘, 확장 유클리드 알고리즘과 추상대수학의 이론을 활용해 암호 수학의 기초를 알아봅니다."
 toc: true
 ---
 

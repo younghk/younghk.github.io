@@ -1,11 +1,11 @@
 ---
 draft: false
-title: 'Block Cipher Operation'
-date: '2019-10-15T03:06:00.1234'
+title: "Block Cipher Operation"
+date: "2019-10-15T03:06:00.1234"
 layout: post
 #path: "/posts/block-cipher-operation/"
-category: 'Information Security'
-description: ''
+category: "Information-Security"
+description: ""
 tags:
   - Information Security
 toc: true

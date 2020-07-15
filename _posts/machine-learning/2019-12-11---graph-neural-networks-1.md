@@ -1,13 +1,13 @@
 ---
 draft: false
-title: 'Graph Neural Networks 1'
-date: '2019-12-11 11:14:15'
+title: "Graph Neural Networks 1"
+date: "2019-12-11 11:14:15"
 layout: post
 #path:      "/posts/graph-neural-networks-1/"
-category: 'Machine Learning'
+category: "Machine-Learning"
 tags:
   - GNN
-description: 'Graph Neural Network 란 무엇인지 알아보고 여러가지 GNN 에 대해 간략하게 학습하고 정리한 포스트입니다.'
+description: "Graph Neural Network 란 무엇인지 알아보고 여러가지 GNN 에 대해 간략하게 학습하고 정리한 포스트입니다."
 toc: true
 ---
 

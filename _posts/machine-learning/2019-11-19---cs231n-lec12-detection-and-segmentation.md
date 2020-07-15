@@ -1,17 +1,17 @@
 ---
 draft: false
-title: '[cs231n-lec12] Detection and Segmentation'
-date: '2019-11-19 17:05:52'
+title: "[cs231n-lec12] Detection and Segmentation"
+date: "2019-11-19 17:05:52"
 layout: post
 #path:      "/posts/cs231n-lec12-detection-and-segmentation/"
-category: 'Machine Learning'
+category: "Machine-Learning"
 tags:
   - cs231n
   - CNN
   - Detection
   - Segmentation
   - RCNN
-description: '스탠포드 cs231n lec-12 강의를 보고 정리한 포스트 입니다. detection 과 segmentation 에 대해 설명합니다. 2019년 강의노트를 기반으로 작성되었습니다.'
+description: "스탠포드 cs231n lec-12 강의를 보고 정리한 포스트 입니다. detection 과 segmentation 에 대해 설명합니다. 2019년 강의노트를 기반으로 작성되었습니다."
 toc: true
 ---
 

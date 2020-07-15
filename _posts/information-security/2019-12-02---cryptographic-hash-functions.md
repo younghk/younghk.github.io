@@ -1,15 +1,15 @@
 ---
 draft: false
-title: 'Cryptographic Hash Functions'
-date: '2019-12-02 16:02:28'
+title: "Cryptographic Hash Functions"
+date: "2019-12-02 16:02:28"
 layout: post
 #path: '/posts/cryptographic-hash-functions/'
-category: 'Information Security'
+category: "Information-Security"
 tags:
   - Information Security
   - Hash Functions
   - SHA
-description: '정보보호 내용 중 hash 함수에 관한 내용을 공부하고 정리한 포스트입니다.'
+description: "정보보호 내용 중 hash 함수에 관한 내용을 공부하고 정리한 포스트입니다."
 toc: true
 ---
 

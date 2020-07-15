@@ -1,17 +1,17 @@
 ---
 draft: false
-title: '정보보호(Information Security) 공부를 시작하며'
-date: '2019-10-09T02:13:00.1234'
+title: "정보보호(Information Security) 공부를 시작하며"
+date: "2019-10-09T02:13:00.1234"
 #path: "/posts/information-security-overview/"
 layout: post
-category: 'Information Security'
-description: ''
+category: "Information-Security"
+description: ""
 tags:
   - Information Security
 toc: true
 ---
 
-## 정보보호란?  
+## 정보보호란?
 
 간단하게 생각하면 정보를 보호하는 것이다.  
 무엇으로부터? 위협으로부터!  

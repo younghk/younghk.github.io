@@ -1,11 +1,11 @@
 ---
 draft: false
-title: '[cs231n-lec2] Image Classification Pipeline'
-date: '2019-10-10 02:20:00'
+title: "[cs231n-lec2] Image Classification Pipeline"
+date: "2019-10-10 02:20:00"
 #path: '/posts/cs231n-lec2-image-classification-pipeline/'
 layout: post
-category: 'Machine Learning'
-description: 'cs231n lec 2 강을 보고 정리한 글입니다.'
+category: "Machine-Learning"
+description: "cs231n lec 2 강을 보고 정리한 글입니다."
 tags:
   - cs231n
   - Deep Learning

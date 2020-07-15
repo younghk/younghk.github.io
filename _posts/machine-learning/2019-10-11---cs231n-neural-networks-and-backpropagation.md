@@ -1,11 +1,11 @@
 ---
 draft: false
-title: '[cs231n-lec4] Neural Networks and Backpropagation'
-date: '2019-10-11 02:30:00'
+title: "[cs231n-lec4] Neural Networks and Backpropagation"
+date: "2019-10-11 02:30:00"
 layout: post
 #path: "/posts/cs231n-lec4-neural-networks-and-backpropagation/"
-category: 'Machine Learning'
-description: 'cs231n lec 4 강을 보고 정리한 글입니다.'
+category: "Machine-Learning"
+description: "cs231n lec 4 강을 보고 정리한 글입니다."
 tags:
   - cs231n
   - Deep Learning

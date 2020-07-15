@@ -1,14 +1,14 @@
 ---
 draft: false
-title: 'Message Authentication Code'
-date: '2019-12-03 08:26:33'
+title: "Message Authentication Code"
+date: "2019-12-03 08:26:33"
 layout: post
 #path:      "/posts/message-authentication-code/"
-category: 'Information Security'
+category: "Information-Security"
 tags:
   - Information Security
   - MAC
-description: 'Message Authentiation Code(MAC) 에 대해 간략하게 정리한 포스트입니다.'
+description: "Message Authentiation Code(MAC) 에 대해 간략하게 정리한 포스트입니다."
 toc: true
 ---
 

@@ -1,11 +1,11 @@
 ---
 draft: false
-title: '[cs231n-lec7] Training Neural Networks, Part 1'
-date: '2019-10-13T02:50:00.1234'
+title: "[cs231n-lec7] Training Neural Networks, Part 1"
+date: "2019-10-13T02:50:00.1234"
 layout: post
 #path: "/posts/cs231n-lec7-training-neural-networks-part-1/"
-category: 'Machine Learning'
-description: 'cs231n lec 7 강을 보고 정리한 글입니다.'
+category: "Machine-Learning"
+description: "cs231n lec 7 강을 보고 정리한 글입니다."
 tags:
   - cs231n
   - Deep Learning

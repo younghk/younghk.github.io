@@ -1,11 +1,11 @@
 ---
 draft: false
-title: 'Block Ciphers and the Data Encryption Standard'
-date: '2019-10-11T02:25:00.1234'
+title: "Block Ciphers and the Data Encryption Standard"
+date: "2019-10-11T02:25:00.1234"
 layout: post
 #path: "/posts/block-ciphers-and-the-data-encryption-standard/"
-category: 'Information Security'
-description: ''
+category: "Information-Security"
+description: ""
 tags:
   - Information Security
   - DES

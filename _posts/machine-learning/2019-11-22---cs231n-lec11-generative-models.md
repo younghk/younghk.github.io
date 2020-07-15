@@ -1,16 +1,16 @@
 ---
 draft: false
-title: '[cs231n-lec11] Generative Models'
-date: '2019-11-22 00:39:06'
+title: "[cs231n-lec11] Generative Models"
+date: "2019-11-22 00:39:06"
 layout: post
 #path:      "/posts/cs231n-lec11-generative-models/"
-category: 'Machine Learning'
+category: "Machine-Learning"
 tags:
   - cs231n
   - Deep Learning
   - Generative Model
   - GAN
-description: '스탠포드 2019년 cs231n 11강 강의를 보고 정리한 포스트입니다. 생성 모델에 관해 몇 가지를 알아봅니다.'
+description: "스탠포드 2019년 cs231n 11강 강의를 보고 정리한 포스트입니다. 생성 모델에 관해 몇 가지를 알아봅니다."
 toc: true
 ---
 

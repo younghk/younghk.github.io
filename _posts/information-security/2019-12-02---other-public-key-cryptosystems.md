@@ -1,10 +1,10 @@
 ---
 draft: false
-title: 'Other Public-Key Cryptosystems'
-date: '2019-12-02 10:09:03'
+title: "Other Public-Key Cryptosystems"
+date: "2019-12-02 10:09:03"
 layout: post
 #path:      "/posts/other-public-key-cryptosystems/"
-category: 'Information Security'
+category: "Information-Security"
 tags:
   - Information Security
   - Public Key Cryptography
@@ -12,7 +12,7 @@ tags:
   - ElGamal
   - Elliptic Curve
   - Pseudo Random Number Generator
-description: '공개키 방식의 다른 암호화 기법을 공부하고 정리한 포스트입니다.'
+description: "공개키 방식의 다른 암호화 기법을 공부하고 정리한 포스트입니다."
 toc: true
 ---
 

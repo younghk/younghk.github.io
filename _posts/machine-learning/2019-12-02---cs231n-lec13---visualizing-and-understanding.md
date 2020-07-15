@@ -1,15 +1,15 @@
 ---
 draft: false
-title: '[cs231n-lec13] Visualizing and Understanding'
-date: '2019-12-02 16:08:25'
+title: "[cs231n-lec13] Visualizing and Understanding"
+date: "2019-12-02 16:08:25"
 layout: post
 #path:      "/posts/cs231n-lec13-visualizing-and-understanding/"
-category: 'Machine Learning'
+category: "Machine-Learning"
 tags:
   - cs231n
   - Deep Learning
   - Visualization
-description: '2019년 스탠포트 cs231n lecture 13 인 13강 강의를 공부하고 정리한 포스트 입니다. 시각화와 해석에 관한 내용을 다룹니다.'
+description: "2019년 스탠포트 cs231n lecture 13 인 13강 강의를 공부하고 정리한 포스트 입니다. 시각화와 해석에 관한 내용을 다룹니다."
 toc: true
 ---
 

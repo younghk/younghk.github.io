@@ -1,15 +1,15 @@
 ---
 draft: false
-title: '[cs231n-lec5] Convolutional Neural Networks'
-date: '2019-10-12T02:47:00.1234'
+title: "[cs231n-lec5] Convolutional Neural Networks"
+date: "2019-10-12T02:47:00.1234"
 layout: post
 #path: "/posts/cs231n-lec5-convolutional-nerual-networks/"
-category: 'Machine Learning'
+category: "Machine-Learning"
 tags:
   - cs231n
   - Deep Learning
   - CNN
-description: 'cs231n lec 5 강을 보고 정리한 글입니다.'
+description: "cs231n lec 5 강을 보고 정리한 글입니다."
 toc: true
 ---
 
