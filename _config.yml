@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Cheong's log"
+title                    : "young log"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Cheong"
+name                     : "young"
 description              : "오직 부끄러워야 할 것은 열심히 살지 않은 어제의 나이다."
 url                      : "https://younghk.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -93,7 +93,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Cheong"
+  name             : "young"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "오직 부끄러워야 할 것은 열심히 살지 않은 어제의 나이다."
   location         : "Seoul, KR"
